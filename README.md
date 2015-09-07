@@ -34,3 +34,6 @@
 - Relate bugs me contatando atraves do facebook ou email:
 * [**https://www.facebook.com/heitor.gouvea.9**] (https://www.facebook.com/heitor.gouvea.9)
 * [**cold@protonmail.com**]
+
+Ps: este script foi desenvolvido por cima do iptables_torify 
+https://github.com/ericpaulbishop/iptables_torify

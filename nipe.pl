@@ -107,6 +107,11 @@ sub stop {
 	exit;
 }
 
+sub error {
+	print color("red"),"\n[+] Use the nipe with options 'install', 'start', 'stop', 'help' or 'about'.\n\n",color("reset");
+	exit;
+}
+
 switch ($command) {
 	case "install" { install(); }
 	case "start"   { start(); }

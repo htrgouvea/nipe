@@ -1,5 +1,14 @@
 #!/usr/bin/perl
 
+
+##################################################
+#           Autor: Heitor Gouvea                 #
+#           www.heitorgouvea.com                 #
+#        www.github.com/HeitorG/nipe             #
+#            fb.com/heitor.gouvea.9              #
+# Colaborador: Brian L - github.com/BrianLucas01 #
+##################################################
+
 #### OPEN MODULOS ####
 use strict;
 use warnings;
@@ -21,6 +30,7 @@ sub install {
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo cp ./torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
+	print color("reset");
 	exit;
 }
 
@@ -30,7 +40,9 @@ sub help {
 	\r\tstart   \t To start
 	\r\tstop    \t To stop
 	\r\tstatus  \t Status
-	\r\tabout   \t About us\n\n",color("reset");
+	\r\tabout   \t About us\n\n";
+
+	print color("reset");
 	exit;
 }
 
@@ -38,7 +50,8 @@ sub about {
 	print color("red"),"\nCreated by Heitor Gouvea
 	\rFacebook: www.fb.com/heitor.gouvea.9
 	\rSite: www.heitorgouvea.com
-	\rE-mail: cold\@protonmail.com\n\n",color("reset");
+	\rE-mail: cold\@protonmail.com\n\n";
+	print color("reset");
 	exit;
 }
 
@@ -94,7 +107,10 @@ sub start {
 	system ("iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	print "[+] Transfer this ok.\n\n",color("reset");
+	print "[+] Transfer this ok.\n\n";
+	
+	print color("reset");
+	exit;
 }
 
 sub stop {
@@ -103,7 +119,9 @@ sub stop {
 	system ("iptables -t nat -F OUTPUT");
 	system ("iptables -t filter -F OUTPUT");
 		
-	print "[+] Transfer stopped\n\n",color("reset");
+	print "[+] Transfer stopped\n\n";
+
+	print color("reset");
 	exit;
 }
 
@@ -112,6 +130,7 @@ sub error {
 	exit;
 }
 
+print color("bold");
 switch ($command) {
 	case "install" { install(); }
 	case "start"   { start(); }

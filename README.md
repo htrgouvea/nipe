@@ -37,3 +37,5 @@
 
 Ps: este script foi desenvolvido por cima do iptables_torify 
 https://github.com/ericpaulbishop/iptables_torify
+
+Colaborador: Brian Lucas - https://github.com/BrianLucas01

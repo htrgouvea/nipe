@@ -25,6 +25,8 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 #### /END VARIAVEIS ####
 
+print color("green bold");
+
 sub install {
 	system ("sudo apt-get install tor");
 	system ("sudo mkdir -p /etc/tor");
@@ -35,19 +37,18 @@ sub install {
 }
 
 sub help {
-	print color("red"),"\n\tCOMMAND \t FUCTION\n
+	print "\n\tCOMMAND \t FUCTION\n
 	\r\tinstall \t To install
 	\r\tstart   \t To start
 	\r\tstop    \t To stop
 	\r\tstatus  \t Status
 	\r\tabout   \t About us\n\n";
-
 	print color("reset");
 	exit;
 }
 
 sub about {
-	print color("red"),"\nCreated by Heitor Gouvea
+	print "\nCreated by Heitor Gouvea
 	\rFacebook: www.fb.com/heitor.gouvea.9
 	\rSite: www.heitorgouvea.com
 	\rE-mail: cold\@protonmail.com\n\n";
@@ -57,7 +58,7 @@ sub about {
 
 sub start {
 
-	print color("red"),"\n[+] Transferring traffic for the Tor network....\n";
+	print "\n[+] Transferring traffic for the Tor network....\n";
 
 	foreach my $nipe(@table) {
 
@@ -114,7 +115,7 @@ sub start {
 }
 
 sub stop {
-	print color("red"),"\n[+] Stopping traffic transfer\n";
+	print "\n[+] Stopping traffic transfer\n";
 		
 	system ("iptables -t nat -F OUTPUT");
 	system ("iptables -t filter -F OUTPUT");
@@ -130,7 +131,6 @@ sub error {
 	exit;
 }
 
-print color("bold");
 switch ($command) {
 	case "install" { install(); }
 	case "start"   { start(); }

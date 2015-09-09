@@ -25,40 +25,35 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 #### /END VARIAVEIS ####
 
-print color("green bold");
-
 sub install {
 	system ("sudo apt-get install tor");
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo cp ./torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
-	print color("reset");
 	exit;
 }
 
 sub help {
-	print "\n\tCOMMAND \t FUCTION\n
+	print color("green bold"),"\n\tCOMMAND \t FUCTION\n
 	\r\tinstall \t To install
 	\r\tstart   \t To start
 	\r\tstop    \t To stop
 	\r\tstatus  \t Status
-	\r\tabout   \t About us\n\n";
-	print color("reset");
+	\r\tabout   \t About us\n\n",color("reset");
 	exit;
 }
 
 sub about {
-	print "\nCreated by Heitor Gouvea
+	print color("green bold"),"\nCreated by Heitor Gouvea
 	\rFacebook: www.fb.com/heitor.gouvea.9
 	\rSite: www.heitorgouvea.com
-	\rE-mail: cold\@protonmail.com\n\n";
-	print color("reset");
+	\rE-mail: cold\@protonmail.com\n\n",color("reset");
 	exit;
 }
 
 sub start {
 
-	print "\n[+] Transferring traffic for the Tor network....\n";
+	print color("green bold"),"\n[+] Transferring traffic for the Tor network....\n",color("reset");
 
 	foreach my $nipe(@table) {
 
@@ -108,26 +103,22 @@ sub start {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	print "[+] Transfer this ok.\n\n";
-	print color("reset");
+	print color("green bold"),"[+] Transfer this ok.\n\n",color("reset");
 	exit;
 }
 
 sub stop {
-	print "\n[+] Stopping traffic transfer\n";
+	print color("green bold"),"\n[+] Stopping traffic transfer\n",color("reset");
 		
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
 		
-	print "[+] Transfer stopped\n\n";
-	print color("reset");
+	print color("green bold"),"[+] Transfer stopped\n\n",color("reset");
 	exit;
 }
 
 sub error {
-	print color("red");
-	print "\n[+] Use the nipe with options 'install', 'start', 'stop', 'help' or 'about'.\n\n";
-	print color("reset");
+	print color("red bold"),"\n[+] Use the nipe with options 'install', 'start', 'stop', 'help' or 'about'.\n\n",color("reset");
 	exit;
 }
 

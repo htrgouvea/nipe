@@ -1,41 +1,42 @@
 # Nipe
 
-*** Script para redirecionar todo o trafego da maquina para a rede tor.***
+***Script to redirect all traffic from the machine to the Tor network.***
 
-##### Dependências
+##### Dependencies
 
-* Possuir Linux
-* Possuir Perl e os modulos strict, warnings, Switch e Term::ANSIColor ( para instalar o modulo digite "cpan install strict warnings Switch Term::ANSIColor" sem as aspas no terminal )
+* Owning Linux
+* Owning Perl and modules strict, warnings, Switch e Term::ANSIColor, for install modules:
+      sudo cpan install strict warnings Switch Term::ANSIColor
 
-##### Comandos
+##### Commands
 
-* Para obter ajuda
+* For Help:
   
-  sudo perl nipe.pl help
+    perl nipe.pl help
   
-* Para instalar abra o terminal e digite o comando:
+* For install:
   
-  sudo perl nipe.pl install
+    perl nipe.pl install
 
-* Para iniciar o script:
+* To start:
 
- sudo perl nipe.pl start
+    perl nipe.pl start
  
-* Para parar:
+* To stop:
 
-  sudo perl nipe.pl stop
+    perl nipe.pl stop
 
-* Para saber informaçoes sobre o desenvolvedor
+* To know information about the developer
 
-  sudo perl nipe.pl about
+    perl nipe.pl about
   
 ##### Bugs
 
-- Relate bugs me contatando atraves do facebook ou email:
+- Report bugs by contacting me through facebook or email:
 * [**https://www.facebook.com/heitor.gouvea.9**] (https://www.facebook.com/heitor.gouvea.9)
 * [**cold@protonmail.com**]
 
-Ps: este script foi desenvolvido por cima do iptables_torify 
+Ps: This tool was developed based on iptables_torify 
 https://github.com/ericpaulbishop/iptables_torify
 
-Colaborador: Brian Lucas - https://github.com/BrianLucas01
+Contributor: Brian Lucas - https://github.com/BrianLucas01

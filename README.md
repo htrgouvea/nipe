@@ -4,7 +4,7 @@
 
 ##### Dependencies
 
-* Owning Linux
+* Owning Linux 
 * Owning Perl and modules strict, warnings, Switch e Term::ANSIColor, for install modules:
       sudo cpan install strict warnings Switch Term::ANSIColor
 
@@ -29,7 +29,11 @@
 * To know information about the developer
 
     perl nipe.pl about
-  
+
+##### Tested on:
+
+* Ubuntu 15.04
+
 ##### Bugs
 
 - Report bugs by contacting me through facebook or email:

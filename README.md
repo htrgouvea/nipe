@@ -33,6 +33,7 @@
 ##### Tested on:
 
 * Ubuntu 15.04
+* Lubuntu 15.04
 
 ##### Bugs
 

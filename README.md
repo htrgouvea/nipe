@@ -1,6 +1,6 @@
 # Nipe
 
-***Script to redirect all traffic from the machine to the Tor network.***
+***Script to redirect all the traffic from the machine to the Tor network.***
 
 ##### Dependencies
 

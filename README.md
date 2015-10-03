@@ -4,8 +4,8 @@
 
 ##### Dependencies
 
-* Owning Linux 
-* Owning Perl and modules strict, warnings, Switch e Term::ANSIColor, for install modules:
+* Running Linux 
+* Running Perl and modules strict, warnings, Switch e Term::ANSIColor, for install modules:
       sudo cpan install strict warnings Switch Term::ANSIColor
 
 ##### Commands

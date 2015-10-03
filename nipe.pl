@@ -38,7 +38,6 @@ sub help {
 	\r\tinstall \t To install
 	\r\tstart   \t To start
 	\r\tstop    \t To stop
-	\r\tstatus  \t Status
 	\r\tabout   \t About us\n\n",color("reset");
 	exit;
 }

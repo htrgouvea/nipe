@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 
-
-##################################################
-#           Autor: Heitor Gouvea                 #
-#           www.heitorgouvea.com                 #
-#        www.github.com/HeitorG/nipe             #
-#            fb.com/heitor.gouvea.9              #
-# Colaborador: Brian L - github.com/BrianLucas01 #
-##################################################
+####################################################
+# [+] AUTOR:        Heitor Gouvea                  #
+# [+] EMAIL:        cold@protonmail.com            #
+# [+] BLOG:         http://blog.heitorgouvea.com   #
+# [+] GITHUB:       https://github.com/HeitorG     #
+# [+] SITE:         https://heitorg.github.io      #
+# [+] FACEBOOK:     https://fb.com/heitor.gouvea.9 #
+####################################################
 
 #### OPEN MODULOS ####
 use strict;

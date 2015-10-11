@@ -69,7 +69,7 @@ sub start {
 		my $match_dns_port = $dns_port;
 
 		if ($nipe eq "nat") {
-			
+
 			$target = "REDIRECT --to-ports $dns_port";
 			$match_dns_port = "53";
 		}
@@ -108,16 +108,11 @@ sub start {
 
 sub stop {
 	print color("green bold"),"\n[+] Stopping traffic transfer\n",color("reset");
-		
+
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
-		
-	print color("green bold"),"[+] Transfer stopped\n\n",color("reset");
-	exit;
-}
 
-sub error {
-	print color("red bold"),"\n[+] Use the nipe with options 'install', 'start', 'stop', 'help' or 'about'.\n\n",color("reset");
+	print color("green bold"),"[+] Transfer stopped\n\n",color("reset");
 	exit;
 }
 
@@ -127,5 +122,5 @@ switch ($command) {
 	case "stop"    { stop(); }
 	case "help"    { help(); }
 	case "about"   { about(); }
-	else           { error(); }
+	else           { help(); }
 }

@@ -1,43 +1,31 @@
-# Nipe
+# NIPE
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
 ```
-	[+] AUTOR:        Heitor Gouvea                  
-	[+] EMAIL:        cold@protonmail.com            
-	[+] BLOG:         http://blog.heitorgouvea.com   	
-	[+] GITHUB:       https://github.com/HeitorG     
-	[+] SITE:         https://heitorg.github.io      
-	[+] FACEBOOK:     https://fb.com/heitor.gouvea.9 
+	[+] AUTOR:        Heitor Gouvea
+	[+] EMAIL:        cold@protonmail.com
+	[+] BLOG:         http://blog.heitorgouvea.com
+	[+] GITHUB:       https://github.com/HeitorG
+	[+] SITE:         https://heitorg.github.io
+	[+] FACEBOOK:     https://fb.com/heitor.gouvea.9
 ```
 
-##### Dependencies
+####Installing:
 
-* Running Linux 
-* Running Perl and modules strict, warnings, Switch e Term::ANSIColor, for install modules:
-      sudo cpan install strict warnings Switch Term::ANSIColor
+    git clone https://github.com/HeitorG/nipe
+    cd nipe
+    cpan install  strict warnings Switch Term::ANSIColor
 
-##### Commands
 
-* For Help:
-  
-    perl nipe.pl help
-  
-* For install:
-  
-    perl nipe.pl install
+####Commands:
 
-* To start:
-
-    perl nipe.pl start
- 
-* To stop:
-
-    perl nipe.pl stop
-
-* To know information about the developer
-
-    perl nipe.pl about
+			COMMAND          FUNCTION
+			help             Displays the entire command list.
+	  	install          For install.
+			start            To start
+			stop             To stop
+			about            To know information about the developer
 
 ##### Tested on:
 
@@ -50,7 +38,6 @@
 * [**https://www.facebook.com/heitor.gouvea.9**] (https://www.facebook.com/heitor.gouvea.9)
 * [**cold@protonmail.com**]
 
-Ps: This tool was developed based on iptables_torify 
-https://github.com/ericpaulbishop/iptables_torify
+##### THANKS
 
-Contributor: Brian Lucas - https://github.com/BrianLucas01
+Brian Lucas - Gabriel de Moura - Marcos Florencio

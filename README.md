@@ -29,7 +29,7 @@
 
 ##### Tested on:
 
-* Ubuntu 15.04
+* Ubuntu 14.10 and 15.04
 * Lubuntu 15.04
 * LionSec 3.0
 * Busen Labs Hydrogen

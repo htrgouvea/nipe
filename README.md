@@ -31,6 +31,10 @@
 
 * Ubuntu 15.04
 * Lubuntu 15.04
+* LionSec 3.0
+* Busen Labs Hydrogen
+* Xubuntu
+* Debian
 
 ##### Bugs
 

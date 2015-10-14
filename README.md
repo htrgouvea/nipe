@@ -22,7 +22,7 @@
 
 			COMMAND          FUNCTION
 			help             Displays the entire command list.
-	  	install          For install.
+	  	        install          For install.
 			start            To start
 			stop             To stop
 			about            To know information about the developer

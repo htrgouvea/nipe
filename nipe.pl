@@ -13,7 +13,6 @@
 use strict;
 use warnings;
 use Switch;
-use Term::ANSIColor;
 #### /END MODULOS ####
 
 #### OPEN VARIAVEIS ####
@@ -34,25 +33,25 @@ sub install {
 }
 
 sub help {
-	print color("green bold"),"\n\tCOMMAND \t FUCTION\n
-	\r\tinstall \t To install
-	\r\tstart   \t To start
-	\r\tstop    \t To stop
-	\r\tabout   \t About us\n\n",color("reset");
+	print "\n\tCOMMAND \t FUCTION\n
+	install \t To install
+	start   \t To start
+	stop    \t To stop
+	about   \t About us\n\n";
 	exit;
 }
 
 sub about {
-	print color("green bold"),"\nCreated by Heitor Gouvea
+	print "\nCreated by Heitor Gouvea
 	\rFacebook: www.fb.com/heitor.gouvea.9
 	\rSite: www.heitorgouvea.com
-	\rE-mail: cold\@protonmail.com\n\n",color("reset");
+	\rE-mail: cold\@protonmail.com\n\n";
 	exit;
 }
 
 sub start {
 
-	print color("green bold"),"\n[+] Transferring traffic for the Tor network....\n",color("reset");
+	print "\n[+] Transferring traffic for the Tor network....\n";
 
 	foreach my $nipe(@table) {
 
@@ -102,17 +101,17 @@ sub start {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	print color("green bold"),"[+] Transfer this ok.\n\n",color("reset");
+	print "[+] Transfer this ok.\n\n";
 	exit;
 }
 
 sub stop {
-	print color("green bold"),"\n[+] Stopping traffic transfer\n",color("reset");
+	print "\n[+] Stopping traffic transfer\n";
 
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
 
-	print color("green bold"),"[+] Transfer stopped\n\n",color("reset");
+	print "[+] Transfer stopped\n\n";
 	exit;
 }
 

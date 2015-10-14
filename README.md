@@ -20,12 +20,12 @@
 
 ####Commands:
 
-			COMMAND          FUNCTION
-			help             Displays the entire command list.
-	  	        install          For install.
-			start            To start
-			stop             To stop
-			about            To know information about the developer
+	COMMAND          FUNCTION
+	help             Displays the entire command list.
+	install          For install.
+	start            To start
+	stop             To stop
+	about            To know information about the developer
 
 ##### Tested on:
 

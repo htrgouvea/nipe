@@ -30,11 +30,11 @@
 ##### Tested on:
 
 * Ubuntu 14.10 and 15.04
-* Lubuntu 15.04
-* LionSec 3.0
 * Busen Labs Hydrogen
-* Xubuntu
-* Debian
+* Debian wheezy 8.1
+* Lubuntu 15.04
+* Xubuntu 15.04
+* LionSec 3.0
 
 ##### Bugs
 

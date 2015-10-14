@@ -15,7 +15,7 @@
 
     git clone https://github.com/HeitorG/nipe
     cd nipe
-    cpan install  strict warnings Switch Term::ANSIColor
+    cpan install  strict warnings Switch
 
 
 ####Commands:

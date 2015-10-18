@@ -20,8 +20,8 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 my $os         = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
-if ($os =~ /debian/) { my $tor_user = "debian-tor"; }
-elsif ($os =~ /arch/) { my $tor_user = "tor"; }
+if ($os =~ /debian/) { $tor_user = "debian-tor"; }
+elsif ($os =~ /arch/) { $tor_user = "tor"; }
 
 sub install {
 	if ($os =~ /debian/) {

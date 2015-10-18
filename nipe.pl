@@ -59,7 +59,7 @@ sub start {
 
 		system ("sudo iptables -t $nipe -F OUTPUT");
 		system ("sudo iptables -t $nipe -A OUTPUT -m state --state ESTABLISHED -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -m owner --uid debian-tor -j $target");
+		system ("sudo iptables -t $nipe -A OUTPUT -m owner --uid $tor_user -j $target");
 
 		my $match_dns_port = $dns_port;
 

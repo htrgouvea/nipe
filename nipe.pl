@@ -9,20 +9,16 @@
 # [+] FACEBOOK:     https://fb.com/heitor.gouvea.9 #
 ####################################################
 
-#### OPEN MODULOS ####
 use strict;
 use warnings;
 use Switch;
-#### /END MODULOS ####
 
-#### OPEN VARIAVEIS ####
 my $command    = $ARGV[0];
 my $tor_user   = "debian-tor";
 my $dns_port   = "9061";
 my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
-#### /END VARIAVEIS ####
 
 sub install {
 	system ("sudo apt-get install tor");

@@ -14,12 +14,14 @@ use warnings;
 use Switch;
 
 my $command    = $ARGV[0];
-my $tor_user   = "debian-tor";
 my $dns_port   = "9061";
 my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 my $os         = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+
+if ($os =~ /debian/) { my $tor_user = "debian-tor"; }
+elsif ($os =~ /arch/) { my $tor_user = "tor"; }
 
 sub install {
 	if ($os =~ /debian/) {

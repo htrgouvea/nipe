@@ -24,7 +24,6 @@
 	install          For install.
 	start            To start
 	stop             To stop
-	about            To know information about the developer
 
 ##### Tested on:
 

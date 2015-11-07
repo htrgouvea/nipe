@@ -25,29 +25,16 @@ sub install {
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo cp ./torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
-	exit;
 }
 
 sub help {
 	print "\n\tCOMMAND \t FUCTION\n
-	install \t To install
-	start   \t To start
-	stop    \t To stop
-	about   \t About us\n\n";
-	exit;
-}
-
-sub about {
-	print "\nCreated by Heitor Gouvea
-	\rFacebook: www.fb.com/heitor.gouvea.9
-	\rSite: www.heitorgouvea.com
-	\rE-mail: hi\@heitorgouvea.com\n\n";
-	exit;
+	install \t To install.
+	start   \t To start.
+	stop    \t To stop.\n\n";
 }
 
 sub start {
-
-	print "\n[+] Transferring traffic for the Tor network....\n";
 
 	foreach my $nipe(@table) {
 
@@ -97,24 +84,22 @@ sub start {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	print "[+] Transfer this ok.\n\n";
-	exit;
+	print "[+] Transfer this ok.\n";
 }
 
 sub stop {
-	print "\n[+] Stopping traffic transfer\n";
 
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
 
-	print "[+] Transfer stopped\n\n";
-	exit;
+	print "[+] Transfer stopped.\n";
 }
 
 switch ($command) {
 	case "install" { install(); }
 	case "start"   { start(); }
 	case "stop"    { stop(); }
-	case "about"   { about(); }
 	else           { help(); }
 }
+
+exit;

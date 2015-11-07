@@ -2,7 +2,7 @@
 
 ####################################################
 # [+] AUTOR:        Heitor Gouvea                  #
-# [+] EMAIL:        cold@protonmail.com            #
+# [+] EMAIL:        hi@heitorgouvea.com            #
 # [+] BLOG:         http://blog.heitorgouvea.com   #
 # [+] GITHUB:       https://github.com/HeitorG     #
 # [+] SITE:         https://heitorg.github.io      #
@@ -14,7 +14,7 @@ use warnings;
 use Switch;
 
 my $command    = $ARGV[0];
-my $tor_user   = "debian-tor";
+my $username   = "debian-tor";
 my $dns_port   = "9061";
 my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
@@ -41,7 +41,7 @@ sub about {
 	print "\nCreated by Heitor Gouvea
 	\rFacebook: www.fb.com/heitor.gouvea.9
 	\rSite: www.heitorgouvea.com
-	\rE-mail: cold\@protonmail.com\n\n";
+	\rE-mail: hi\@heitorgouvea.com\n\n";
 	exit;
 }
 
@@ -59,7 +59,7 @@ sub start {
 
 		system ("sudo iptables -t $nipe -F OUTPUT");
 		system ("sudo iptables -t $nipe -A OUTPUT -m state --state ESTABLISHED -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -m owner --uid $tor_user -j $target");
+		system ("sudo iptables -t $nipe -A OUTPUT -m owner --uid $username -j $target");
 
 		my $match_dns_port = $dns_port;
 
@@ -115,7 +115,6 @@ switch ($command) {
 	case "install" { install(); }
 	case "start"   { start(); }
 	case "stop"    { stop(); }
-	case "help"    { help(); }
 	case "about"   { about(); }
 	else           { help(); }
 }

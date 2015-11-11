@@ -3,12 +3,12 @@
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
 ```
-	[+] AUTOR:        Heitor Gouvea
+	[+] AUTOR:        Vinicius Gouvea
 	[+] EMAIL:        cold@protonmail.com
-	[+] BLOG:         http://blog.heitorgouvea.com
+	[+] BLOG:         https://medium.com/viniciusgouvea
 	[+] GITHUB:       https://github.com/HeitorG
 	[+] SITE:         https://heitorg.github.io
-	[+] FACEBOOK:     https://fb.com/heitor.gouvea.9
+	[+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
 
 ####Installing:

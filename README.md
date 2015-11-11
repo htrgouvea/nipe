@@ -7,7 +7,6 @@
 	[+] EMAIL:        cold@protonmail.com
 	[+] BLOG:         https://medium.com/viniciusgouvea
 	[+] GITHUB:       https://github.com/HeitorG
-	[+] SITE:         https://heitorg.github.io
 	[+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
 

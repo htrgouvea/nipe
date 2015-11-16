@@ -28,7 +28,7 @@
 
 * Ubuntu 14.10 and 15.04
 * Busen Labs Hydrogen
-* Debian jessie 8.1 (or wheezy 7.9)
+* Debian Jessie 8.1 and Wheezy 7.9
 * Lubuntu 15.04
 * Xubuntu 15.04
 * LionSec 3.0

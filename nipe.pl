@@ -2,7 +2,7 @@
 
 #########################################################
 # [+] AUTOR:        Vinicius Gouvea                     #
-# [+] EMAIL:        cold@protonmail.com                 #
+# [+] EMAIL:        vini@inploit.com                    #
 # [+] BLOG:         https://medium.com/@viniciusgouvea  #
 # [+] GITHUB:       https://github.com/HeitorG          #
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #

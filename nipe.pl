@@ -1,13 +1,12 @@
 #!/usr/bin/perl
 
-####################################################
-# [+] AUTOR:        Heitor Gouvea                  #
-# [+] EMAIL:        hi@heitorgouvea.com            #
-# [+] BLOG:         http://blog.heitorgouvea.com   #
-# [+] GITHUB:       https://github.com/HeitorG     #
-# [+] SITE:         https://heitorg.github.io      #
-# [+] FACEBOOK:     https://fb.com/heitor.gouvea.9 #
-####################################################
+#########################################################
+# [+] AUTOR:        Vinicius Gouvea                     #
+# [+] EMAIL:        cold@protonmail.com                 #
+# [+] BLOG:         https://medium.com/@viniciusgouvea  #
+# [+] GITHUB:       https://github.com/HeitorG          #
+# [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
+#########################################################
 
 use strict;
 use warnings;

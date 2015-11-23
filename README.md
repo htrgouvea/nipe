@@ -4,7 +4,7 @@
 
 ```
 	[+] AUTOR:        Vinicius Gouvea
-	[+] EMAIL:        cold@protonmail.com
+	[+] EMAIL:        vini@inploit.com
 	[+] BLOG:         https://medium.com/viniciusgouvea
 	[+] GITHUB:       https://github.com/HeitorG
 	[+] FACEBOOK:     https://fb.com/viniciushgouvea
@@ -35,9 +35,7 @@
 
 ##### Bugs
 
-- Report bugs by contacting me through facebook or email:
-* [**https://www.facebook.com/heitor.gouvea.9**] (https://www.facebook.com/heitor.gouvea.9)
-* [**cold@protonmail.com**]
+- Report bugs by contacting me through facebook or email: vini@inploit.com
 
 ##### THANKS
 

@@ -20,7 +20,7 @@
 ####Commands:
 
 	COMMAND          FUNCTION
-	install          For install.
+	install          To install.
 	start            To start
 	stop             To stop
 

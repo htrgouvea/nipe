@@ -35,7 +35,3 @@
 ##### Bugs
 
 - Report bugs by contacting me through facebook or email: hi@heitorgouvea.com
-
-##### THANKS
-
-Brian Lucas - Gabriel de Moura - Marcos Florencio

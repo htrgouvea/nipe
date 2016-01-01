@@ -3,9 +3,8 @@
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
 ```
-	[+] AUTOR:        Vinicius Gouvea
-	[+] EMAIL:        vini@inploit.com
-	[+] BLOG:         https://medium.com/viniciusgouvea
+	[+] AUTOR:        Heitor Gouvea
+	[+] EMAIL:        hi@heitorgouvea.com
 	[+] GITHUB:       https://github.com/HeitorG
 	[+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
@@ -35,7 +34,7 @@
 
 ##### Bugs
 
-- Report bugs by contacting me through facebook or email: vini@inploit.com
+- Report bugs by contacting me through facebook or email: hi@heitorgouvea.com
 
 ##### THANKS
 

@@ -1,9 +1,8 @@
 #!/usr/bin/perl
 
 #########################################################
-# [+] AUTOR:        Vinicius Gouvea                     #
-# [+] EMAIL:        vini@inploit.com                    #
-# [+] BLOG:         https://medium.com/@viniciusgouvea  #
+# [+] AUTOR:        Heitor Gouvea                       #
+# [+] EMAIL:        hi@heitorgouvea.com                 #
 # [+] GITHUB:       https://github.com/HeitorG          #
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
 #########################################################

@@ -21,8 +21,9 @@ my @table      = ("nat","filter");
 sub install {
 	system ("sudo apt-get install tor");
 	system ("sudo mkdir -p /etc/tor");
-	system ("sudo cp ./torrc /etc/tor/torrc");
+	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
+	system ("sudo service tor restart");
 }
 
 sub help {

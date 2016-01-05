@@ -18,6 +18,12 @@ my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 
+print "\n\033[1;32m
+88b 88   88   8888Yb  888888     Developed by Heitor Gouvea (D3LET)
+88Yb88   88   88__dP  88__       Inploit Security / https://inploit.com
+88 Y88   88   88--    88--       
+88  Y8   88   88      888888\n\033[1;37m\n\n";
+
 sub install {
 	system ("sudo apt-get install tor");
 	system ("sudo mkdir -p /etc/tor");
@@ -34,7 +40,6 @@ sub help {
 }
 
 sub start {
-
 	foreach my $nipe(@table) {
 
 		my $target = "ACCEPT";
@@ -87,7 +92,6 @@ sub start {
 }
 
 sub stop {
-
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
 

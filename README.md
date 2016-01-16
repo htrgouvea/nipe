@@ -6,6 +6,7 @@
 	[+] AUTOR:        Heitor Gouvea
 	[+] EMAIL:        hi@heitorgouvea.com
 	[+] GITHUB:       https://github.com/HeitorG
+	[+] TWITTER:      https://twitter.com/GouveaHeitor
 	[+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
 

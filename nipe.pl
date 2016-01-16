@@ -21,7 +21,7 @@ my @table      = ("nat","filter");
 
 print "\n\033[1;32m
 88b 88   88   8888Yb  888888     Developed by Heitor Gouvea (D3LET)
-88Yb88   88   88__dP  88__       Inploit Security / https://inploit.com
+88Yb88   88   88__dP  88__        Stopeed / http://stopeed.com.br
 88 Y88   88   88--    88--       
 88  Y8   88   88      888888\n\033[1;37m\n\n";
 

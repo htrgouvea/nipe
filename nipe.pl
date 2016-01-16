@@ -4,6 +4,7 @@
 # [+] AUTOR:        Heitor Gouvea                       #
 # [+] EMAIL:        hi@heitorgouvea.com                 #
 # [+] GITHUB:       https://github.com/HeitorG          #
+# [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
 #########################################################
 
@@ -87,14 +88,12 @@ sub start {
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
-
 	print "[+] Transfer this ok.\n";
 }
 
 sub stop {
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
-
 	print "[+] Transfer stopped.\n";
 }
 

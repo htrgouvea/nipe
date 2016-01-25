@@ -2,27 +2,30 @@
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
+![Imagem](http://i.imgur.com/0RxjdkU.png)
+
 ```
-	[+] AUTOR:        Heitor Gouvea
-	[+] EMAIL:        hi@heitorgouvea.com
-	[+] GITHUB:       https://github.com/HeitorG
-	[+] TWITTER:      https://twitter.com/GouveaHeitor
-	[+] FACEBOOK:     https://fb.com/viniciushgouvea
+    [+] AUTOR:        Heitor Gouvea
+    [+] EMAIL:        hi@heitorgouvea.com
+    [+] GITHUB:       https://github.com/HeitorG
+    [+] TWITTER:      https://twitter.com/GouveaHeitor
+    [+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
 
 ####Installing:
-
+```
     git clone https://github.com/HeitorG/nipe
     cd nipe
     cpan install  strict warnings Switch
-
+```
 
 ####Commands:
-
-	COMMAND          FUNCTION
-	install          To install.
-	start            To start
-	stop             To stop
+```
+    COMMAND          FUNCTION
+    install          To install.
+    start            To start
+    stop             To stop
+```
 
 ##### Tested on:
 

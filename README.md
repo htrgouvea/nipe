@@ -2,8 +2,6 @@
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
-![Imagem](http://i.imgur.com/0RxjdkU.png)
-
 ```
     [+] AUTOR:        Heitor Gouvea
     [+] EMAIL:        hi@heitorgouvea.com

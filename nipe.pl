@@ -28,7 +28,7 @@ print "\n\033[1;32m
 sub install {
 	system ("sudo apt-get install tor");
 	system ("sudo mkdir -p /etc/tor");
-	system ("wget http://heitorgouvea.com/nipe/torrc");
+	system ("sudo wget http://heitorgouvea.com/nipe/torrc");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
 	system ("sudo service tor restart");

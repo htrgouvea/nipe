@@ -1,3 +1,4 @@
+
 # NIPE
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
@@ -33,6 +34,8 @@
 * Lubuntu 15.04
 * Xubuntu 15.04
 * LionSec 3.0
+* Elementary 0.3.2 Freya
+* CrunchBang++ debian 8
 
 ##### Bugs
 

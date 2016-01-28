@@ -12,12 +12,21 @@ use strict;
 use warnings;
 use Switch;
 
+my $username;
 my $command    = $ARGV[0];
-my $username   = "debian-tor";
 my $dns_port   = "9061";
 my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
+my $os         = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2 | awk 'NR==1{print \$1}' | tr -d '\n'`;
+
+switch ($os) {
+	case "ubuntu" { $username = "debian-tor"; }
+	case "debian" { $username = "debian-tor"; }
+	case "fedora" { $username = "toranon"; }
+	case "arch"   { $username = "tor"; }
+	else          { $username = "tor"; }
+}
 
 print "\n\033[1;32m
 88b 88   88   8888Yb  888888     Developed by 

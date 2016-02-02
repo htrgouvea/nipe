@@ -20,7 +20,6 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
-
 if    ($os =~ /Ubuntu/) { $username = "debian-tor"; }
 elsif ($os =~ /Debian/) { $username = "debian-tor"; }
 elsif ($os =~ /Fedora/) { $username = "toranon"; }
@@ -77,7 +76,6 @@ sub help {
 
 sub start {
 	foreach my $nipe(@table) {
-
 		my $target = "ACCEPT";
 
 		if ($nipe eq "nat") {

@@ -18,15 +18,14 @@ my $dns_port   = "9061";
 my $trans_port = "9051";
 my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
-my $os         = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2 | awk 'NR==1{print \$1}' | tr -d '\n'`;
+my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
-switch ($os) {
-	case "ubuntu" { $username = "debian-tor"; }
-	case "debian" { $username = "debian-tor"; }
-	case "fedora" { $username = "toranon"; }
-	case "arch"   { $username = "tor"; }
-	else          { $username = "tor"; }
-}
+
+if    ($os =~ /Ubuntu/) { $username = "debian-tor"; }
+elsif ($os =~ /Debian/) { $username = "debian-tor"; }
+elsif ($os =~ /Fedora/) { $username = "toranon"; }
+elsif ($os =~ /Arch/)   { $username = "tor"; }
+else  { $username = "tor"; }
 
 print "\n\033[1;32m
 88b 88   88   8888Yb  888888     Developed by 
@@ -35,12 +34,38 @@ print "\n\033[1;32m
 88  Y8   88   88      888888\n\033[1;37m\n\n";
 
 sub install {
-	system ("sudo apt-get install tor");
+
+	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) ) {
+		system ("sudo apt-get install tor");
+		system ("sudo wget http://heitorgouvea.com/nipe/ubuntu/torrc");
+	}
+
+	elsif ($os =~ /Arch/) {
+		system ("sudo pacman -S tor");
+		system ("sudo wget http://heitorgouvea.com/nipe/arch/torrc");
+	}
+
+	elsif ($os =~ /Fedora/) {
+		system ("sudo dnf install tor");
+		system ("sudo wget http://heitorgouvea.com/nipe/fedora/torrc");
+	}
+
+	else {
+		system ("sudo apt-get install tor");
+		system ("sudo wget http://heitorgouvea.com/nipe/ubuntu/torrc");
+	}
+
 	system ("sudo mkdir -p /etc/tor");
-	system ("sudo wget http://heitorgouvea.com/nipe/torrc");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
-	system ("sudo service tor restart");
+	
+	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) || ($os =~ /Fedora/) ) {
+		system ("sudo service tor restart");
+	}
+
+	else {
+		system ("sudo systemctl restart tor.service");
+	}
 }
 
 sub help {

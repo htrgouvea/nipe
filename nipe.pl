@@ -9,8 +9,10 @@
 #########################################################
 
 use strict;
-use warnings;
 use Switch;
+use warnings;
+use WWW::Mechanize;
+use LWP::Protocol::https;
 
 my $username;
 my $command    = $ARGV[0];
@@ -31,6 +33,30 @@ print "\n\033[1;32m
 88Yb88   88   88__dP  88__      Heitor Gouvea (D3LET)
 88 Y88   88   88--    88--       
 88  Y8   88   88      888888\n\033[1;37m\n\n";
+
+sub tor_check {
+	my $mech       = new WWW::Mechanize;
+	my $tor_check  = "https://check.torproject.org/?lang=en";
+	my $ip_check   = "https://wtfismyip.com/text";
+
+	$mech -> get ("$tor_check");
+	my $response_tor = $mech -> content (format => "text");
+
+	$mech -> get ("$ip_check");
+	my $response_ip = $mech -> content (format => "text");
+
+	if ($response_tor =~ /Congratulations/) { 
+		print "\nTor: Activated\nIp: $response_ip\n";
+	}
+
+	elsif ($response_tor =~ /Sorry/) {
+		print "\nTor: Disabled\nIp: $response_ip\n";
+	}
+
+	else {
+		print "\nError: sorry, it was not possible to establish a connection to the server.\n\n";
+	}
+}
 
 sub install {
 
@@ -121,13 +147,13 @@ sub start {
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
-	print "[+] Transfer this ok.\n";
+	tor_check();
 }
 
 sub stop {
 	system ("sudo iptables -t nat -F OUTPUT");
 	system ("sudo iptables -t filter -F OUTPUT");
-	print "[+] Transfer stopped.\n";
+	tor_check();
 }
 
 switch ($command) {

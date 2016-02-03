@@ -15,7 +15,7 @@
 ```
     git clone https://github.com/HeitorG/nipe
     cd nipe
-    cpan install  strict warnings Switch
+    cpan install  Switch WWW::Mechanize LWP::Protocol::https
 ```
 
 ####Commands:
@@ -35,7 +35,7 @@
 * Xubuntu 15.04
 * LionSec 3.0
 * Elementary 0.3.2 Freya
-* CrunchBang++ debian 8
+* CrunchBang++ 8
 
 ##### Bugs
 

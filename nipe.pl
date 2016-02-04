@@ -34,32 +34,14 @@ print "\n\033[1;32m
 88 Y88   88   88--    88--       
 88  Y8   88   88      888888\n\033[1;37m\n\n";
 
-sub tor_check {
-	my $mech       = new WWW::Mechanize;
-	my $tor_check  = "https://check.torproject.org/?lang=en";
-	my $ip_check   = "https://wtfismyip.com/text";
-
-	$mech -> get ("$tor_check");
-	my $response_tor = $mech -> content (format => "text");
-
-	$mech -> get ("$ip_check");
-	my $response_ip = $mech -> content (format => "text");
-
-	if ($response_tor =~ /Congratulations/) { 
-		print "\nTor: Activated\nIp: $response_ip\n";
-	}
-
-	elsif ($response_tor =~ /Sorry/) {
-		print "\nTor: Disabled\nIp: $response_ip\n";
-	}
-
-	else {
-		print "\nError: sorry, it was not possible to establish a connection to the server.\n\n";
-	}
+sub help {
+	print "\n\tCOMMAND \t FUCTION\n
+	install \t To install.
+	start   \t To start.
+	stop    \t To stop.\n\n";
 }
 
 sub install {
-
 	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) ) {
 		system ("sudo apt-get install tor");
 		system ("sudo wget http://heitorgouvea.com/nipe/ubuntu/torrc");
@@ -93,11 +75,28 @@ sub install {
 	}
 }
 
-sub help {
-	print "\n\tCOMMAND \t FUCTION\n
-	install \t To install.
-	start   \t To start.
-	stop    \t To stop.\n\n";
+sub tor_check {
+	my $mech       = new WWW::Mechanize;
+	my $tor_check  = "https://check.torproject.org/?lang=en";
+	my $ip_check   = "https://wtfismyip.com/text";
+
+	$mech -> get ("$tor_check");
+	my $response_tor = $mech -> content (format => "text");
+
+	$mech -> get ("$ip_check");
+	my $response_ip = $mech -> content (format => "text");
+
+	if ($response_tor =~ /Congratulations/) { 
+		print "\nTor: Activated\nIp: $response_ip\n";
+	}
+
+	elsif ($response_tor =~ /Sorry/) {
+		print "\nTor: Disabled\nIp: $response_ip\n";
+	}
+
+	else {
+		print "\nError: sorry, it was not possible to establish a connection to the server.\n\n";
+	}
 }
 
 sub start {

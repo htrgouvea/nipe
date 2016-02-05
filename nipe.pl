@@ -44,22 +44,22 @@ sub help {
 sub install {
 	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) ) {
 		system ("sudo apt-get install tor");
-		system ("sudo wget http://heitorgouvea.com/nipe/ubuntu/torrc");
+		system ("sudo wget https://heitorgouvea.com/nipe/ubuntu/torrc");
 	}
 
 	elsif ($os =~ /Arch/) {
 		system ("sudo pacman -S tor");
-		system ("sudo wget http://heitorgouvea.com/nipe/arch/torrc");
+		system ("sudo wget https://heitorgouvea.com/nipe/arch/torrc");
 	}
 
 	elsif ($os =~ /Fedora/) {
 		system ("sudo dnf install tor");
-		system ("sudo wget http://heitorgouvea.com/nipe/fedora/torrc");
+		system ("sudo wget https://heitorgouvea.com/nipe/fedora/torrc");
 	}
 
 	else {
 		system ("sudo apt-get install tor");
-		system ("sudo wget http://heitorgouvea.com/nipe/ubuntu/torrc");
+		system ("sudo wget https://heitorgouvea.com/nipe/ubuntu/torrc");
 	}
 
 	system ("sudo mkdir -p /etc/tor");

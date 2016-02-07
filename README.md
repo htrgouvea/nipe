@@ -1,7 +1,7 @@
 
 # NIPE
 
-***Script to redirect all the traffic from the machine to the Tor network.***
+*** :camel: :grin: Script to redirect all the traffic from the machine to the Tor network.***
 
 ```
     [+] AUTOR:        Heitor Gouvea
@@ -40,6 +40,9 @@
 ##### Bugs
 
 - Report bugs by contacting me through facebook or email: hi@heitorgouvea.com
+
+##### Contribution
+Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)
 
 ##### DEMO: 
 

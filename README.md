@@ -4,7 +4,6 @@
 
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
 
-
 ```
     [+] AUTOR:        Heitor Gouvea
     [+] EMAIL:        hi@heitorgouvea.com
@@ -45,7 +44,7 @@
 
 ##### License
 
-This work is licensed under [**Artistic License 2.0**](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
+- This work is licensed under [**Artistic License 2.0**](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
 
 ##### Contribution
-Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)
+- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)

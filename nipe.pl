@@ -42,17 +42,17 @@ sub help {
 }
 
 sub install {
-	if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/) || ($os =~ /Debian/) || ($os =~ /debian/)) {
+	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/ubuntu/torrc");
 	}
 
-	elsif (($os =~ /Arch/) || ($os =~ /arch/ )) {
+	elsif ($os =~ /[A,a]rch/) {
 		system ("sudo pacman -S tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/arch/torrc");
 	}
 
-	elsif (($os =~ /Fedora/) || ($os =~ /fedora/)) {
+	elsif ($os =~ /[F,f]edora/) {
 		system ("sudo dnf install tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/fedora/torrc");
 	}
@@ -66,8 +66,7 @@ sub install {
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
 	
-	if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/) || ($os =~ /Debian/)
-		|| ($os =~ /debian/) || ($os =~ /Fedora/) || ($os =~ /fedora/)) {
+	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
 		system ("sudo service tor restart");
 	}
 

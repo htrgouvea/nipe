@@ -22,23 +22,17 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
-if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/)) { 
-	$username = "debian-tor";
+switch ($os) {
+	case /Ubuntu/ { $username = "debian-tor"; }
+	case /ubuntu/ { $username = "debian-tor"; }
+	case /Debian/ { $username = "debian-tor"; }
+	case /debian/ { $username = "debian-tor"; }
+	case /Fedora/ { $username = "toranon"; }
+	case /fedora/ { $username = "toranon"; }
+	case /Arch/   { $username = "tor"; }
+	case /arch/   { $username = "tor"; }
+	else          { $username = "tor"; }
 }
-
-elsif (($os =~ /Debian/) || ($os =~ /debian/)) { 
-	$username = "debian-tor";
-}
-
-elsif (($os =~ /Fedora/) || ($os =~ /fedora/) ) {
-	$username = "toranon";
-}
-
-elsif (($os =~ /Arch/) || ($os =~ /arch/)) { 
-	$username = "tor"; 
-}
-
-else  { $username = "tor"; }
 
 print "\n\033[1;32m
 88b 88   88   8888Yb  888888     Developed by 

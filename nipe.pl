@@ -78,7 +78,8 @@ sub install {
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
 	
-	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) || ($os =~ /Fedora/) ) {
+	if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/) || ($os =~ /Debian/)
+		|| ($os =~ /debian/) || ($os =~ /Fedora/) || ($os =~ /fedora/)) {
 		system ("sudo service tor restart");
 	}
 

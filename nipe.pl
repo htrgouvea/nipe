@@ -22,10 +22,22 @@ my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
 my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
-if    ($os =~ /Ubuntu/) { $username = "debian-tor"; }
-elsif ($os =~ /Debian/) { $username = "debian-tor"; }
-elsif ($os =~ /Fedora/) { $username = "toranon"; }
-elsif ($os =~ /Arch/)   { $username = "tor"; }
+if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/)) { 
+	$username = "debian-tor";
+}
+
+elsif (($os =~ /Debian/) || ($os =~ /debian/)) { 
+	$username = "debian-tor";
+}
+
+elsif (($os =~ /Fedora/) || ($os =~ /fedora/) ) {
+	$username = "toranon";
+}
+
+elsif (($os =~ /Arch/) || ($os =~ /arch/)) { 
+	$username = "tor"; 
+}
+
 else  { $username = "tor"; }
 
 print "\n\033[1;32m
@@ -42,17 +54,17 @@ sub help {
 }
 
 sub install {
-	if ( ($os =~ /Ubuntu/) || ($os =~ /Debian/) ) {
+	if (($os =~ /Ubuntu/) || ($os =~ /ubuntu/) || ($os =~ /Debian/) || ($os =~ /debian/)) {
 		system ("sudo apt-get install tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/ubuntu/torrc");
 	}
 
-	elsif ($os =~ /Arch/) {
+	elsif (($os =~ /Arch/) || ($os =~ /arch/ )) {
 		system ("sudo pacman -S tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/arch/torrc");
 	}
 
-	elsif ($os =~ /Fedora/) {
+	elsif (($os =~ /Fedora/) || ($os =~ /fedora/)) {
 		system ("sudo dnf install tor");
 		system ("sudo wget https://heitorgouvea.com/nipe/fedora/torrc");
 	}
@@ -161,5 +173,3 @@ switch ($command) {
 	case "stop"    { stop(); }
 	else           { help(); }
 }
-
-exit;

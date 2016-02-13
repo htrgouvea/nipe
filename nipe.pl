@@ -32,7 +32,7 @@ print "\n\033[1;32m
 88b 88   88   8888Yb  888888     Developed by 
 88Yb88   88   88__dP  88__      Heitor Gouvea (D3LET)
 88 Y88   88   88--    88--       
-88  Y8   88   88      888888\n\033[1;37m\n\n";
+88  Y8   88   88      888888\n\033[1;37m\n";
 
 sub help {
 	print "\n\tCOMMAND \t FUCTION\n

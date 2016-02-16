@@ -23,15 +23,15 @@
 ```
     COMMAND          FUNCTION
     install          To install.
-    start            To start
-    stop             To stop
+    start            To start.
+    stop             To stop.
 ```
 
 ##### Tested on:
 
 * Ubuntu 14.10 and 15.04
 * Busen Labs Hydrogen
-* Debian Jessie 8.1 and Wheezy 7.9
+* Debian Wheezy 7.9 and Jessie 8.1
 * Lubuntu 15.04
 * Xubuntu 15.04
 * LionSec 3.0

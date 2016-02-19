@@ -2,7 +2,7 @@
 
 #########################################################
 # [+] AUTOR:        Heitor Gouvea                       #
-# [+] EMAIL:        hi@heitorgouvea.com                 #
+# [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] GITHUB:       https://github.com/HeitorG          #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #

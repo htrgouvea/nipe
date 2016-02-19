@@ -6,7 +6,7 @@
 
 ```
     [+] AUTOR:        Heitor Gouvea
-    [+] EMAIL:        hi@heitorgouvea.com
+    [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/HeitorG
     [+] TWITTER:      https://twitter.com/GouveaHeitor
     [+] FACEBOOK:     https://fb.com/viniciushgouvea
@@ -40,7 +40,7 @@
 
 ##### Bugs
 
-- Report bugs by contacting me through facebook or email: hi@heitorgouvea.com
+- Report bugs by contacting me through facebook or email: hi@heitorgouvea.me
 
 ##### License
 

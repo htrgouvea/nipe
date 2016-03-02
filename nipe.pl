@@ -18,8 +18,10 @@ my $username;
 my $command    = $ARGV[0];
 my $dns_port   = "9061";
 my $trans_port = "9051";
-my $network    = "10.66.0.0/255.255.0.0";
 my @table      = ("nat","filter");
+my $network    = "10.66.0.0/255.255.0.0";
+my $ip_check   = "https://wtfismyip.com/text";
+my $tor_check  = "https://check.torproject.org/?lang=en";
 my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
 if    ($os =~ /[U,u]buntu/) { $username = "debian-tor"; }
@@ -76,9 +78,15 @@ sub install {
 }
 
 sub tor_check {
-	my $mech       = new WWW::Mechanize;
-	my $tor_check  = "https://check.torproject.org/?lang=en";
-	my $ip_check   = "https://wtfismyip.com/text";
+	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
+		system ("sudo service tor restart");
+	}
+
+	else {
+		system ("sudo systemctl restart tor.service");
+	}
+
+	my $mech = new WWW::Mechanize;
 
 	$mech -> get ("$tor_check");
 	my $response_tor = $mech -> content (format => "text");

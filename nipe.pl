@@ -8,6 +8,7 @@
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
 #########################################################
 
+use 5.020;
 use strict;
 use Switch;
 use warnings;
@@ -78,14 +79,6 @@ sub install {
 }
 
 sub tor_check {
-	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
-		system ("sudo service tor restart");
-	}
-
-	else {
-		system ("sudo systemctl restart tor.service");
-	}
-
 	my $mech = new WWW::Mechanize;
 
 	$mech -> get ("$tor_check");
@@ -154,6 +147,15 @@ sub start {
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
+
+	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
+		system ("sudo service tor restart");
+	}
+
+	else {
+		system ("sudo systemctl restart tor.service");
+	}
+
 	tor_check();
 }
 

@@ -32,9 +32,9 @@ elsif ($os =~ /[A,a]rch/)   { $username = "tor"; }
 else  { $username = "tor"; }
 
 print "\n\033[1;32m
-88b 88   88   8888Yb  888888     Developed by 
-88Yb88   88   88__dP  88__      Heitor Gouvea (D3LET)
-88 Y88   88   88--    88--       
+88b 88   88   8888Yb  888888     
+88Yb88   88   88__dP  88__    Developed by 
+88 Y88   88   88--    88--    Heitor Gouvea (D3LET)  
 88  Y8   88   88      888888\n\033[1;37m\n";
 
 sub help {
@@ -68,14 +68,6 @@ sub install {
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
-	
-	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
-		system ("sudo service tor restart");
-	}
-
-	else {
-		system ("sudo systemctl restart tor.service");
-	}
 }
 
 sub tor_check {
@@ -91,22 +83,18 @@ sub tor_check {
 		print "\nTor: Activated\nIp: $response_ip\n";
 	}
 
-	elsif ($response_tor =~ /Sorry/) {
+	elsif ($response_tor =~ /Sorry/) { 
 		print "\nTor: Disabled\nIp: $response_ip\n";
 	}
 
-	else {
-		print "\nError: sorry, it was not possible to establish a connection to the server.\n\n";
-	}
+	else { print "\nError: sorry, it was not possible to establish a connection to the server.\n\n"; }
 }
 
 sub start {
 	foreach my $nipe(@table) {
 		my $target = "ACCEPT";
 
-		if ($nipe eq "nat") {
-			$target = "RETURN";
-		}
+		if ($nipe eq "nat") { $target = "RETURN"; }
 
 		system ("sudo iptables -t $nipe -F OUTPUT");
 		system ("sudo iptables -t $nipe -A OUTPUT -m state --state ESTABLISHED -j $target");
@@ -115,7 +103,6 @@ sub start {
 		my $match_dns_port = $dns_port;
 
 		if ($nipe eq "nat") {
-
 			$target = "REDIRECT --to-ports $dns_port";
 			$match_dns_port = "53";
 		}
@@ -123,24 +110,18 @@ sub start {
 		system ("sudo iptables -t $nipe -A OUTPUT -p udp --dport $match_dns_port -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -p tcp --dport $match_dns_port -j $target");
 
-		if ($nipe eq "nat") {
-			$target = "REDIRECT --to-ports $trans_port";
-		}
+		if ($nipe eq "nat") { $target = "REDIRECT --to-ports $trans_port"; }
 
 		system ("sudo iptables -t $nipe -A OUTPUT -d $network -p tcp -j $target");
 
-		if ($nipe eq "nat") {
-			$target = "RETURN";
-		}
+		if ($nipe eq "nat") { $target = "RETURN"; }
 
 		system ("sudo iptables -t $nipe -A OUTPUT -d 127.0.0.1/8    -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -d 192.168.0.0/16 -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -d 172.16.0.0/12  -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -d 10.0.0.0/8     -j $target");
 
-		if ($nipe eq "nat") {
-			$target = "REDIRECT --to-ports $trans_port";
-		}
+		if ($nipe eq "nat") { $target = "REDIRECT --to-ports $trans_port"; }
 
 		system ("sudo iptables -t $nipe -A OUTPUT -p tcp -j $target");
 	}
@@ -152,10 +133,7 @@ sub start {
 		system ("sudo service tor restart");
 	}
 
-	else {
-		system ("sudo systemctl restart tor.service");
-	}
-
+	else { system ("sudo systemctl restart tor.service"); }
 	tor_check();
 }
 

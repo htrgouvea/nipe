@@ -38,6 +38,7 @@
 * LionSec 3.0
 * Elementary 0.3.2 Freya
 * CrunchBang++ 8
+* RedPear 15.04
 
 ##### Bugs
 

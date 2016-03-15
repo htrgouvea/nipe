@@ -12,8 +12,7 @@ use 5.020;
 use strict;
 use Switch;
 use warnings;
-use WWW::Mechanize;
-use LWP::Protocol::https;
+use Mojo::UserAgent;
 
 my $username;
 my $command    = $ARGV[0];
@@ -21,8 +20,7 @@ my $dns_port   = "9061";
 my $trans_port = "9051";
 my @table      = ("nat","filter");
 my $network    = "10.66.0.0/255.255.0.0";
-my $ip_check   = "https://wtfismyip.com/text";
-my $tor_check  = "https://check.torproject.org/?lang=en";
+my $api_check   = "https://check.torproject.org/api/ip";
 my $os         = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
 
 if    ($os =~ /[U,u]buntu/) { $username = "debian-tor"; }
@@ -39,9 +37,9 @@ print "\n\033[1;32m
 
 sub help {
 	print "\n\tCOMMAND \t FUCTION\n
-	install \t To install.
-	start   \t To start.
-	stop    \t To stop.\n\n";
+	install \t to install
+	start   \t to start
+	stop    \t to stop\n\n";
 }
 
 sub install {
@@ -71,23 +69,21 @@ sub install {
 }
 
 sub tor_check {
-	my $mech = new WWW::Mechanize;
+	my $ua = new Mojo::UserAgent;
 
-	$mech -> get ("$tor_check");
-	my $response_tor = $mech -> content (format => "text");
+	my $check_ip  = $ua -> get ($api_check) -> res -> json('/IP');
+	my $check_tor = $ua -> get ($api_check) -> res -> json('/IsTor');
 
-	$mech -> get ("$ip_check");
-	my $response_ip = $mech -> content (format => "text");
-
-	if ($response_tor =~ /Congratulations/) { 
-		print "\nTor: Activated\nIp: $response_ip\n";
+	if ($check_tor =~ /1/) { 
+		print "\nTor: Activated\nIp: $check_ip\n";
 	}
 
-	elsif ($response_tor =~ /Sorry/) { 
-		print "\nTor: Disabled\nIp: $response_ip\n";
+	elsif ($check_tor =~ /0/) {
+		print "\nTor: Disabled\nIp: $check_ip\n";
 	}
 
 	else { print "\nError: sorry, it was not possible to establish a connection to the server.\n\n"; }
+
 }
 
 sub start {

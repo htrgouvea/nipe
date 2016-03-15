@@ -17,7 +17,7 @@
 ```
     git clone https://github.com/HeitorG/nipe
     cd nipe
-    cpan install  Switch WWW::Mechanize LWP::Protocol::https
+    cpan install  Switch Mojo::UserAgent
 ```
 
 ####Commands:

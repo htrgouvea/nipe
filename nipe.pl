@@ -83,7 +83,6 @@ sub tor_check {
 	}
 
 	else { print "\nError: sorry, it was not possible to establish a connection to the server.\n\n"; }
-
 }
 
 sub start {

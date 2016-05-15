@@ -30,7 +30,7 @@
 
 ##### Tested on:
 
-* Ubuntu 14.10 and 15.04
+* Ubuntu 14.04, 14.10 and 15.04
 * Busen Labs Hydrogen
 * Debian Wheezy 7.9 and Jessie 8.1
 * Lubuntu 15.04

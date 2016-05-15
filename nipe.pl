@@ -12,7 +12,6 @@
 # [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
 #########################################################
 
-use 5.020;
 use strict;
 use Switch;
 use warnings;

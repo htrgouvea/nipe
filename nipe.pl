@@ -62,8 +62,8 @@ sub install {
 	}
 
 	else {
-		system ("sudo apt-get install tor");
-		system ("sudo wget http://heitorgouvea.me/nipe/ubuntu/torrc");
+		system ("sudo pacman -S tor");
+		system ("sudo wget http://heitorgouvea.me/nipe/arch/torrc");
 	}
 
 	system ("sudo mkdir -p /etc/tor");
@@ -127,10 +127,14 @@ sub start {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/) || ($os =~ /[F,f]edora/)) {
+	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo service tor restart");
 	}
-
+	
+	elsif (($os =~ /[A,a]rch/) || ($os =~ /[F,f]edora/)) {
+		system ("sudo service tor restart");
+	}
+	
 	else { system ("sudo systemctl restart tor.service"); }
 	tor_check();
 }

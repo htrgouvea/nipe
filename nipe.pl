@@ -132,7 +132,7 @@ sub start {
 	}
 	
 	elsif (($os =~ /[A,a]rch/) || ($os =~ /[F,f]edora/)) {
-		system ("sudo service tor restart");
+		system ("sudo systemctl restart tor.service");
 	}
 	
 	else { system ("sudo systemctl restart tor.service"); }

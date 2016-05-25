@@ -1,5 +1,6 @@
 
-# NIPE
+# Nipe
+
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
@@ -11,21 +12,26 @@
     [+] TWITTER:      https://twitter.com/GouveaHeitor
     [+] FACEBOOK:     https://fb.com/viniciushgouvea
 ```
-[**See the tutorial on how to use the Nipe :smile: :camel: :metal:**](http://heitorgouvea.me/2016/nipe-script-to-redirect-your-traffic-to-tor-network/)
+[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](http://heitorgouvea.me/2016/nipe-script-to-redirect-your-traffic-to-tor-network/)
 
 ####Installing:
 ```
-    git clone https://github.com/HeitorG/nipe
-    cd nipe
+    git clone git@github.com:HeitorG/nipe.git
     cpan install  Switch Mojo::UserAgent
 ```
 
 ####Commands:
 ```
     COMMAND          FUNCTION
-    install          To install.
-    start            To start.
-    stop             To stop.
+    install          to install
+    start            to start
+    stop             to stop
+
+    Examples:
+
+    perl nipe.pl install
+    perl nipe.pl start
+    perl nipe.pl stop
 ```
 
 ##### Tested on:
@@ -38,7 +44,7 @@
 * LionSec 3.0
 * Elementary 0.3.2 Freya
 * CrunchBang++ 8
-* RedPear 15.04
+* RedPear 15.04 and 15.10
 
 ##### Bugs
 
@@ -46,7 +52,7 @@
 
 ##### License
 
-- This work is licensed under [**Artistic License 2.0**](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
 
 ##### Contribution
 

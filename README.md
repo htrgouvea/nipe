@@ -3,7 +3,7 @@
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
  
  
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
@@ -19,8 +19,8 @@
 
 ####Installing:
 ```
-    git clone git@github.com:GouveaHeitor/nipe.git
-    cpan install  Switch Mojo::UserAgent
+    git clone http://github.com/GouveaHeitor/nipe
+    cpan install  Switch JSON LWP::UserAgent
 ```
 
 ####Commands:

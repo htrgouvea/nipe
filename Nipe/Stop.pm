@@ -12,31 +12,17 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-use Switch;
-use Nipe::Stop;
-use Nipe::Start;
-use Nipe::Check;
-use Nipe::Functions;
+package Nipe::Stop;
 
-my $command = $ARGV[0];
+sub new {
+	my @table = ("nat","filter");
 
-print "\n\033[1;32m
-88b 88   88   8888Yb  888888     
-88Yb88   88   88__dP  88__    Developed by 
-88 Y88   88   88--    88--    Heitor Gouvea (D3LET)  
-88  Y8   88   88      888888\n\033[1;37m\n";
-
-switch ($command) {
-	case "stop" { 
-		Nipe::Stop -> new();
+	foreach my $table (@table) {
+		system ("sudo iptables -t $table -F OUTPUT");
+		system ("sudo iptables -t $table -F OUTPUT");	
 	}
-	case "start" {
-		Nipe::Start -> new();
-	}
-	case "install" {
-		Nipe::Functions -> install();
-	}
-	else { 
-		Nipe::Functions -> help();
-	}
+	
+	Nipe::Check -> new;
 }
+
+1;

@@ -3,7 +3,7 @@
 
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/HeitorG/awesome-biohacking/blob/master/LICENSE.md)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
  
  
 ![Imagem](http://i.imgur.com/1XjfHPb.png)

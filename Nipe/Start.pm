@@ -14,7 +14,7 @@
 
 package Nipe::Start;
 
-my $os = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
+my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 my $username;
 
 if    ($os =~ /[U,u]buntu/) { $username = "debian-tor"; }
@@ -33,7 +33,7 @@ sub new {
 	foreach my $nipe(@table) {
 		my $target = "ACCEPT";
 
-		if ($nipe eq "nat") { 
+		if ($nipe eq "nat") {
 			$target = "RETURN";
 		}
 
@@ -51,7 +51,7 @@ sub new {
 		system ("sudo iptables -t $nipe -A OUTPUT -p udp --dport $match_dns_port -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -p tcp --dport $match_dns_port -j $target");
 
-		if ($nipe eq "nat") { 
+		if ($nipe eq "nat") {
 			$target = "REDIRECT --to-ports $trans_port";
 		}
 
@@ -66,7 +66,7 @@ sub new {
 		system ("sudo iptables -t $nipe -A OUTPUT -d 172.16.0.0/12  -j $target");
 		system ("sudo iptables -t $nipe -A OUTPUT -d 10.0.0.0/8     -j $target");
 
-		if ($nipe eq "nat") { 
+		if ($nipe eq "nat") {
 			$target = "REDIRECT --to-ports $trans_port";
 		}
 

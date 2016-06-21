@@ -14,7 +14,7 @@
 
 package Nipe::Functions;
 
-my $os = `cat /etc/*release | grep 'ID' | cut -d '=' -f 2`;
+my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
 sub help {
 	print "\n\tCOMMAND \t FUCTION\n

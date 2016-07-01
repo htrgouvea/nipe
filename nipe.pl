@@ -7,9 +7,9 @@
 #                                                       #
 # [+] AUTOR:        Heitor Gouvea                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
-# [+] GITHUB:       https://github.com/HeitorG          #
+# [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
-# [+] FACEBOOK:     https://fb.com/viniciushgouvea      #
+# [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
 use strict;

@@ -11,15 +11,15 @@
 ```
     [+] AUTOR:        Heitor Gouvea
     [+] EMAIL:        hi@heitorgouvea.me
-    [+] GITHUB:       https://github.com/HeitorG
+    [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TWITTER:      https://twitter.com/GouveaHeitor
-    [+] FACEBOOK:     https://fb.com/viniciushgouvea
+    [+] FACEBOOK:     https://fb.com/GouveaHeitor
 ```
 [**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](http://heitorgouvea.me/2016/nipe-script-to-redirect-your-traffic-to-tor-network/)
 
 ####Installing:
 ```
-    git clone git@github.com:HeitorG/nipe.git
+    git clone git@github.com:GouveaHeitor/nipe.git
     cpan install  Switch Mojo::UserAgent
 ```
 
@@ -55,7 +55,7 @@
 
 ##### License
 
-- This work is licensed under [**MIT License**](https://github.com/HeitorG/nipe/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 
 ##### Contribution
 

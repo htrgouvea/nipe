@@ -29,7 +29,7 @@ sub new {
 
 		my $checkIp  = $data -> {'IP'};
 		my $checkTor = $data -> {'IsTor'};
-
+		
 		if ($checkTor == "1") {
 			print "\nTor: Activated\nIp: $checkIp\n";
 		}

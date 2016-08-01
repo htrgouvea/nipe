@@ -1,11 +1,11 @@
 #!/usr/bin/perl
 
 #########################################################
-# Nipe developed by Heitor Gouvea                       #
+# Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2016 Heitor Gouvea                 #
+# Copyright (c) 2015-2016 Heitor Gouvêa                 #
 #                                                       #
-# [+] AUTOR:        Heitor Gouvea                       #
+# [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
@@ -13,6 +13,8 @@
 #########################################################
 
 package Nipe::Start;
+
+use Nipe::Check;
 
 my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 my $username;
@@ -76,7 +78,7 @@ sub new {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	Nipe::Check -> new;
+	Nipe::Check -> new();
 }
 
 1;

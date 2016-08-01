@@ -9,7 +9,7 @@
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
 
 ```
-    [+] AUTOR:        Heitor Gouvea
+    [+] AUTOR:        Heitor Gouvêa
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TWITTER:      https://twitter.com/GouveaHeitor

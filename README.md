@@ -4,6 +4,7 @@
 ***Script to redirect all the traffic from the machine to the Tor network.***
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
+[![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/nipe)
  
  
 ![Imagem](http://i.imgur.com/1XjfHPb.png)

@@ -27,16 +27,8 @@ print "\n\033[1;32m
 88  Y8   88   88      888888\n\033[1;37m\n";
 
 switch ($command) {
-	case "stop" { 
-		Nipe::Stop -> new();
-	}
-	case "start" {
-		Nipe::Start -> new();
-	}
-	case "install" {
-		Nipe::Functions -> install();
-	}
-	else { 
-		Nipe::Functions -> help();
-	}
+	case "stop"    { Nipe::Stop -> new(); }
+	case "start"   { Nipe::Start -> new(); }
+	case "install" { Nipe::Functions -> install(); }
+	else           { Nipe::Functions -> help(); }
 }

@@ -25,22 +25,22 @@ sub help {
 
 sub install {
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
-		system ("sudo apt-get install tor perl iptables");
+		system ("sudo apt-get install tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/ubuntu/torrc");
 	}
 
 	elsif ($os =~ /[A,a]rch/) {
-		system ("sudo pacman -S tor perl iptables");
+		system ("sudo pacman -S tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/arch/torrc");
 	}
 
 	elsif ($os =~ /[F,f]edora/) {
-		system ("sudo dnf install tor perl iptables");
+		system ("sudo dnf install tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/fedora/torrc");
 	}
 
 	else {
-		system ("sudo pacman -S tor perl iptables");
+		system ("sudo pacman -S tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/arch/torrc");
 	}
 

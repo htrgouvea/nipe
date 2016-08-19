@@ -1,7 +1,7 @@
 
 # Nipe
 
-***Script to redirect all the traffic from the machine to the Tor network.***
+***Nipe is a script to make Tor Network your default gateway.***
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/nipe)
@@ -16,15 +16,20 @@
     [+] TWITTER:      https://twitter.com/GouveaHeitor
     [+] FACEBOOK:     https://fb.com/GouveaHeitor
 ```
-[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80#.6cc14ycax)
 
-####Installing:
+[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80)
+
+#### Installing:
 ```
     git clone http://github.com/GouveaHeitor/nipe
-    cpan install  Switch JSON LWP::UserAgent
+    cpan install Switch JSON LWP::UserAgent
 ```
 
-####Commands:
+#### How basic use:
+
+
+
+#### Commands:
 ```
     COMMAND          FUNCTION
     install          to install
@@ -38,7 +43,7 @@
     perl nipe.pl stop
 ```
 
-##### Tested on:
+#### Tested on:
 
 * Ubuntu 14.04, 14.10 and 15.04
 * Busen Labs Hydrogen
@@ -50,14 +55,14 @@
 * CrunchBang++ 8
 * RedPear 15.04 and 15.10
 
-##### Bugs
+#### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**
 
-##### License
+#### License
 
 - This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 
-##### Contribution
+#### Contribution
 
 - Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)

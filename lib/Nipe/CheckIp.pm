@@ -12,17 +12,16 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Nipe::Check;
+package Nipe::CheckIp;
 
 use JSON;
 use LWP::UserAgent;
 
-my $api_check = "https://check.torproject.org/api/ip";
-
 sub new {
-	my $useragent = LWP::UserAgent -> new;
+	my $api_check = "https://check.torproject.org/api/ip";
+	my $useragent = LWP::UserAgent -> new();
 	my $request   = $useragent -> get($api_check);
-	my $httpCode  = $request -> code;
+	my $httpCode  = $request -> code();
 
 	if ($httpCode == "200") {
 		my $data = decode_json ($request -> content);
@@ -30,16 +29,12 @@ sub new {
 		my $checkIp  = $data -> {'IP'};
 		my $checkTor = $data -> {'IsTor'};
 		
-		if ($checkTor == "1") {
+		if ($checkTor) {
 			print "\nTor: Activated\nIp: $checkIp\n";
 		}
 
-		elsif ($checkTor == "0") {
-			print "\nTor: Disabled\nIp: $checkIp\n";
-		}
-
 		else {
-			print "\nError: sorry, it was not possible to establish a connection to the server.\n";
+			print "\nTor: Disabled\nIp: $checkIp\n";
 		}
 	}
 

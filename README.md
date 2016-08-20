@@ -6,7 +6,6 @@
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/nipe)
  
- 
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
 
 ```
@@ -24,10 +23,6 @@
     git clone http://github.com/GouveaHeitor/nipe
     cpan install Switch JSON LWP::UserAgent
 ```
-
-#### How basic use:
-
-
 
 #### Commands:
 ```

@@ -14,17 +14,17 @@
 
 package Nipe::Stop;
 
-use Nipe::Check;
+use Nipe::CheckIp;
 
 sub new {
-	my @table = ("nat","filter");
+	my @table = ("nat", "filter");
 
 	foreach my $table (@table) {
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -F OUTPUT");	
 	}
 	
-	Nipe::Check -> new();
+	Nipe::CheckIp -> new();
 }
 
 1;

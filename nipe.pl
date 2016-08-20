@@ -21,7 +21,7 @@ use Nipe::Functions;
 sub main {
 	my $command = $ARGV[0];
 
-	print "\n\033[1;32m
+	print "\033[1;32m
 	88b 88   88   8888Yb  888888
 	88Yb88   88   88__dP  88__    Developed by
 	88 Y88   88   88--    88--    Heitor Gouvêa

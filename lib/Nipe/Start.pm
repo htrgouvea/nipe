@@ -14,7 +14,7 @@
 
 package Nipe::Start;
 
-use Nipe::Check;
+use Nipe::CheckIp;
 
 my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 my $username;
@@ -78,7 +78,7 @@ sub new {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	Nipe::Check -> new();
+	Nipe::CheckIp -> new();
 }
 
 1;

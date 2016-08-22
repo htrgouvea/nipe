@@ -12,28 +12,32 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-use Switch;
-use lib "./lib/";
-use Nipe::Stop;
-use Nipe::Start;
-use Nipe::Functions;
+package Nipe::Device;
 
-sub main {
-	my $command = $ARGV[0];
+my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
-	print "\033[1;32m
-	88b 88   88   8888Yb  888888
-	88Yb88   88   88__dP  88__    Developed by
-	88 Y88   88   88--    88--    Heitor Gouvêa
-	88  Y8   88   88      888888\n\033[1;37m";
+sub username {
+	my $username;
 
-	switch ($command) {
-		case "stop"    { Nipe::Stop -> new(); }
-		case "start"   { Nipe::Start -> new(); }
-		case "install" { Nipe::Functions -> install(); }
-		else           { Nipe::Functions -> help(); }
+	if ($os =~ /[U,u]buntu/) {
+		$username = "debian-tor";
+	}
+
+	elsif ($os =~ /[D,d]ebian/) {
+		$username = "debian-tor";
+	}
+	
+	elsif ($os =~ /[F,f]edora/) {
+		$username = "toranon";
+	}
+	
+	elsif ($os =~ /[A,a]rch/) {
+		$username = "tor";
+	}
+	
+	else {
+		$username = "tor";
 	}
 }
 
-main();
-exit;
+1;

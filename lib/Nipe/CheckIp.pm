@@ -39,7 +39,7 @@ sub new {
 	}
 
 	else {
-		print "\nError: sorry, it was not possible to establish a connection to the server.\n";
+		print "\n[!] EERROR: sorry, it was not possible to establish a connection to the server.\n";
 	}
 }
 

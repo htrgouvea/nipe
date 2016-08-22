@@ -14,24 +14,17 @@
 
 package Nipe::Start;
 
+use Nipe::Device;
 use Nipe::CheckIp;
-
-my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
-my $username;
-
-if    ($os =~ /[U,u]buntu/) { $username = "debian-tor"; }
-elsif ($os =~ /[D,d]ebian/) { $username = "debian-tor"; }
-elsif ($os =~ /[F,f]edora/) { $username = "toranon"; }
-elsif ($os =~ /[A,a]rch/)   { $username = "tor"; }
-else  { $username = "tor"; }
-
 
 sub new {
 	my $dns_port   = "9061";
 	my $trans_port = "9051";
-	my @table      = ("nat","filter");
+	my @table      = ("nat", "filter");
 	my $network    = "10.66.0.0/255.255.0.0";
 
+	my $username = Nipe::Device -> username();
+	
 	foreach my $nipe(@table) {
 		my $target = "ACCEPT";
 

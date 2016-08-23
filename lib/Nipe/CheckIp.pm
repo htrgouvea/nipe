@@ -30,16 +30,20 @@ sub new {
 		my $checkTor = $data -> {'IsTor'};
 		
 		if ($checkTor) {
-			print "\nTor: Activated\nIp: $checkIp\n";
+			print "
+			\r\033[1;32m[+]\033[1;37m Nipe: Activated
+			\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
 		}
 
 		else {
-			print "\nTor: Disabled\nIp: $checkIp\n";
+			print "
+				\r\033[1;32m[+]\033[1;37m Nipe: Disabled
+				\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
 		}
 	}
 
 	else {
-		print "\n[!] EERROR: sorry, it was not possible to establish a connection to the server.\n";
+		print "\n\033[31m[!]\033[1;37m ERROR: sorry, it was not possible to establish a connection to the server.\n\n";
 	}
 }
 

@@ -27,15 +27,17 @@
 #### Commands:
 ```
     COMMAND          FUNCTION
-    install          to install
-    start            to start
-    stop             to stop
+    install          install dependencies
+    start            start routing
+    stop             stop routing
+    status           see status
 
     Examples:
 
     perl nipe.pl install
     perl nipe.pl start
     perl nipe.pl stop
+    perl nipe.pl status
 ```
 
 #### Tested on:

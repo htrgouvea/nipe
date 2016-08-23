@@ -17,10 +17,20 @@ package Nipe::Functions;
 my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
 sub help {
-	print "\n\tCOMMAND \t FUCTION\n
-	install \t to install
-	start   \t to start
-	stop    \t to stop\n\n";
+
+	print "
+	\r\033[1;37mCore Commands
+	\r=============
+	Command       Description
+	-------       -----------
+	help          Show help menu
+	start         Start routing
+	stop          Stop routing
+	status        See status
+	
+	\rNipe developed by Heitor Gouvêa  
+	\rCopyright (c) 2015-2016 Heitor Gouvêa\n\n";
+
 }
 
 sub install {

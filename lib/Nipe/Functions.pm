@@ -14,10 +14,7 @@
 
 package Nipe::Functions;
 
-my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
-
 sub help {
-
 	print "
 	\r\033[1;37mCore Commands
 	\r=============
@@ -30,10 +27,11 @@ sub help {
 	
 	\rNipe developed by Heitor Gouvêa  
 	\rCopyright (c) 2015-2016 Heitor Gouvêa\n\n";
-
 }
 
 sub install {
+	my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+	
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/ubuntu/torrc");

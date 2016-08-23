@@ -20,7 +20,7 @@
 
 #### Installing:
 ```
-    git clone http://github.com/GouveaHeitor/nipe
+    git clone https://github.com/GouveaHeitor/nipe
     cpan install Switch JSON LWP::UserAgent
 ```
 

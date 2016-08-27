@@ -32,15 +32,13 @@ sub new {
 		if ($checkTor) {
 			print "
 				\r\033[1;32m[+]\033[1;37m Nipe: Activated
-				\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n
-			";
+				\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
 		}
 
 		else {
 			print "
 				\r\033[1;32m[+]\033[1;37m Nipe: Disabled
-				\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n
-			";
+				\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
 		}
 	}
 

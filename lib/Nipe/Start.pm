@@ -23,8 +23,8 @@ sub new {
 	my @table      = ("nat", "filter");
 	my $network    = "10.66.0.0/255.255.0.0";
 
-	my $username = Nipe::Device -> getUsername();
-	
+	my $username = Nipe::Device -> getDeviceInfos();
+		
 	foreach my $nipe(@table) {
 		my $target = "ACCEPT";
 

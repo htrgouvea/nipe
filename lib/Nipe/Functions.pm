@@ -14,10 +14,12 @@
 
 package Nipe::Functions;
 
+use Nipe::Device;
+
 sub help {
 	print "
 	\r\033[1;37mCore Commands
-	\r=============
+	\r==============
 	Command       Description
 	-------       -----------
 	help          Show help menu
@@ -30,7 +32,7 @@ sub help {
 }
 
 sub install {
-	my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+	my $os = Nipe::Device -> getDeviceInfos();
 	
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");

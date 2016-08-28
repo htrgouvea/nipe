@@ -32,7 +32,7 @@ sub help {
 }
 
 sub install {
-	my $os = Nipe::Device -> getDeviceInfos();
+	my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 	
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");

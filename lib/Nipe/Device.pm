@@ -16,7 +16,7 @@ package Nipe::Device;
 
 my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
-sub getDeviceInfos {	
+sub getUsername {	
 	my $username;
 
 	if ($os =~ /[U,u]buntu/) {

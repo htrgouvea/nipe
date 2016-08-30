@@ -5,7 +5,8 @@
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/nipe)
- 
+[![Version-Program](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/GouveaHeitor/nipe/releases)
+
 ![Imagem](http://i.imgur.com/1XjfHPb.png)
 
 ```

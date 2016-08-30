@@ -28,7 +28,7 @@ sub new {
 
 		my $checkIp  = $data -> {'IP'};
 		my $checkTor = $data -> {'IsTor'};
-		
+
 		if ($checkTor) {
 			print "
 				\r\033[1;32m[+]\033[1;37m Nipe: Activated

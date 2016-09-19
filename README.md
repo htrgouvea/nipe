@@ -16,7 +16,7 @@
     [+] TWITTER:      https://twitter.com/GouveaHeitor
     [+] FACEBOOK:     https://fb.com/GouveaHeitor
 ```
-[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](http://heitorgouvea.me/2016/nipe-script-to-redirect-your-traffic-to-tor-network/)
+[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80#.6cc14ycax)
 
 ####Installing:
 ```

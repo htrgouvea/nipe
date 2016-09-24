@@ -42,18 +42,6 @@
     perl nipe.pl status
 ```
 
-#### Tested on:
-
-* Ubuntu 14.04, 14.10 and 15.04
-* Busen Labs Hydrogen
-* Debian Wheezy 7.9 and Jessie 8.1
-* Lubuntu 15.04
-* Xubuntu 15.04
-* LionSec 3.0
-* Elementary 0.3.2 Freya
-* CrunchBang++ 8
-* RedPear 15.04 and 15.10
-
 #### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**

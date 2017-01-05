@@ -3,7 +3,7 @@
 #########################################################
 # Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2016 Heitor Gouvêa                 #
+# Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -22,7 +22,7 @@ use Nipe::Functions;
 
 sub main {
 	my $command = $ARGV[0];
-	
+
 	switch ($command) {
 		case "help"    { Nipe::Functions -> help(); }
 		case "stop"    { Nipe::Stop -> new(); }

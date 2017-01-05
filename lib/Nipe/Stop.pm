@@ -3,7 +3,7 @@
 #########################################################
 # Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2016 Heitor Gouvêa                 #
+# Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -22,9 +22,9 @@ sub new {
 
 	foreach my $table (@table) {
 		system ("sudo iptables -t $table -F OUTPUT");
-		system ("sudo iptables -t $table -F OUTPUT");	
+		system ("sudo iptables -t $table -F OUTPUT");
 	}
-	
+
 	Nipe::CheckIp -> new();
 }
 

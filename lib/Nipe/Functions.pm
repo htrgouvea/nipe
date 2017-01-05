@@ -3,7 +3,7 @@
 #########################################################
 # Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2016 Heitor Gouvêa                 #
+# Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -27,14 +27,14 @@ sub help {
 	start         Start routing
 	stop          Stop routing
 	status        See status
-	
-	\rNipe developed by Heitor Gouvêa  
+
+	\rNipe developed by Heitor Gouvêa
 	\rCopyright (c) 2015-2016 Heitor Gouvêa\n\n";
 }
 
 sub install {
 	my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
-	
+
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo wget http://heitorgouvea.me/nipe/ubuntu/torrc");

@@ -3,7 +3,7 @@
 #########################################################
 # Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2016 Heitor Gouvêa                 #
+# Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -25,7 +25,7 @@ sub new {
 	my $network    = "10.66.0.0/255.255.0.0";
 
 	my $username = Nipe::Device -> getUsername();
-		
+
 	foreach my $nipe(@table) {
 		my $target = "ACCEPT";
 

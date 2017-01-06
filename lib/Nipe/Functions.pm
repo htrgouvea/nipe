@@ -29,7 +29,7 @@ sub help {
 	status        See status
 
 	\rNipe developed by Heitor Gouvêa
-	\rCopyright (c) 2015-2016 Heitor Gouvêa\n\n";
+	\rCopyright (c) 2015-2017 Heitor Gouvêa\n\n";
 }
 
 sub install {
@@ -58,6 +58,7 @@ sub install {
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
+	system ("sudo systemctl restart tor");
 }
 
 1;

@@ -11,6 +11,7 @@
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
+# [+] TELEGRAM:     @GouveaHeitor                       #
 #########################################################
 
 use Switch;

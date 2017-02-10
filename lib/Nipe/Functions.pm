@@ -38,22 +38,22 @@ sub install {
 
 	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");
-		system ("sudo wget http://heitorgouvea.me/nipe/ubuntu/torrc");
+		system ("sudo wget http://gouveaheitor.github.io/nipe/ubuntu/torrc");
 	}
 
 	elsif ($os =~ /[A,a]rch/) {
 		system ("sudo pacman -S tor iptables");
-		system ("sudo wget http://heitorgouvea.me/nipe/arch/torrc");
+		system ("sudo wget http://gouveaheitor.github.io/nipe/arch/torrc");
 	}
 
 	elsif ($os =~ /[F,f]edora/) {
 		system ("sudo dnf install tor iptables");
-		system ("sudo wget http://heitorgouvea.me/nipe/fedora/torrc");
+		system ("sudo wget http://gouveaheitor.github.io/nipe/fedora/torrc");
 	}
 
 	else {
 		system ("sudo pacman -S tor iptables");
-		system ("sudo wget http://heitorgouvea.me/nipe/arch/torrc");
+		system ("sudo wget http://gouveaheitor.github.io/nipe/arch/torrc");
 	}
 
 	system ("sudo mkdir -p /etc/tor");

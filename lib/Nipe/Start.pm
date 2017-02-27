@@ -27,47 +27,47 @@ sub new {
 
 	my $username = Nipe::Device -> getUsername();
 
-	foreach my $nipe(@table) {
+	foreach my $table (@table) {
 		my $target = "ACCEPT";
 
-		if ($nipe eq "nat") {
+		if ($table eq "nat") {
 			$target = "RETURN";
 		}
 
-		system ("sudo iptables -t $nipe -F OUTPUT");
-		system ("sudo iptables -t $nipe -A OUTPUT -m state --state ESTABLISHED -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -m owner --uid $username -j $target");
+		system ("sudo iptables -t $table -F OUTPUT");
+		system ("sudo iptables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $username -j $target");
 
 		my $match_dns_port = $dns_port;
 
-		if ($nipe eq "nat") {
+		if ($table eq "nat") {
 			$target = "REDIRECT --to-ports $dns_port";
 			$match_dns_port = "53";
 		}
 
-		system ("sudo iptables -t $nipe -A OUTPUT -p udp --dport $match_dns_port -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -p tcp --dport $match_dns_port -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -p udp --dport $match_dns_port -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -p tcp --dport $match_dns_port -j $target");
 
-		if ($nipe eq "nat") {
+		if ($table eq "nat") {
 			$target = "REDIRECT --to-ports $trans_port";
 		}
 
-		system ("sudo iptables -t $nipe -A OUTPUT -d $network -p tcp -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -d $network -p tcp -j $target");
 
-		if ($nipe eq "nat") {
+		if ($table eq "nat") {
 			$target = "RETURN";
 		}
 
-		system ("sudo iptables -t $nipe -A OUTPUT -d 127.0.0.1/8    -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -d 192.168.0.0/16 -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -d 172.16.0.0/12  -j $target");
-		system ("sudo iptables -t $nipe -A OUTPUT -d 10.0.0.0/8     -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -d 127.0.0.1/8    -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -d 192.168.0.0/16 -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -d 172.16.0.0/12  -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -d 10.0.0.0/8     -j $target");
 
-		if ($nipe eq "nat") {
+		if ($table eq "nat") {
 			$target = "REDIRECT --to-ports $trans_port";
 		}
 
-		system ("sudo iptables -t $nipe -A OUTPUT -p tcp -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -p tcp -j $target");
 	}
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");

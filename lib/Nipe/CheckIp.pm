@@ -20,9 +20,9 @@ use JSON;
 use LWP::UserAgent;
 
 sub new {
-	my $api_check = "https://check.torproject.org/api/ip";
-	my $useragent = LWP::UserAgent -> new();
-	my $request   = $useragent -> get($api_check);
+	my $apiCheck = "https://check.torproject.org/api/ip";
+	my $userAgent = LWP::UserAgent -> new();
+	my $request   = $userAgent -> get($apiCheck);
 	my $httpCode  = $request -> code();
 
 	if ($httpCode == "200") {

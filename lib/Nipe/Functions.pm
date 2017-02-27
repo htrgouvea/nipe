@@ -24,7 +24,7 @@ sub help {
 	\r==============
 	Command       Description
 	-------       -----------
-	help          Show help menu
+	install       Install dependencies
 	start         Start routing
 	stop          Stop routing
 	status        See status

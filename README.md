@@ -31,10 +31,10 @@
 #### Commands:
 ```
     COMMAND          FUNCTION
-    install          install dependencies
-    start            start routing
-    stop             stop routing
-    status           see status
+    install          Install dependencies
+    start            Start routing
+    stop             Stop routing
+    status           See status
 
     Examples:
 

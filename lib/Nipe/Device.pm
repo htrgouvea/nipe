@@ -16,24 +16,24 @@
 
 package Nipe::Device;
 
-my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+my $operationalSystem = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
 sub getUsername {
 	my $username;
 
-	if ($os =~ /[U,u]buntu/) {
+	if ($operationalSystem =~ /[U,u]buntu/) {
 		$username = "debian-tor";
 	}
 
-	elsif ($os =~ /[D,d]ebian/) {
+	elsif ($operationalSystem =~ /[D,d]ebian/) {
 		$username = "debian-tor";
 	}
 
-	elsif ($os =~ /[F,f]edora/) {
+	elsif ($operationalSystem =~ /[F,f]edora/) {
 		$username = "toranon";
 	}
 
-	elsif ($os =~ /[A,a]rch/) {
+	elsif ($operationalSystem =~ /[A,a]rch/) {
 		$username = "tor";
 	}
 

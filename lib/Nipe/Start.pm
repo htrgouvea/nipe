@@ -20,10 +20,10 @@ use Nipe::Device;
 use Nipe::CheckIp;
 
 sub new {
-	my $dns_port   = "9061";
-	my $trans_port = "9051";
-	my @table      = ("nat", "filter");
-	my $network    = "10.66.0.0/255.255.0.0";
+	my $dnsPort      = "9061";
+	my $transferPort = "9051";
+	my @table        = ("nat", "filter");
+	my $network      = "10.66.0.0/255.255.0.0";
 
 	my $username = Nipe::Device -> getUsername();
 
@@ -38,18 +38,18 @@ sub new {
 		system ("sudo iptables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target");
 		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $username -j $target");
 
-		my $match_dns_port = $dns_port;
+		my $matchDnsPort = $dnsPort;
 
 		if ($table eq "nat") {
-			$target = "REDIRECT --to-ports $dns_port";
-			$match_dns_port = "53";
+			$target = "REDIRECT --to-ports $dnsPort";
+			$matchDnsPort = "53";
 		}
 
-		system ("sudo iptables -t $table -A OUTPUT -p udp --dport $match_dns_port -j $target");
-		system ("sudo iptables -t $table -A OUTPUT -p tcp --dport $match_dns_port -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -p udp --dport $matchDnsPort -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -p tcp --dport $matchDnsPort -j $target");
 
 		if ($table eq "nat") {
-			$target = "REDIRECT --to-ports $trans_port";
+			$target = "REDIRECT --to-ports $transferPort";
 		}
 
 		system ("sudo iptables -t $table -A OUTPUT -d $network -p tcp -j $target");
@@ -64,7 +64,7 @@ sub new {
 		system ("sudo iptables -t $table -A OUTPUT -d 10.0.0.0/8     -j $target");
 
 		if ($table eq "nat") {
-			$target = "REDIRECT --to-ports $trans_port";
+			$target = "REDIRECT --to-ports $transferPort";
 		}
 
 		system ("sudo iptables -t $table -A OUTPUT -p tcp -j $target");

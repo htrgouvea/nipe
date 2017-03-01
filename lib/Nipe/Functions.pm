@@ -34,19 +34,19 @@ sub help {
 }
 
 sub install {
-	my $os = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+	my $operationalSystem = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
 
-	if (($os =~ /[U,u]buntu/) || ($os =~ /[D,d]ebian/)) {
+	if (($operationalSystem =~ /[U,u]buntu/) || ($operationalSystem =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo wget http://gouveaheitor.github.io/nipe/ubuntu/torrc");
 	}
 
-	elsif ($os =~ /[A,a]rch/) {
+	elsif ($operationalSystem =~ /[A,a]rch/) {
 		system ("sudo pacman -S tor iptables");
 		system ("sudo wget http://gouveaheitor.github.io/nipe/arch/torrc");
 	}
 
-	elsif ($os =~ /[F,f]edora/) {
+	elsif ($operationalSystem =~ /[F,f]edora/) {
 		system ("sudo dnf install tor iptables");
 		system ("sudo wget http://gouveaheitor.github.io/nipe/fedora/torrc");
 	}

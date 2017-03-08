@@ -6,7 +6,7 @@
 # Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hgouvea@protonmail.com              #
+# [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] SITE:         http://heitorgouvea.me              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #

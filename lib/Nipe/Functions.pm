@@ -6,7 +6,7 @@
 # Copyright (c) 2015-2017 Heitor Gouvêa                 #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hgouvea@protonmail.com              #
+# [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] SITE:         http://heitorgouvea.me              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
@@ -20,42 +20,41 @@ use Nipe::Device;
 
 sub help {
 	print "
-	\r\033[1;37mCore Commands
-	\r==============
-	Command       Description
-	-------       -----------
-	install       Install dependencies
-	start         Start routing
-	stop          Stop routing
-	status        See status
+		\r\033[1;37mCore Commands
+		\r==============
+		\r\tCommand       Description
+		\r\t-------       -----------
+		\r\tinstall       Install dependencies
+		\r\tstart         Start routing
+		\r\tstop          Stop routing
+		\r\tstatus        See status
 
-	\rNipe developed by Heitor Gouvêa
-	\rCopyright (c) 2015-2017 Heitor Gouvêa\n\n";
+		\rNipe developed by Heitor Gouvêa
+		\rCopyright (c) 2015-2017 Heitor Gouvêa\n\n";
 }
 
 sub install {
-	my $operationalSystem = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+	my $operationalSystem = `cat /etc/os-release | grep 'ID_LIKE' | cut -d '=' -f 2`;
+
+	chomp ($operationalSystem);
 
 	if (($operationalSystem =~ /[U,u]buntu/) || ($operationalSystem =~ /[D,d]ebian/)) {
 		system ("sudo apt-get install tor iptables");
-		system ("sudo wget http://gouveaheitor.github.io/nipe/ubuntu/torrc");
 	}
 
 	elsif ($operationalSystem =~ /[A,a]rch/) {
 		system ("sudo pacman -S tor iptables");
-		system ("sudo wget http://gouveaheitor.github.io/nipe/arch/torrc");
 	}
 
 	elsif ($operationalSystem =~ /[F,f]edora/) {
 		system ("sudo dnf install tor iptables");
-		system ("sudo wget http://gouveaheitor.github.io/nipe/fedora/torrc");
 	}
 
 	else {
 		system ("sudo pacman -S tor iptables");
-		system ("sudo wget http://gouveaheitor.github.io/nipe/arch/torrc");
 	}
 
+	system("sudo wget http://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");

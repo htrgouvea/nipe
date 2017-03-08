@@ -12,7 +12,7 @@
 ```
     [+] AUTOR:        Heitor Gouvêa
     [+] SITE:         http://heitorgouvea.me
-    [+] EMAIL:        hgouvea@protonmail.com
+    [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TWITTER:      https://twitter.com/GouveaHeitor
     [+] FACEBOOK:     https://fb.com/GouveaHeitor
@@ -46,7 +46,7 @@
 
 #### Bugs
 
-- Report bugs in my email: **hgouvea@protonmail.com**
+- Report bugs in my email: **hi@heitorgouvea.me**
 
 #### License
 

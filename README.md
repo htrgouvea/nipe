@@ -1,7 +1,17 @@
 
 # Nipe
 
-***Nipe is a script to make Tor Network your default gateway.***
+```
+    Tor enables users to surf the Internet, chat and send instant messages anonymously,
+    and is used by a wide variety of people for both Licit and Illicit purposes.
+    Tor has, for example, been used by criminals enterprises, Hacktivism groups, and law enforcement
+    agencies at cross purposes, sometimes simultaneously.
+
+    Nipe is a Script to make Tor Network your Default Gateway.
+
+    This Perl Script enables you to directly route all your traffic from your computer to the Tor
+    Network through which you can surf the Internet Anonymously without having to worry about being tracked or traced back.
+```
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/nipe)

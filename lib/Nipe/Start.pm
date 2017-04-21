@@ -17,7 +17,6 @@
 package Nipe::Start;
 
 use Nipe::Device;
-use Nipe::CheckIp;
 
 sub new {
 	my $dnsPort      = "9061";
@@ -72,8 +71,6 @@ sub new {
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
-
-	Nipe::CheckIp -> new();
 }
 
 1;

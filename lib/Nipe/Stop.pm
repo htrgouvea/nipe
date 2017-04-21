@@ -16,8 +16,6 @@
 
 package Nipe::Stop;
 
-use Nipe::CheckIp;
-
 sub new {
 	my @table = ("nat", "filter");
 
@@ -25,8 +23,6 @@ sub new {
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -F OUTPUT");
 	}
-
-	Nipe::CheckIp -> new();
 }
 
 1;

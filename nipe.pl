@@ -25,12 +25,31 @@ sub main {
 	my $command = $ARGV[0];
 
 	switch ($command) {
-		case "help"    { Nipe::Functions -> help(); }
-		case "stop"    { Nipe::Stop -> new(); }
-		case "start"   { Nipe::Start -> new(); }
-		case "status"  { Nipe::CheckIp -> new(); }
-		case "install" { Nipe::Functions -> install(); }
-		else           { Nipe::Functions -> help(); }
+		case "help" {
+			Nipe::Functions -> help();
+		}
+
+		case "stop" {
+			Nipe::Stop -> new();
+			Nipe::CheckIp -> new();
+		}
+
+		case "start" {
+			Nipe::Start -> new();
+			Nipe::CheckIp -> new();
+		}
+
+		case "status" {
+			Nipe::CheckIp -> new();
+		}
+
+		case "install" {
+			Nipe::Functions -> install();
+		}
+
+		else {
+			Nipe::Functions -> help();
+		}
 	}
 }
 

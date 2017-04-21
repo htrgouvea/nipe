@@ -34,19 +34,17 @@ sub help {
 }
 
 sub install {
-	my $operationalSystem = `cat /etc/os-release | grep 'ID_LIKE' | cut -d '=' -f 2`;
+	my $operationalSystem = Nipe::Device -> getSystem();
 
-	chomp ($operationalSystem);
-
-	if (($operationalSystem =~ /[U,u]buntu/) || ($operationalSystem =~ /[D,d]ebian/)) {
+	if ($operationalSystem == "debian") {
 		system ("sudo apt-get install tor iptables");
 	}
 
-	elsif ($operationalSystem =~ /[A,a]rch/) {
+	elsif ($operationalSystem == "arch") {
 		system ("sudo pacman -S tor iptables");
 	}
 
-	elsif ($operationalSystem =~ /[F,f]edora/) {
+	elsif ($operationalSystem == "fedora") {
 		system ("sudo dnf install tor iptables");
 	}
 

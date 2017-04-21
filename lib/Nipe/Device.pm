@@ -44,4 +44,30 @@ sub getUsername {
 	return $username;
 }
 
+sub getSystem {
+	my $mySystem;
+
+	if ($operationalSystem =~ /[U,u]buntu/) {
+		$mySystem = "debian";
+	}
+
+	elsif ($operationalSystem =~ /[D,d]ebian/) {
+		$mySystem = "debian";
+	}
+
+	elsif ($operationalSystem =~ /[F,f]edora/) {
+		$mySystem = "fedora";
+	}
+
+	elsif ($operationalSystem =~ /[A,a]rch/) {
+		$mySystem = "arch";
+	}
+
+	else {
+		$mySystem = "debian";
+	}
+
+	return $mySystem;
+}
+
 1;

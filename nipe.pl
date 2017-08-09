@@ -9,8 +9,6 @@
 # [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] SITE:         http://heitorgouvea.me              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
-# [+] TWITTER:      https://twitter.com/GouveaHeitor    #
-# [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 # [+] TELEGRAM:     @GouveaHeitor                       #
 #########################################################
 

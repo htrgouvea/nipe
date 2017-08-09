@@ -10,9 +10,12 @@
     [+] SITE:         http://heitorgouvea.me
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TWITTER:      https://twitter.com/GouveaHeitor
-    [+] FACEBOOK:     https://fb.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
+```
+
+[**See the tutorial on how to use the Nipe**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80)
+
+#### How it works
 
     Tor enables users to surf the Internet, chat and send instant messages
     anonymously,  and is used by a wide variety of people for both Licit and
@@ -25,9 +28,6 @@
     This Perl Script enables you to directly route all your traffic from your
     computer to the Tor Network through which you can surf the Internet Anonymously
     without having to worry about being tracked or traced back.
-```
-
-[**See the tutorial on how to use the Nipe :smile: :camel: :metal: :zap:**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80)
 
 #### Download and install:
 ```

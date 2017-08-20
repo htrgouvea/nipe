@@ -26,7 +26,7 @@ sub new {
 		}
 
 		print "
-			\r\033[1;32m[+]\033[1;37m Status: $checkTor
+			\r\033[1;32m[+]\033[1;37m Status: $checkTor.
 			\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
 	}
 

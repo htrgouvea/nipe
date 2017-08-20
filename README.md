@@ -13,7 +13,7 @@
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
-[**See the tutorial on how to use the Nipe**](https://medium.com/@heitorgouvea/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80)
+[**See the tutorial on how to use the Nipe**](https://medium.com/@gouveaheitor/nipe-script-to-redirect-all-traffic-from-the-machine-to-the-tor-network-5f01a083fc80)
 
 #### How it works
 

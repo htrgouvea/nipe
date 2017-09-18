@@ -38,7 +38,7 @@ sub install {
 		system ("sudo pacman -S tor iptables");
 	}
 
-	system("sudo wget http://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
+	system("sudo wget https://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");

@@ -3,17 +3,17 @@
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Version-Program](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/GouveaHeitor/nipe/releases)
 
-![Imagem](http://i.imgur.com/1XjfHPb.png)
+![Imagem](https://i.imgur.com/1XjfHPb.png)
 
 ```
     [+] AUTOR:        Heitor Gouvêa
-    [+] SITE:         http://heitorgouvea.me
+    [+] SITE:         https://heitorgouvea.me
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
-[**See complete documentation here**](http://heitorgouvea.me/nipe/)
+[**See complete documentation here**](https://heitorgouvea.me/nipe/)
 
 #### How it works
 

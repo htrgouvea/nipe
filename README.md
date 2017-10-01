@@ -50,6 +50,7 @@
     perl nipe.pl install
     perl nipe.pl start
     perl nipe.pl stop
+    perl nipe.pl restart
     perl nipe.pl status
 ```
 

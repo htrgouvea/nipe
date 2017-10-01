@@ -41,6 +41,12 @@ sub main {
 			Nipe::CheckIp -> new();
 		}
 
+		case "restart" {
+			Nipe::Stop -> new();
+			Nipe::Start -> new();
+			Nipe::CheckIp -> new();
+		}
+
 		case "install" {
 			Nipe::Functions -> install();
 		}

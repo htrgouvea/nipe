@@ -13,6 +13,7 @@ sub help {
 		\r\tinstall       Install dependencies
 		\r\tstart         Start routing
 		\r\tstop          Stop routing
+		\r\trestart       Restart the nipe process
 		\r\tstatus        See status
 
 		\rNipe developed by Heitor Gouvêa
@@ -24,6 +25,10 @@ sub install {
 
 	if ($operationalSystem == "debian") {
 		system ("sudo apt-get install tor iptables");
+		system ("sudo wget https://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
+		system ("sudo mkdir -p /etc/tor");
+		system ("sudo mv torrc /etc/tor/torrc");
+		system ("sudo chmod 644 /etc/tor/torrc");
 	}
 
 	elsif ($operationalSystem == "arch") {
@@ -32,16 +37,16 @@ sub install {
 
 	elsif ($operationalSystem == "fedora") {
 		system ("sudo dnf install tor iptables");
+		system ("sudo wget https://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
+		system ("sudo mkdir -p /etc/tor");
+		system ("sudo mv torrc /etc/tor/torrc");
+		system ("sudo chmod 644 /etc/tor/torrc");
 	}
 
 	else {
 		system ("sudo pacman -S tor iptables");
 	}
 
-	system("sudo wget https://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
-	system ("sudo mkdir -p /etc/tor");
-	system ("sudo mv torrc /etc/tor/torrc");
-	system ("sudo chmod 644 /etc/tor/torrc");
 	system ("sudo systemctl restart tor");
 }
 

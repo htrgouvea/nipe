@@ -42,6 +42,7 @@
     install          Install dependencies
     start            Start routing
     stop             Stop routing
+    restart          Restart the nipe process
     status           See status
 
     Examples:

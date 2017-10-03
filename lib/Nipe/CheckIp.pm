@@ -6,7 +6,7 @@ use JSON;
 use LWP::UserAgent;
 
 sub new {
-	my $apiCheck = "https://check.torproject.org/api/ip";
+	my $apiCheck  = "https://check.torproject.org/api/ip";
 	my $userAgent = LWP::UserAgent -> new();
 	my $request   = $userAgent -> get($apiCheck);
 	my $httpCode  = $request -> code();

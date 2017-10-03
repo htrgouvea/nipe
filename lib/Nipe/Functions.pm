@@ -13,7 +13,7 @@ sub help {
 		\r\tinstall       Install dependencies
 		\r\tstart         Start routing
 		\r\tstop          Stop routing
-		\r\trestart       Restart the nipe process
+		\r\trestart       Restart the Nipe process
 		\r\tstatus        See status
 
 		\rNipe developed by Heitor Gouvêa

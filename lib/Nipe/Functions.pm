@@ -44,6 +44,7 @@ sub install {
 	system ("sudo mkdir -p /etc/tor");
 	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
+	system ("sudo systemctl enable tor");
 	system ("sudo systemctl restart tor");
 }
 

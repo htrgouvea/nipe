@@ -12,8 +12,6 @@ sub new {
 
 	my $username = Nipe::Device -> getUsername();
 
-	system ("sudo systemctl start tor");
-
 	foreach my $table (@table) {
 		my $target = "ACCEPT";
 

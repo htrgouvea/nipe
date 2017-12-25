@@ -2,7 +2,7 @@
 
 package Nipe::Device;
 
-my $operationalSystem = `cat /etc/os-release | grep 'ID' | cut -d '=' -f 2`;
+my $operationalSystem = `cat /etc/os-release | grep 'ID_LIKE' | cut -d '=' -f 2`;
 
 sub getUsername {
 	my $username;

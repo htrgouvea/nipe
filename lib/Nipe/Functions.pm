@@ -17,7 +17,7 @@ sub help {
 		\r\tstatus        See status
 
 		\rNipe developed by Heitor Gouvêa
-		\rCopyright (c) 2015-2017 Heitor Gouvêa\n\n";
+		\rCopyright (c) 2015-2018 Heitor Gouvêa\n\n";
 }
 
 sub install {

@@ -57,6 +57,9 @@ sub new {
 
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
+	system ("sudo systemctl start tor");
+	
+	return true;
 }
 
 1;

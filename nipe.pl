@@ -23,10 +23,6 @@ sub main {
 	my $command = $ARGV[0];
 
 	switch ($command) {
-		case "help" {
-			Nipe::Functions -> help();
-		}
-
 		case "stop" {
 			Nipe::Stop -> new();
 			Nipe::CheckIp -> new();
@@ -34,6 +30,7 @@ sub main {
 
 		case "start" {
 			Nipe::Start -> new();
+			sleep(1);
 			Nipe::CheckIp -> new();
 		}
 

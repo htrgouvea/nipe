@@ -9,6 +9,10 @@ sub new {
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -F OUTPUT");
 	}
+
+	system("sudo systemctl stop tor");
+
+	return true;
 }
 
 1;

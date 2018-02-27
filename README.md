@@ -64,4 +64,4 @@
 
 #### Contribution
 
-- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕) [See here the contribution guidelines](CONTRIBUTING)
+- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕) [See here the contribution guidelines](CONTRIBUTING.md)

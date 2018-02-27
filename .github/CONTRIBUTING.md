@@ -3,7 +3,7 @@
 
 ## License
 
-By opening a pull request in this repository, you agree to provide your work under the [project license](LICENSE).
+By opening a pull request in this repository, you agree to provide your work under the [project license](../LICENSE.md).
 
 ## Great Re-Writings
 

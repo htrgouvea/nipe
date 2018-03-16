@@ -8,7 +8,7 @@ sub getUsername {
 	my $username;
 
 	if ($operationalSystem =~ /[U,u]buntu/) {
-		$username = "debian-tor";
+		$username = "tor";
 	}
 
 	elsif ($operationalSystem =~ /[D,d]ebian/) {
@@ -31,29 +31,29 @@ sub getUsername {
 }
 
 sub getSystem {
-	my $mySystem;
+	my $distribution;
 
 	if ($operationalSystem =~ /[U,u]buntu/) {
-		$mySystem = "debian";
+		$distribution = "debian";
 	}
 
 	elsif ($operationalSystem =~ /[D,d]ebian/) {
-		$mySystem = "debian";
+		$distribution = "debian";
 	}
 
 	elsif ($operationalSystem =~ /[F,f]edora/) {
-		$mySystem = "fedora";
+		$distribution = "fedora";
 	}
 
 	elsif ($operationalSystem =~ /[A,a]rch/) {
-		$mySystem = "arch";
+		$distribution = "arch";
 	}
 
 	else {
-		$mySystem = "debian";
+		$distribution = "debian";
 	}
 
-	return $mySystem;
+	return $distribution;
 }
 
 1;

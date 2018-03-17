@@ -25,13 +25,10 @@ sub main {
 	switch ($command) {
 		case "stop" {
 			Nipe::Stop -> new();
-			Nipe::CheckIp -> new();
 		}
 
 		case "start" {
 			Nipe::Start -> new();
-			sleep(2);
-			Nipe::CheckIp -> new();
 		}
 
 		case "status" {
@@ -41,8 +38,6 @@ sub main {
 		case "restart" {
 			Nipe::Stop -> new();
 			Nipe::Start -> new();
-			sleep(2);
-			Nipe::CheckIp -> new();
 		}
 
 		case "install" {

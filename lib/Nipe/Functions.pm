@@ -23,25 +23,28 @@ sub help {
 sub install {
 	my $operationalSystem = Nipe::Device -> getSystem();
 
+	system ("sudo mkdir -p /etc/tor");
+
 	if ($operationalSystem == "debian") {
 		system ("sudo apt-get install tor iptables");
+		system ("sudo mv .configs/debian-torrc /etc/tor/torrc");
 	}
 
 	elsif ($operationalSystem == "arch") {
 		system ("sudo pacman -S tor iptables");
+		system ("sudo mv .configs/arch-torrc /etc/tor/torrc");
 	}
 
 	elsif ($operationalSystem == "fedora") {
 		system ("sudo dnf install tor iptables");
+		system ("sudo mv .configs/fedora-torrc /etc/tor/torrc");
 	}
 
 	else {
-		system ("sudo pacman -S tor iptables");
+		system ("sudo apt install tor iptables");
+		system ("sudo mv .configs/debian-torrc /etc/tor/torrc");
 	}
 
-	system ("sudo wget https://gouveaheitor.github.io/nipe/$operationalSystem/torrc");
-	system ("sudo mkdir -p /etc/tor");
-	system ("sudo mv torrc /etc/tor/torrc");
 	system ("sudo chmod 644 /etc/tor/torrc");
 	system ("sudo systemctl stop tor");
 }

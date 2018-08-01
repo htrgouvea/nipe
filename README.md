@@ -68,4 +68,4 @@
 
 #### Disclaimer
 
-I do private jobs, if you are interesting send me an e-mail at: hi@heitorgouvea.me
+I do private jobs, if you are interesting send me an e-mail at: **hi@heitorgouvea.me**

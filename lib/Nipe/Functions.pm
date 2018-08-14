@@ -41,8 +41,8 @@ sub install {
 	}
 
 	else {
-		system ("sudo apt install tor iptables");
-		system ("sudo cp .configs/debian-torrc /etc/tor/torrc");
+		system ("sudo pacman -S tor iptables");
+		system ("sudo cp .configs/arch-torrc /etc/tor/torrc");
 	}
 
 	system ("sudo chmod 644 /etc/tor/torrc");

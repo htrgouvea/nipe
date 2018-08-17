@@ -25,17 +25,17 @@ sub install {
 
 	system ("sudo mkdir -p /etc/tor");
 
-	if ($operationalSystem == "debian") {
+	if ($operationalSystem eq "debian") {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo cp .configs/debian-torrc /etc/tor/torrc");
 	}
 
-	elsif ($operationalSystem == "arch") {
+	elsif ($operationalSystem eq "arch") {
 		system ("sudo pacman -S tor iptables");
 		system ("sudo cp .configs/arch-torrc /etc/tor/torrc");
 	}
 
-	elsif ($operationalSystem == "fedora") {
+	elsif ($operationalSystem eq "fedora") {
 		system ("sudo dnf install tor iptables");
 		system ("sudo cp .configs/fedora-torrc /etc/tor/torrc");
 	}

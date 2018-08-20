@@ -9,7 +9,7 @@
 # [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] SITE:         https://heitorgouvea.me             #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
-# [+] TELEGRAM:     @GouveaHeitor                       #
+# [+] TWITTER:      @GouveaHeitor                       #
 #########################################################
 
 use Switch;

@@ -10,7 +10,7 @@ sub new {
 		system ("sudo iptables -t $table -F OUTPUT");
 	}
 
-	system("sudo systemctl stop tor");
+	system("sudo /etc/init.d/tor stop > /dev/null");
 
 	return true;
 }

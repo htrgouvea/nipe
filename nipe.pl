@@ -44,9 +44,7 @@ sub main {
 			Nipe::Functions -> install();
 		}
 
-		else {
-			Nipe::Functions -> help();
-		}
+		Nipe::Functions -> help();
 	}
 }
 

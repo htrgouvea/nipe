@@ -17,16 +17,16 @@
 
 #### How it works
 
-    Tor enables users to surf the Internet, chat and send instant messages
-    anonymously,  and is used by a wide variety of people for both Licit and
-    Illicit purposes. Tor has, for example, been used by criminals enterprises,
-    Hacktivism groups, and law enforcement  agencies at cross purposes, sometimes
+    Tor enables users to surf the internet, chat and send instant messages
+    anonymously,  and is used by a wide variety of people for both licit and
+    illicit purposes. Tor has, for example, been used by criminals enterprises,
+    hacktivism groups, and law enforcement  agencies at cross purposes, sometimes
     simultaneously.
 
-    Nipe is a Script to make Tor Network your Default Gateway.
+    Nipe is a script to make the Tor network your default gateway.
 
-    This Perl Script enables you to directly route all your traffic from your
-    computer to the Tor Network through which you can surf the Internet Anonymously
+    This Perl script enables you to directly route all your traffic from your
+    computer to the Tor network through which you can surf the internet anonymously
     without having to worry about being tracked or traced back.
 
 #### Download and install:

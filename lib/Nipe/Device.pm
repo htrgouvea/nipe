@@ -15,13 +15,17 @@ sub getUsername {
 		$username = "debian-tor";
 	}
 
-	elsif (($operationalSystem =~ /[F,f]edora/) || ($operationalSystem =~ /[C,c]entos/) ) {
+	elsif (($operationalSystem =~ /[F,f]edora/) || ($operationalSystem =~ /[C,c]entos/)) {
 		$username = "toranon";
 	}
 
 	elsif ($operationalSystem =~ /[A,a]rch/) {
 		$username = "tor";
 	}
+
+  elsif {
+      $username = "toranon";
+  }
 
 	else {
 		$username = "tor";
@@ -33,11 +37,7 @@ sub getUsername {
 sub getSystem {
 	my $distribution;
 
-	if ($operationalSystem =~ /[U,u]buntu/) {
-		$distribution = "debian";
-	}
-
-	elsif ($operationalSystem =~ /[D,d]ebian/) {
+	if (($operationalSystem =~ /[U,u]buntu/) || ($operationalSystem =~ /[D,d]ebian/)) {
 		$distribution = "debian";
 	}
 

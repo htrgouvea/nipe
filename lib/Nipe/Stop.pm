@@ -9,13 +9,15 @@ sub new {
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -F OUTPUT");
 	}
-	
-	if ( -e "/etc/init.d/tor") {
+
+	if (-e "/etc/init.d/tor") {
 		system ("sudo /etc/init.d/tor stop > /dev/null");
-	} else { 
+	}
+
+	else {
 		system ("sudo systemctl stop tor");
 	}
-	
+
 	return true;
 }
 

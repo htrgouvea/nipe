@@ -2,7 +2,7 @@
 
 package Nipe::Device;
 
-my $operationalSystem = `awk -F= '$1=="ID" { print $2 ;}' /etc/os-release`;
+my $operationalSystem = `awk -F= '\$1=="ID" { print \$2 ;}' /etc/os-release`;
 
 sub getUsername {
 	my $username;
@@ -22,6 +22,10 @@ sub getUsername {
 	elsif ($operationalSystem =~ /[A,a]rch/) {
 		$username = "tor";
 	}
+
+    elsif ($operationalSystem =~ /[C,c]entos/) {
+        $username = "toranon"; 
+    }
 
 	else {
 		$username = "tor";

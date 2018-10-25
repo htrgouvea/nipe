@@ -39,11 +39,11 @@ sub install {
 		system ("sudo dnf install tor iptables");
 		system ("sudo cp .configs/fedora-torrc /etc/tor/torrc");
 	}
-	elsif ($operationalSystem eq "fedora") {
+
+	elsif ($operationalSystem eq "centos") {
 		system ("sudo yum install epel-release tor iptables");
 		system ("sudo cp .configs/centos-torrc /etc/tor/torrc");
 	}
-
 
 	else {
 		system ("sudo pacman -S tor iptables");

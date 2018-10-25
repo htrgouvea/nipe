@@ -23,8 +23,8 @@ sub getUsername {
 		$username = "tor";
 	}
 
-    elsif ($operationalSystem =~ /[C,c]entos/) {
-        $username = "toranon"; 
+    	elsif ($operationalSystem =~ /[C,c]entos/) {
+        	$username = "toranon"; 
     }
 
 	else {

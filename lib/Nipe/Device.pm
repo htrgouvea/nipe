@@ -25,7 +25,7 @@ sub getUsername {
 
     	elsif ($operationalSystem =~ /[C,c]entos/) {
         	$username = "toranon"; 
-    }
+    	}
 
 	else {
 		$username = "tor";

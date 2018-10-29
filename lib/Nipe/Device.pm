@@ -23,10 +23,6 @@ sub getUsername {
 		$username = "tor";
 	}
 
-  elsif {
-      $username = "toranon";
-  }
-
 	else {
 		$username = "tor";
 	}
@@ -48,6 +44,7 @@ sub getSystem {
 	elsif ($operationalSystem =~ /[A,a]rch/) {
 		$distribution = "arch";
 	}
+
 	elsif ($operationalSystem =~ /[C,c]entos/) {
 		$distribution = "centos"
 	}

@@ -3,8 +3,6 @@
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
 [![Version-Program](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/GouveaHeitor/nipe/releases)
 
-![Imagem](https://i.imgur.com/1XjfHPb.png)
-
 ```
     [+] AUTOR:        Heitor Gouvêa
     [+] SITE:         https://heitorgouvea.me

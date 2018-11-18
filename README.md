@@ -1,14 +1,25 @@
-# Nipe
+<p align="center">
+  <h3 align="center">Nipe</h3>
+  <p align="center">A script to make Tor Network your default gateway.</p>
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
-[![Version-Program](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/GouveaHeitor/nipe/releases)
+  <p align="center">
+    <a href="https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md">
+      <img src="https://img.shields.io/badge/license-MIT-blue.svg">
+    </a>
+    <a href="https://github.com/GouveaHeitor/nipe/releases">
+      <img src="https://img.shields.io/badge/version-1.0-blue.svg">
+    </a>
+  </p>
+</p>
+
+---
 
 ```
     [+] AUTOR:        Heitor Gouvêa
     [+] SITE:         https://heitorgouvea.me
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TELEGRAM:     @GouveaHeitor
+    [+] TWITTER:      @GouveaHeitor
 ```
 
 [**See complete documentation here**](https://heitorgouvea.me/nipe/)

@@ -12,6 +12,15 @@ sub new {
 
 	my $username = Nipe::Device -> getUsername();
 
+
+	if (-e "/etc/init.d/tor") {
+		system ("sudo /etc/init.d/tor start > /dev/null");
+	}
+
+	else {
+		system ("sudo systemctl start tor");
+	}
+	
 	foreach my $table (@table) {
 		my $target = "ACCEPT";
 
@@ -58,13 +67,6 @@ sub new {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	if (-e "/etc/init.d/tor") {
-		system ("sudo /etc/init.d/tor start > /dev/null");
-	}
-
-	else {
-		system ("sudo systemctl start tor");
-	}
 	return true;
 }
 

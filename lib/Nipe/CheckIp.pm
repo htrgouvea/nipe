@@ -27,11 +27,11 @@ sub new {
 
 		print "
 			\r\033[1;32m[+]\033[1;37m Status: $checkTor.
-			\r\033[1;32m[+]\033[1;37m Ip: $checkIp\n\n";
+			\r\033[1;32m[+]\033[1;37m Ip: $checkIp\033[0m\n\n";
 	}
 
 	else {
-		print "\n\033[31m[!]\033[1;37m ERROR: sorry, it was not possible to establish a connection to the server.\n\n";
+		print "\n\033[31m[!]\033[1;37m ERROR: sorry, it was not possible to establish a connection to the server.\033[0m\n\n";
 	}
 }
 

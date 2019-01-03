@@ -6,7 +6,7 @@ use Nipe::Device;
 
 sub help {
 	print "
-		\r\033[1;37mCore Commands
+		\r\Core Commands
 		\r==============
 		\r\tCommand       Description
 		\r\t-------       -----------

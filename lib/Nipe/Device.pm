@@ -2,24 +2,20 @@
 
 package Nipe::Device;
 
-my $operationalSystem = `awk -F= '\$1=="ID_LIKE" { print \$2 ;}' /etc/os-release`;
+my $operationalSystem = `awk -F= '\$1=="ID_LIKE" || \$1=="ID" { print \$2 ;}' /etc/os-release`;
 
 sub getUsername {
 	my $username;
 
-	if ($operationalSystem =~ /[U,u]buntu/) {
-		$username = "tor";
-	}
-
-	elsif ($operationalSystem =~ /[D,d]ebian/) {
+	if (($operationalSystem =~ /[U,u]buntu/) || ($operationalSystem =~ /[D,d]ebian/)) {
 		$username = "debian-tor";
 	}
 
-	elsif (($operationalSystem =~ /[F,f]edora/) || ($operationalSystem =~ /[C,c]entos/)) {
+	elsif ($operationalSystem =~ /[F,f]edora/) {
 		$username = "toranon";
 	}
 
-	elsif ($operationalSystem =~ /[A,a]rch/) {
+	elsif (($operationalSystem =~ /[A,a]rch/) || ($operationalSystem =~ /[C,c]entos/)) {
 		$username = "tor";
 	}
 

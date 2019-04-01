@@ -16,7 +16,6 @@ sub help {
 		\r\trestart       Restart the Nipe process
 		\r\tstatus        See status
 
-		\rNipe developed by Heitor Gouvêa
 		\rCopyright (c) 2015-2018 Heitor Gouvêa\n\n";
 }
 

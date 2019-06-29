@@ -40,6 +40,10 @@
     This Perl script enables you to directly route all your traffic from your
     computer to the Tor network through which you can surf the internet anonymously
     without having to worry about being tracked or traced back.
+    
+    Currently Nipe only supports IPV4, we are working on a solution to add IPV6 support and
+    also only traffic other than DNS requests destined for local/loopback addresses is not passed
+    through Tor. All non-local UDP/ICMP traffic is blocked.
 
 #### Download and install:
 ```

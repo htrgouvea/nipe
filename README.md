@@ -49,7 +49,7 @@
 ```
     git clone https://github.com/GouveaHeitor/nipe
     cd nipe
-    cpan install Switch JSON LWP::UserAgent
+    cpan install Switch JSON LWP::UserAgent Config::Simple
 ```
 
 #### Commands:

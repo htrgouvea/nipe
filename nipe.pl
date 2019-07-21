@@ -3,7 +3,7 @@
 #########################################################
 # Nipe developed by Heitor Gouvêa                       #
 # This work is licensed under MIT License               #
-# Copyright (c) 2015-2018 Heitor Gouvêa                 #
+# Copyright (c) 2015 - 2019 Heitor Gouvêa               #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #

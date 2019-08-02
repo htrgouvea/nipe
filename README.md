@@ -47,9 +47,14 @@
 
 #### Download and install:
 ```
-    git clone https://github.com/GouveaHeitor/nipe
-    cd nipe
-    cpan install Switch JSON LWP::UserAgent Config::Simple
+    # Download
+    $ git clone https://github.com/GouveaHeitor/nipe
+    $ cd nipe
+
+    # Automatic installation
+    $ chmod +x setup.sh
+    $ ./setup.sh
+    
 ```
 
 #### Commands:

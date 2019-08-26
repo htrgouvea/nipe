@@ -12,7 +12,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         sudo apt install -y tor iptables perl
-        cpan install Switch JSON LWP::UserAgent Config::Simple
-        cp .configs/debian-torrc /etc/tor/torrc
-        chmod 644 /etc/tor/torrc
+        sudo cpan install Switch JSON LWP::UserAgent Config::Simple
+        sudo cp .configs/debian-torrc /etc/tor/torrc
+        sudo chmod 644 /etc/tor/torrc
         perl nipe.pl status

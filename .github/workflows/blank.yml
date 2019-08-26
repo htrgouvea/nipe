@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      run: |
+        curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+        cpanm Switch JSON LWP::UserAgent Config::Simple
+        perl nipe.pl install
+        perl nipe.pl status

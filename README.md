@@ -55,6 +55,9 @@
     $ chmod +x setup.sh
     $ ./setup.sh
     
+    # Manual installation
+    $ cpan install Switch JSON LWP::UserAgent Config::Simple
+    $ perl nipe.pl install
 ```
 
 #### Commands:

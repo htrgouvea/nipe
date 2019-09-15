@@ -22,7 +22,6 @@
     [+] SITE:         https://heitorgouvea.me
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TWITTER:      @GouveaHeitor
 ```
 
 [**See complete documentation here**](https://heitorgouvea.me/nipe/)

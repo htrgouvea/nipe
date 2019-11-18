@@ -1,6 +1,6 @@
 # DataDirectory /var/lib/tor
 # PidFile /var/run/tor/tor.pid
-RunAsDaemon 0
+RunAsDaemon 1
 # User tor
 
 # ControlSocket /var/run/tor/control
@@ -11,7 +11,6 @@ RunAsDaemon 0
 # CookieAuthFile /var/run/tor/control.authcookie
 
 # Log notice file /var/log/tor/log
-
 
 # ClientOnly 1
 # TransPort 9051

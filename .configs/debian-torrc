@@ -12,7 +12,6 @@ CookieAuthFile /var/run/tor/control.authcookie
 
 Log notice file /var/log/tor/log
 
-
 ClientOnly 1
 TransPort 9051
 TransListenAddress 127.0.0.1

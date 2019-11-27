@@ -18,5 +18,3 @@
 
 - OS: {Please write here}
 - nipe version: {Please write here}
-
-

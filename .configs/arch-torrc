@@ -20,4 +20,3 @@ DNSListenAddress 127.0.0.1
 
 # VirtualAddrNetwork 10.66.0.0/255.255.0.0
 # AutomapHostsOnResolve 1
-

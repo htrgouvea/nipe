@@ -19,7 +19,8 @@
 ```
   The TOR project allows users to surf the Internet, chat and send instant  messages anonymously through its own mechanism. 
   It is used by a  wide variety of people, companies and organizations, both for lawful activities and for other   illicit purposes. 
-  TOR is already gone and  is used for example by criminal companies, hacking groups, intelligence agencies and even ordinary users who  care about privacy in the  digital world. 
+  TOR is already gone and  is used for example by criminal companies, hacking groups, intelligence agencies and even ordinary users who 
+  care about privacy in the  digital world. 
   
   Nipe is a engine, developed in Perl, that aims to make the TOR network your default network gateway. 
   Through Nipe, we can directly route traffic from our computer to the TOR network through which you can surf the Internet having a 

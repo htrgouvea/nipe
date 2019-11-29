@@ -14,20 +14,16 @@ sub main {
 		case "stop" {
 			Nipe::Stop -> new();
 		}
-
 		case "start" {
 			Nipe::Start -> new();
 		}
-
 		case "status" {
 			Nipe::CheckIp -> new();
 		}
-
 		case "restart" {
 			Nipe::Stop -> new();
 			Nipe::Start -> new();
 		}
-
 		case "install" {
 			Nipe::Functions -> install();
 		}

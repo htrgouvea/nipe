@@ -17,18 +17,19 @@
 
 ### How it works
 ```
-  The TOR project allows users to surf the Internet, chat and send instant  messages anonymously through its own mechanism. 
-  It is used by a  wide variety of people, companies and organizations, both for lawful activities and for other   illicit purposes. 
-  TOR is already gone and  is used for example by criminal companies, hacking groups, intelligence agencies and even ordinary users who 
-  care about privacy in the  digital world. 
+  The TOR project allows users to surf the Internet, chat and send instant  messages anonymously 
+  through its own mechanism. It is used by a  wide variety of people, companies and organizations, 
+  both for lawful activities and for other   illicit purposes. TOR is already gone and  is used for 
+  example by criminal companies, hacking groups, intelligence agencies and even ordinary users who care
+  about privacy in the  digital world. 
   
   Nipe is a engine, developed in Perl, that aims to make the TOR network your default network gateway. 
-  Through Nipe, we can directly route traffic from our computer to the TOR network through which you can surf the Internet having a 
-  more formidable stance on privacy and anonymity in cyberspace.
+  Through Nipe, we can directly route traffic from our computer to the TOR network through which you can 
+  surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
   
   Currently, only IPv4 is supported by Nipe, but we are working on a solution to  add IPv6 support. 
-  Also, only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked.through the TOR.
-  All non-local  UDP / ICMP traffic is also blocked by the TOR project.
+  Also, only traffic other than DNS requests destined for local and/or loopback addresses is not 
+  trafficked through the TOR. All non-local  UDP / ICMP traffic is also blocked by the TOR project.
 ```
 
 

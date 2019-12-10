@@ -10,7 +10,7 @@ sub new {
 	my $userAgent = LWP::UserAgent -> new();
 	my $request   = $userAgent -> get($apiCheck);
 	my $httpCode  = $request -> code();
-
+		
 	if ($httpCode == 200) {
 		my $data = decode_json ($request -> content);
 

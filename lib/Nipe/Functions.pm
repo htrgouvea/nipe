@@ -16,7 +16,9 @@ sub help {
 		\r\trestart       Restart the Nipe process
 		\r\tstatus        See status
 
-		\rCopyright (c) 2015-2019 Heitor Gouvêa\n\n";
+		\rCopyright (c) 2015 - 2019 Heitor Gouvêa\n\n";
+
+	return true;
 }
 
 sub install {
@@ -50,6 +52,8 @@ sub install {
 	}
 
 	system ("sudo chmod 644 /etc/tor/torrc");
+
+	return true;
 }
 
 1;

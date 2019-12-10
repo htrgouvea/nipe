@@ -12,7 +12,6 @@ sub new {
 
 	my $username = Nipe::Device -> getUsername();
 
-
 	if (-e "/etc/init.d/tor") {
 		system ("sudo /etc/init.d/tor start > /dev/null");
 	}

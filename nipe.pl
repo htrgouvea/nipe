@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
 
+use 5.010;
 use Switch;
 use lib "./lib/";
 use Nipe::Stop;

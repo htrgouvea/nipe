@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a multi-line script
+    - name: Installing dependencies and verify Nipe Status
       run: |
         sudo apt install -y tor iptables perl
         sudo cpan install Switch JSON LWP::UserAgent Config::Simple

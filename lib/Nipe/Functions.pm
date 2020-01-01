@@ -16,7 +16,7 @@ sub help {
 		\r\trestart       Restart the Nipe process
 		\r\tstatus        See status
 
-		\rCopyright (c) 2015 - 2019 Heitor Gouvêa\n\n";
+		\rCopyright (c) 2015 - 2020 | Heitor Gouvêa\n\n";
 
 	return true;
 }

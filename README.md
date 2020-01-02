@@ -64,9 +64,9 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/nipe/issues)(✿◕‿◕) 
+- Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/nipe/issues) See here the [**Security Policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
 
-- Interested in better understanding how the Nipe really works? Maybe this post can help you: [**A techinical Overview about Nipe**](https://heitorgouvea.me/2019/11/19/Nipe-Overview)
+- Interested in better understanding how the Nipe really works? Maybe this post can help you: [**A techinical Overview about Nipe.**](https://heitorgouvea.me/2019/11/19/Nipe-Overview)
 
 ### License
 

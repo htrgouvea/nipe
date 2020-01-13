@@ -48,6 +48,14 @@ sub install {
 
 	system ("sudo chmod 644 /etc/tor/torrc");
 
+	if (-e "/etc/init.d/tor") {
+		system ("sudo /etc/init.d/tor stop > /dev/null");
+	}
+
+	else {
+		system ("sudo systemctl stop tor");
+	}
+
 	return true;
 }
 

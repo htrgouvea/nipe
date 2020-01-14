@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-package Nipe::CheckIp;
+package Nipe::Status;
 
 use JSON;
 use LWP::UserAgent;

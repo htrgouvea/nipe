@@ -9,6 +9,7 @@ sub new {
 		\r\tCommand       Description
 		\r\t-------       -----------
 		\r\tinstall       Install dependencies
+		\r\t  -f          Overwrite Tor config file in /etc/tor/torrc
 		\r\tstart         Start routing
 		\r\tstop          Stop routing
 		\r\trestart       Restart the Nipe process

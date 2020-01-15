@@ -27,7 +27,13 @@ sub main {
 			Nipe::Restart -> new();
 		}
 		case "install" {
-			Nipe::Install -> new();
+			my $force_cfg = undef;
+
+			if ($ARGV[1] eq "-f") {
+				$force_cfg = 1;
+			}
+
+			Nipe::Install -> new($force_cfg);
 		}
 
 		Nipe::Helper -> new();

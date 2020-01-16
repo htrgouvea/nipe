@@ -15,7 +15,7 @@ sub new {
 	}
 
 	else {
-		system ("sudo systemctl stop tor");
+		system ("sudo systemctl stop tor > /dev/null");
 	}
 
 	return true;

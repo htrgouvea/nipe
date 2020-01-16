@@ -17,7 +17,7 @@ sub new {
 	}
 
 	else {
-		system ("sudo systemctl start tor");
+		system ("sudo systemctl start tor > /dev/null");
 	}
 	
 	foreach my $table (@table) {

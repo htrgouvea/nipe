@@ -37,7 +37,7 @@ sub main {
 			elsif ($ARGV[1] eq "-c") {
 				if (length($ARGV[2]) <= 0) {
 					print "[!] Invalid argument\n";
-					Nipe::Functions -> help();
+					Nipe::Helper -> new();
 					exit;
 				}
 

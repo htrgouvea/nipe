@@ -6,19 +6,21 @@ use Nipe::Device;
 
 sub new {
 	shift; # ignore class name
+	
 	my ($force_cfg, $custom_cfg) = @_;
 	my $tor_cfg = "/etc/tor/torrc";
-	my $operationalSystem = Nipe::Device -> getSystem();
 
-	if ($operationalSystem eq "debian") {
+	my %device = Nipe::Device -> new();
+
+	if ($device{distribution} eq "debian") {
 		system ("sudo apt-get install tor iptables");
 	}
 	
-	elsif ($operationalSystem eq "fedora") {
+	elsif ($device{distribution} eq "fedora") {
 		system ("sudo dnf install tor iptables");
 	}
 
-	elsif ($operationalSystem eq "centos") {
+	elsif ($device{distribution} eq "centos") {
 		system ("sudo yum install epel-release tor iptables");
 	}
 
@@ -36,8 +38,8 @@ sub new {
 			print "[.] Overwriting system Tor's config file\n";
 		}
 
-		print "[.]   .configs/$operationalSystem-torrc -> $tor_cfg\n";
-		system ("sudo cp .configs/$operationalSystem-torrc $tor_cfg");
+		print "[.]   .configs/$device{distribution}-torrc -> $tor_cfg\n";
+		system ("sudo cp .configs/$device{distribution}-torrc $tor_cfg");
 		system ("sudo chmod 644 $tor_cfg");
 	}
 

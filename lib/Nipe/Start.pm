@@ -5,12 +5,14 @@ package Nipe::Start;
 use Nipe::Device;
 
 sub new {
-	my $dnsPort      = "9061";
-	my $transferPort = "9051";
+	shift; # discard class name
+	my $custom_cfg   = shift;
+	my $tor = Nipe::Device -> getTorConfig($custom_cfg);
+	my $dnsPort      = $tor->{dns_port};
+	my $transferPort = $tor->{trans_port};
+	my $network      = $tor->{network};
+	my $username     = $tor->{username};
 	my @table        = ("nat", "filter");
-	my $network      = "10.66.0.0/255.255.0.0";
-
-	my %device = Nipe::Device -> new();
 
 	if (-e "/etc/init.d/tor") {
 		system ("sudo /etc/init.d/tor start > /dev/null");
@@ -29,7 +31,7 @@ sub new {
 
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target");
-		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $device{username} -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $username -j $target");
 
 		my $matchDnsPort = $dnsPort;
 

@@ -18,7 +18,19 @@ sub main {
 			Nipe::Stop -> new();
 		}
 		case "start" {
-			Nipe::Start -> new();
+			my $custom_cfg = undef;
+
+			if ($ARGV[1] eq "-c") {
+				if (length($ARGV[2]) <= 0) {
+					print "[!] Invalid argument\n";
+					Nipe::Helper -> new();
+					exit;
+				}
+
+				$custom_cfg = $ARGV[2];
+			}
+
+			Nipe::Start -> new($custom_cfg);
 		}
 		case "status" {
 			Nipe::Status -> new();

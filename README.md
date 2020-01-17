@@ -64,6 +64,23 @@
   perl nipe.pl status
 ```
 
+It's important to note that inside `.config/` folder there are multiple custom configuration files specificaly
+crafted for certain distributions that are used in `install` command; each has its own `User` key, which __should
+not__ be changed. The `User` option is the default username used by each distro when their `tor` package gets
+installed, thus every personal data (usually placed in `/var/lib/tor` folder or through `DataDirectory` option) is
+owned by this user UID:GID.
+
+### Known issues
+
+##### SELinux blocking DNS port setting
+
+For those running a Linux distribution that make use of SELinux strict rules you may need to run the following
+command to allow DNS port setting to take effect:
+
+```
+# semanage port -a -t dns_port_t -p udp
+```
+
 ### Contribution
 
 - Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/nipe/issues) See here the [**security policy.**](./github/SECURITY.md) (✿ ◕‿◕) 

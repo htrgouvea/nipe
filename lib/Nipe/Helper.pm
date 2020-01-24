@@ -1,10 +1,11 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Helper;
 
 sub new {
 	print "
-		\r\Core Commands
+		\rCore Commands
 		\r==============
 		\r\tCommand       Description
 		\r\t-------       -----------
@@ -18,8 +19,6 @@ sub new {
 		\r\tstatus        See status
 
 		\rCopyright (c) 2015 - 2020 | Heitor Gouvêa\n\n";
-
-	return true;
 }
 
 1;

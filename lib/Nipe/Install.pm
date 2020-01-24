@@ -1,4 +1,5 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Install;
 
@@ -55,8 +56,6 @@ sub new {
 	else {
 		print "[.] Refer to our custom Tor config files in project home\n";
 	}
-
-	return true;
 }
 
 1;

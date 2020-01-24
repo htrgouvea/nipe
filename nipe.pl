@@ -1,8 +1,12 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
 use 5.018;
-use Switch;
+
 use lib "./lib/";
+
+use Switch;
 use Nipe::Stop;
 use Nipe::Start;
 use Nipe::Status;
@@ -20,11 +24,11 @@ sub main {
 		case "start" {
 			my $custom_cfg = undef;
 
-			if ($ARGV[1] eq "-c") {
-				if (length($ARGV[2]) <= 0) {
+			if (defined($ARGV[1]) and $ARGV[1] eq "-c") {
+				if (!defined($ARGV[2])) {
 					print "[!] Invalid argument\n";
 					Nipe::Helper -> new();
-					exit;
+					exit 1;
 				}
 
 				$custom_cfg = $ARGV[2];
@@ -42,19 +46,21 @@ sub main {
 			my $force_cfg = undef;
 			my $custom_cfg = undef;
 
-			if ($ARGV[1] eq "-f") {
-				$force_cfg = 1;
-			}
-
-			elsif ($ARGV[1] eq "-c") {
-				if (length($ARGV[2]) <= 0) {
-					print "[!] Invalid argument\n";
-					Nipe::Helper -> new();
-					exit;
+			if (defined($ARGV[1])) {
+				if ($ARGV[1] eq "-f") {
+					$force_cfg = 1;
 				}
 
-				$force_cfg = 1;
-				$custom_cfg = $ARGV[2];
+				elsif ($ARGV[1] eq "-c") {
+					if (!defined($ARGV[2])) {
+						print "[!] Invalid argument\n";
+						Nipe::Helper -> new();
+						exit 1;
+					}
+
+					$force_cfg = 1;
+					$custom_cfg = $ARGV[2];
+				}
 			}
 
 			Nipe::Install -> new($force_cfg, $custom_cfg);

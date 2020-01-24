@@ -1,4 +1,5 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Stop;
 
@@ -28,8 +29,6 @@ sub new {
 		system ("sudo -u $user rm -f $lock_file > /dev/null");
 		print "[.] Tor instance with PID=$pid terminated\n";
 	}
-
-	return true;
 }
 
 1;

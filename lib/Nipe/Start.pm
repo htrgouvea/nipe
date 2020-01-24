@@ -1,4 +1,5 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Start;
 
@@ -24,8 +25,6 @@ sub new {
 	callIptables(\%parsed_cfg);
 	print "[.] Firewall rules set with success\n";
 	print "[.] Nipe initialized with success\n";
-
-	return true;
 }
 
 # Due to non-standard ways to call tor throughout Linux distros from start

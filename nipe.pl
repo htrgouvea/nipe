@@ -37,7 +37,8 @@ sub main {
 			Nipe::Start -> new($custom_cfg);
 		}
 		case "status" {
-			Nipe::Status -> new();
+			my $status = Nipe::Status -> new();
+			print $status;
 		}
 		case "restart" {
 			Nipe::Restart -> new();

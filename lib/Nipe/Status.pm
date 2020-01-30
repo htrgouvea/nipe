@@ -3,16 +3,14 @@
 package Nipe::Status;
 
 use JSON;
-use LWP::UserAgent;
+use HTTP::Tiny;
 
 sub new {
-	my $apiCheck  = "https://check.torproject.org/api/ip";
-	my $userAgent = LWP::UserAgent -> new();
-	my $request   = $userAgent -> get($apiCheck);
-	my $httpCode  = $request -> code();
+    my $apiCheck  = "https://check.torproject.org/api/ip";
+    my $response = HTTP::Tiny -> new -> get($apiCheck);
 		
-	if ($httpCode == 200) {
-		my $data = decode_json ($request -> content);
+	if ($response -> {status} == 200) {
+	 	my $data = decode_json ($response -> {content});
 
 		my $checkIp  = $data -> {'IP'};
 		my $checkTor = $data -> {'IsTor'};
@@ -25,12 +23,10 @@ sub new {
 			$checkTor = "disabled";
 		}
 
-		print "\n\r[+] Status: $checkTor. \n\r[+] Ip: $checkIp\n\n";
+		return "\n\r[+] Status: $checkTor. \n\r[+] Ip: $checkIp\n\n";
 	}
 
-	else {
-		print "\n[!] ERROR: sorry, it was not possible to establish a connection to the server.\n\n";
-	}
+	return "\n[!] ERROR: sorry, it was not possible to establish a connection to the server.\n\n";
 }
 
 1;

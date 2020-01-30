@@ -40,7 +40,7 @@
   $ cd nipe
     
   # Install libs and dependencies
-  $ cpan install Switch JSON LWP::UserAgent Config::Simple
+  $ cpan install Switch JSON Config::Simple
   $ perl nipe.pl install
 ```
 

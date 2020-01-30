@@ -1,7 +1,9 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Install;
 
+use File::Which;
 use Nipe::Device;
 
 sub new {
@@ -13,19 +15,27 @@ sub new {
 	my %device = Nipe::Device -> new();
 
 	if ($device{distribution} eq "debian") {
-		system ("sudo apt-get install tor iptables");
+		system ("sudo apt-get -y install tor iptables");
 	}
 	
 	elsif ($device{distribution} eq "fedora") {
-		system ("sudo dnf install tor iptables");
+		system ("sudo dnf -y install tor iptables");
 	}
 
 	elsif ($device{distribution} eq "centos") {
-		system ("sudo yum install epel-release tor iptables");
+		system ("sudo yum -y install epel-release tor iptables");
 	}
 
 	else {
-		system ("sudo pacman -S tor iptables");
+		system ("sudo pacman --noconfirm -S tor iptables");
+	}
+
+	if (not defined(which("tor"))) {
+		die ("[!] tor was not correctly installed\n");
+	}
+
+	if (not defined(which("iptables"))) {
+		die ("[!] iptables was not correctly installed\n");
 	}
 
 	if (defined($force_cfg)) {
@@ -46,16 +56,6 @@ sub new {
 	else {
 		print "[.] Refer to our custom Tor config files in project home\n";
 	}
-
-	if (-e "/etc/init.d/tor") {
-		system ("sudo /etc/init.d/tor stop > /dev/null");
-	}
-
-	else {
-		system ("sudo systemctl stop tor");
-	}
-
-	return true;
 }
 
 1;

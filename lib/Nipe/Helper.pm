@@ -1,10 +1,11 @@
-#!/usr/bin/env perl
+use strict;
+use warnings;
 
 package Nipe::Helper;
 
 sub new {
 	print "
-		\r\Core Commands
+		\rCore Commands
 		\r==============
 		\r\tCommand       Description
 		\r\t-------       -----------
@@ -12,13 +13,12 @@ sub new {
 		\r\t  -f          Overwrite Tor config file in /etc/tor/torrc
 		\r\t  -c <file>   Specify a custom location to install Tor's config file
 		\r\tstart         Start routing
+		\r\t  -c <file>   Specify a custom Tor config file to be used by Nipe
 		\r\tstop          Stop routing
 		\r\trestart       Restart the Nipe process
 		\r\tstatus        See status
 
 		\rCopyright (c) 2015 - 2020 | Heitor Gouvêa\n\n";
-
-	return true;
 }
 
 1;

@@ -1,7 +1,7 @@
-#!/usr/bin/env perl
-
 package Nipe::Status;
 
+use strict;
+use warnings;
 use JSON;
 use HTTP::Tiny;
 

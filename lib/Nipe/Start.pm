@@ -1,13 +1,12 @@
-use strict;
-use warnings;
-
 package Nipe::Start;
 
+use strict;
+use warnings;
 use File::Which;
 use Nipe::Device;
 
 sub new {
-	shift; # discard class name
+	shift;
 	my $custom_cfg = shift;
 
 	# "start" command may run without a prior "install" command, thus it's
@@ -21,8 +20,11 @@ sub new {
 	}
 
 	my %parsed_cfg = callTor($custom_cfg);
+
 	print "[.] Tor executed with success\n";
+
 	callIptables(\%parsed_cfg);
+
 	print "[.] Firewall rules set with success\n";
 	print "[.] Nipe initialized with success\n";
 }
@@ -42,6 +44,7 @@ sub callTor {
 
 	# First, check if tor configuration is valid
 	my $output = `sudo tor --runasdaemon 0 -f $cfg --verify-config`;
+	
 	if ($? != 0) {
 		die "[!] Failed to load config $cfg\n$output";
 	}
@@ -59,20 +62,24 @@ sub callTor {
 	my $lock_file = "$run_dir/instance.lock";
 
 	system ("sudo -u $user cat $lock_file &> /dev/null");
+	
 	if ($? == 0) {
 		die "[!] Running instance of Nipe found, please stop it first\n";
 	}
 
 	system ("umask u=rwx,g=rx,o= ; sudo mkdir -p $run_dir");
+	
 	if ($? != 0) {
 		die "[!] Failed to create $run_dir\n";
 	}
+	
 	system ("sudo chown $user:$user $run_dir");
 
 	# Then, run tor as a non-blocking daemon with a specific pidfile for
 	# future reference when we need to terminate the process, thus we know the
 	# exact tor instance that nipe created
 	system ("sudo tor --runasdaemon $daemon --pidfile $pid_file -f $cfg");
+	
 	if ($? != 0) {
 		die "[!] Failed to run tor\n";
 	}
@@ -85,10 +92,10 @@ sub callTor {
 
 sub callIptables {
 	my $tor          = shift;
-	my $dnsPort      = $tor->{dns_port};
-	my $transferPort = $tor->{trans_port};
-	my $network      = $tor->{network};
-	my $username     = $tor->{username};
+	my $dnsPort      = $tor -> {dns_port};
+	my $transferPort = $tor -> {trans_port};
+	my $network      = $tor -> {network};
+	my $username     = $tor -> {username};
 	my @table        = ("nat", "filter");
 
 	foreach my $table (@table) {

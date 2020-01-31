@@ -1,7 +1,7 @@
+package Nipe::Helper;
+
 use strict;
 use warnings;
-
-package Nipe::Helper;
 
 sub new {
 	print "

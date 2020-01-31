@@ -1,12 +1,10 @@
 #!/usr/bin/env perl
 
+use 5.018;
 use strict;
 use warnings;
-use 5.018;
-
-use lib "./lib/";
-
 use Switch;
+use lib "./lib/";
 use Nipe::Stop;
 use Nipe::Start;
 use Nipe::Status;
@@ -21,6 +19,7 @@ sub main {
 		case "stop" {
 			Nipe::Stop -> new();
 		}
+
 		case "start" {
 			my $custom_cfg = undef;
 
@@ -36,13 +35,16 @@ sub main {
 
 			Nipe::Start -> new($custom_cfg);
 		}
+
 		case "status" {
 			my $status = Nipe::Status -> new();
 			print $status;
 		}
+
 		case "restart" {
 			Nipe::Restart -> new();
 		}
+
 		case "install" {
 			my $force_cfg = undef;
 			my $custom_cfg = undef;

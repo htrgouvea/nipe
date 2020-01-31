@@ -1,8 +1,7 @@
-use strict;
-use warnings;
-
 package Nipe::Stop;
 
+use strict;
+use warnings;
 use Nipe::Device;
 
 sub new {
@@ -13,13 +12,12 @@ sub new {
 		system ("sudo iptables -t $table -F OUTPUT");
 	}
 
-	# Get Nipe's tor instance PID if running and kill with SIGINT for forced
-	# termination
-	my %device = Nipe::Device -> new();
-	my $user = $device{username};
+	my %device    = Nipe::Device -> new();
+	my $user      = $device{username};
 	my $lock_file = "/var/run/nipe/instance.lock";
 
-	chomp(my $pid = `sudo -u $user cat $lock_file 2>&1`);
+	chomp (my $pid = `sudo -u $user cat $lock_file 2>&1`);
+
 	if ($? != 0) {
 		print "[.] No instance of tor executed by Nipe was found\n";
 	}

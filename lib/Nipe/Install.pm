@@ -1,15 +1,15 @@
-use strict;
-use warnings;
-
 package Nipe::Install;
 
+use strict;
+use warnings;
 use File::Which;
 use Nipe::Device;
 
 sub new {
-	shift; # ignore class name
+	shift;
 	
 	my ($force_cfg, $custom_cfg) = @_;
+
 	my $tor_cfg = "/etc/tor/torrc";
 
 	my %device = Nipe::Device -> new();

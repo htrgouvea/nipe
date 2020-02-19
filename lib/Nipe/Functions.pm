@@ -26,6 +26,10 @@ sub install {
 
 	system ("sudo mkdir -p /etc/tor");
 
+	if ( -e "/etc/tor/torrc") {
+		system ("sudo mv /etc/tor/torrc /etc/tor/torrc.bak")
+	}
+
 	if ($operationalSystem eq "debian") {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo cp .configs/debian-torrc /etc/tor/torrc");

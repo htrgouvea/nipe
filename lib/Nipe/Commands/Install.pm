@@ -7,7 +7,7 @@ use Nipe::Device;
 sub run {
   my ($self, $arguments) = @_;
 
-  my $options = _parse_arguments($arguments);
+  my $options = $self->_parse_arguments($arguments);
 
   $self->_prepare_directories;
 

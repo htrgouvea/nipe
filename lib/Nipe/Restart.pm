@@ -9,7 +9,7 @@ sub new {
     Nipe::Stop -> new();
     Nipe::Start -> new();
 
-    return true;
+    return 1;
 }
 
 1;

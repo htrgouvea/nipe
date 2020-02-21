@@ -10,8 +10,8 @@ use Nipe::Errors::RequesNotSucceed;
 sub check_ip {
   my ($self, $api_host) = @_;
 
-  my $http_tiny = HTTP::Tiny->new;
-  my $response $http_tiny->get($api_host);
+  my $http_tiny       = HTTP::Tiny->new;
+  my $response        = $http_tiny->get($api_host);
   my $is_http_success = $response->{status} == 200;
 
   Nipe::Errors::RequesNotSucceed->throws(

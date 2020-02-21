@@ -4,6 +4,8 @@ use warnings;
 
 use Getopt::Long qw(GetOptionsFromArray);
 
+use Nipe::Client::Tor;
+
 sub run {
   my ($self, $arguments) = @_;
 
@@ -12,19 +14,11 @@ sub run {
   my $api_host = $options->{api_host};
 
   eval {
-    my $payload = Nipe::Client::Tor->check_ip($api_host);
-
-    my $ip_addr    = $payload->{'ip_addr'};
-    my $tor_status = $payload->{'tor_status'};
-
-    print "\n\r[+] Status: ${tor_status}. \n\r[+] Ip: ${ip_addr}\n\n";
-
+    Nipe::Client::Tor->check_ip($api_host);
   };
   if (my $error = $@) {
     my $error_message = $error->message;
-
-		print "\n[!] ERROR: ${error_message}.\n\n";
-    exit
+    die "\n[!] ERROR: ${error_message}.\n\n";
   }
 }
 
@@ -33,17 +27,11 @@ sub _parse_arguments {
 
   my $options = {
     api_host      => 'https://check.torproject.org/api/ip',
-	  dns_port      => "9061",
-	  transfer_port => "9051",
-	  table         => ["nat", "filter"],
-	  network       => "10.66.0.0/255.255.0.0",
   };
 
   GetOptionsFromArray(
     $arguments,
-    "dns_port=s"      => \$options->{dns_port},
-    "transfer_port=s" => \$options->{transfer_port},
-    "network=s"       => \$options->{network}
+    "api_host=s" => \$options->{api_host},
   );
 
   return $options;

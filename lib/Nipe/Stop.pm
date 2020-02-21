@@ -5,12 +5,8 @@ use warnings;
 use Nipe::Device;
 
 sub new {
-	my @table = ("nat", "filter");
 
-	foreach my $table (@table) {
-		system ("sudo iptables -t $table -F OUTPUT");
-		system ("sudo iptables -t $table -F OUTPUT");
-	}
+	system ("sudo iptables-restore < before_run.iptables");
 
 	my %device    = Nipe::Device -> new();
 	my $user      = $device{username};

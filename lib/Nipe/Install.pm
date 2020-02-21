@@ -39,9 +39,14 @@ sub new {
 	}
 
 	if (defined($force_cfg)) {
+        if ( -e $tor_cfg) {
+            system ("sudo mv /etc/tor/torrc /etc/tor/torrc.bak");
+            print "[.] Backup your Tor config file to /etc/tor/torrc.bak\n";
+        }
 		if (defined($custom_cfg)) {
 			$tor_cfg = $custom_cfg;
 			print "[.] Writing Nipe's custom Tor config file\n";
+            system ("sudo cp ")
 		}
 
 		else {

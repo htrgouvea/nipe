@@ -74,7 +74,7 @@ sub is_centos {
 
 sub is_debian {
   my $self = shift;
-_ return !$self->is_fedora && !$self->is_centos && !$self->is_arch
+  return (not $self->is_fedora) && (not $self->is_centos) && (not $self->is_arch);
 }
 
 sub tor_config {

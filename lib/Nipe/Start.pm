@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use File::Which;
 use Nipe::Device;
+use autodie "system";
 
 sub new {
 	shift;
@@ -58,23 +59,28 @@ sub callTor {
 
 	# We can have different tor config files to choose, but we don't support
 	# multiple instances of nipe running, otherwise iptable rules may conflict
-	my $run_dir   = "/var/run/nipe";
-	my $lock_file = "$run_dir/instance.lock";
+    my $run_dir   = "/var/run/nipe";
+    unless ( -d $run_dir ) {
+        system ("sudo mkdir -p /var/run/nipe");
+    }
+    system ("sudo chown $user:$user $run_dir");
+    
+    my $lock_file = "$run_dir/instance.lock";
+    unless ( -e $lock_file ) {
+        system ("sudo -u $user touch $run_dir/instance.lock");
+    } else {
+        die "[!] Running instance of Nipe found, please stop it first\n";
+    }
 
-	system ("sudo -u $user cat $lock_file &> /dev/null");
-	
-	if ($? == 0) {
-		die "[!] Running instance of Nipe found, please stop it first\n";
-	}
+    # system ("umask u=rwx,g=rx,o= ; sudo mkdir -p $run_dir");
 
-	system ("umask u=rwx,g=rx,o= ; sudo mkdir -p $run_dir");
-	
-	if ($? != 0) {
-		die "[!] Failed to create $run_dir\n";
-	}
-	
-	system ("sudo chown $user:$user $run_dir");
+    # if ($? != 0) {
+    #     die "[!] Failed to create $run_dir\n";
+    # }
 
+
+
+    
 	# Then, run tor as a non-blocking daemon with a specific pidfile for
 	# future reference when we need to terminate the process, thus we know the
 	# exact tor instance that nipe created
@@ -85,14 +91,14 @@ sub callTor {
 	}
 
 	# Set a system-wide "lock" file with the same user:group of tor
-	system ("echo \"cat $pid_file > $lock_file\" | sudo -u $user -s");
+	system ("echo \"cat $pid_file > $lock_file\" | sudo -u $user -s"); 
 
 	return %tor;
 }
 
 sub callIptables {
 	system ("sudo iptables-save > before_run.iptables");
-    system ("sudo iptables-restore < iptables_tor_rules.iptables");
+    system ("sudo iptables-restore < tor_rules.iptables");
 }
 
 1;

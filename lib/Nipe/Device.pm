@@ -1,51 +1,46 @@
-#!/usr/bin/env perl
-
 package Nipe::Device;
+use strict;
+use warnings;
 
 use Config::Simple;
 
-my $config    = Config::Simple -> new('/etc/os-release');
-my $id_like   = $config -> param('ID_LIKE');
-my $id_distro = $config -> param('ID');
+my $config    = Config::Simple->new('/etc/os-release');
+my $id_like   = $config->param('ID_LIKE');
+my $id_distro = $config->param('ID');
 
-sub getUsername {
-	my $username;
-	
-	if (($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)) {
-		$username = "toranon";
-	}
-	
-	elsif (($id_like =~ /[A,a]rch/) || ($id_like =~ /[C,c]entos/) || ($id_distro =~ /[A,a]rch/) || ($id_distro =~ /[C,c]entos/)) {
-		$username = "tor";
-	}
+sub get_username {
+  my ($self) = @_;
 
-	else {
-		$username = "debian-tor";
-	}
+	my $username = 'debian-tor';
 
-	return $username;
+	$username = "toranon" if $self->_is_fedora;
+	$username = "tor" if $self->_is_arch || $self->_is_centos;
+
+	return $username
 }
 
-sub getSystem {
-	my $distribution;
+sub get_system {
+  my ($self) = @_;
 
-	if (($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)) {
-		$distribution = "fedora";
-	}
+  return 'fedora' if $self->_is_fedora;
 
-	elsif (($id_like =~ /[A,a]rch/) || ($id_distro =~ /[A,a]rch/)) {
-		$distribution = "arch";
-	}
+  return 'centos' if $self->_is_centos;
 
-	elsif (($id_like =~ /[C,c]entos/) || ($id_distro =~ /[C,c]entos/)) {
-		$distribution = "centos"
-	}
+  return 'arch' if $self->_is_arch;
 
-	else {
-		$distribution = "debian";
-	}
+  return 'debian'
+}
 
-	return $distribution;
+sub _is_fedora {
+	return ($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)
+}
+
+sub _is_arch {
+	return ($id_like =~ /[A,a]rch/) || ($id_distro =~ /[A,a]rch/)
+}
+
+sub _is_centos {
+	return ($id_like =~ /[C,c]entos/) || ($id_distro =~ /[C,c]entos/)
 }
 
 1;

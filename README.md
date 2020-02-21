@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/publications/nipe-overview/logo.png">
-  <p align="center">A script to make Tor Network your default gateway.</p>
+  <p align="center">A script to make TOR Network your default gateway.</p>
 
   <p align="center">
     <a href="https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md">
@@ -40,14 +40,16 @@
   $ cd nipe
     
   # Install libs and dependencies
-  $ sudo cpan install Switch JSON LWP::UserAgent Config::Simple
+  $ cpan install Switch JSON File::Which Config::Simple
   $ perl nipe.pl install
 ```
 
 ### Commands:
-```bash
+```
   COMMAND          FUNCTION
   install          Install dependencies
+  	  -f           Overwrite Tor config file in /etc/tor/torrc
+      -c <file>    Specify a custom location to install Tors config file
   start            Start routing
   stop             Stop routing
   restart          Restart the Nipe process
@@ -55,16 +57,33 @@
 
   Examples:
 
-  perl nipe.pl install
+  perl nipe.pl install -f
   perl nipe.pl start
   perl nipe.pl stop
   perl nipe.pl restart
   perl nipe.pl status
 ```
 
+It's important to note that inside `.config/` folder there are multiple custom configuration files specificaly
+crafted for certain distributions that are used in `install` command; each has its own `User` key, which __should
+not__ be changed. The `User` option is the default username used by each distro when their `tor` package gets
+installed, thus every personal data (usually placed in `/var/lib/tor` folder or through `DataDirectory` option) is
+owned by this user UID:GID.
+
+### Known issues
+
+##### SELinux blocking DNS port setting
+
+For those running a Linux distribution that make use of SELinux strict rules you may need to run the following
+command to allow DNS port setting to take effect:
+
+```
+# semanage port -a -t dns_port_t -p udp
+```
+
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/nipe/issues) See here the [**Security Policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
+- Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/nipe/issues) See here the [**security policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
 
 - Interested in better understanding how the Nipe really works? Maybe this post can help you: [**A techinical Overview about Nipe.**](https://heitorgouvea.me/2019/11/19/Nipe-Overview)
 

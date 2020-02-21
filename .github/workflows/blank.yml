@@ -6,13 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
     - name: Installing dependencies and verify Nipe Status
       run: |
-        sudo apt install -y tor iptables perl
-        sudo cpan install Switch JSON LWP::UserAgent Config::Simple
-        sudo cp .configs/debian-torrc /etc/tor/torrc
-        sudo chmod 644 /etc/tor/torrc
+        sudo apt install -y perl
+        sudo cpan install Switch JSON File::Which Config::Simple
+        perl nipe.pl install -f
         perl nipe.pl status

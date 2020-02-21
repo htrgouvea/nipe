@@ -36,16 +36,16 @@ Copyright (c) 2015 - 2020 | Heitor Gouvêa
 sub run {
   my ($self, $arguments) = @_;
 
-  my $subcommand = shift @$arguments || '';
+  my $subcommand    = shift @$arguments || '';
   my $command_class = $COMMANDS->{$subcommand};
 
   unless ($command_class) {
     print $HELP_MSG;
-    exit
+    exit;
   }
 
   $command_class->run($arguments);
-  exit
+  exit;
 }
 
 1;

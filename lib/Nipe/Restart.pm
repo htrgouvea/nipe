@@ -8,6 +8,8 @@ use Nipe::Start;
 sub new {
     Nipe::Stop -> new();
     Nipe::Start -> new();
+    
+    return 1;
 }
 
 1;

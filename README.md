@@ -48,8 +48,8 @@
 ```
   COMMAND          FUNCTION
   install          Install dependencies
-  	  -f           Overwrite Tor config file in /etc/tor/torrc
-      -c <file>    Specify a custom location to install Tors config file
+    -f             Overwrite Tor config file in /etc/tor/torrc
+    -c <file>      Specify a custom location to install Tors config file
   start            Start routing
   stop             Stop routing
   restart          Restart the Nipe process

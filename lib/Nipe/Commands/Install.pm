@@ -23,24 +23,23 @@ sub _os_tor_installation {
   my $systems = {
     debian => sub {
       system "sudo apt-get install tor iptables";
-      system "sudo cp .configs/debian-torrc /etc/tor/torrc";
     },
     fedora => sub {
       system "sudo dnf install tor iptables";
-      system "sudo cp .configs/fedora-torrc /etc/tor/torrc";
     },
     centos => sub {
       system "sudo yum install epel-release tor iptables";
-      system "sudo cp .configs/centos-torrc /etc/tor/torrc";
     },
-    default => sub {
+    arch => sub {
       system "sudo pacman -S tor iptables";
-      system "sudo cp .configs/arch-torrc /etc/tor/torrc";
     }
   };
 
-  my $install_for_os = $systems->{$os_name} || $systems->{default};
-  $install_for_os->();
+  my $distro_name = exists $systems->{$os_name} ? $os_name : 'arch';
+  my $install_tor_function = $systems->{$distro_name};
+
+  $install_tor_function->();
+  system "sudo cp .configs/${$distro_name}-torrc /etc/tor/torrc";
 
   system "sudo chmod 644 /etc/tor/torrc";
 }

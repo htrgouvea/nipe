@@ -57,7 +57,7 @@ sub _stop_service {
 }
 
 sub _parse_arguments {
-  my ($arguments) = @_;
+  my ($self, $arguments) = @_;
 
   my $options = {};
   return $options;

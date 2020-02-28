@@ -10,7 +10,7 @@ sub run {
   my $user      = Nipe::Device->tor_username;
   my $lock_file = "/var/run/nipe/instance.lock";
 
-  my $options = _parse_arguments($arguments);
+  my $options = $self->_parse_arguments($arguments);
 
   for my $table ($options->{table}) {
     system "sudo iptables -t $table -F OUTPUT";
@@ -32,7 +32,7 @@ sub run {
 }
 
 sub _parse_arguments {
-  my ($arguments) = @_;
+  my ($self, $arguments) = @_;
 
   my $options = {table => ["nat", "filter"],};
 

@@ -117,7 +117,7 @@ sub _setup_iptables {
 }
 
 sub _parse_arguments {
-  my ($arguments) = @_;
+  my ($self, $arguments) = @_;
 
   my $options = {
     config_file   => "/etc/tor/torrc",

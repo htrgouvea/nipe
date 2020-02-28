@@ -5,7 +5,7 @@ use warnings;
 use HTTP::Tiny;
 use JSON;
 
-use Nipe::Errors::RequesNotSucceed;
+use Nipe::Errors::RequestNotSucceed;
 
 sub check_ip {
   my ($self, $api_host) = @_;
@@ -14,7 +14,7 @@ sub check_ip {
   my $response        = $http_tiny->get($api_host);
   my $is_http_success = $response->{status} == 200;
 
-  Nipe::Errors::RequesNotSucceed->throws(
+  Nipe::Errors::RequestNotSucceed->throws(
     status  => $response->status,
     message => 'sorry, it was not possible to establish a connection to the server',
   ) unless $is_http_success;

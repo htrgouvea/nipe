@@ -1,4 +1,4 @@
-package Nipe::Errors::RequesNotSucceed;
+package Nipe::Errors::RequestNotSucceed;
 use strict;
 use warnings;
 

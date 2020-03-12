@@ -5,21 +5,21 @@ use warnings;
 use Nipe::Device;
 
 sub new {
-	my $operationalSystem = Nipe::Device -> getSystem();
-
+	my %device = Nipe::Device -> new();
+	
 	system ("sudo mkdir -p /etc/tor");
 
-	if ($operationalSystem eq "debian") {
+	if ($device{distribution} eq "debian") {
 		system ("sudo apt-get install tor iptables");
 		system ("sudo cp .configs/debian-torrc /etc/tor/torrc");
 	}
 	
-	elsif ($operationalSystem eq "fedora") {
+	elsif ($device{distribution} eq "fedora") {
 		system ("sudo dnf install tor iptables");
 		system ("sudo cp .configs/fedora-torrc /etc/tor/torrc");
 	}
 
-	elsif ($operationalSystem eq "centos") {
+	elsif ($device{distribution} eq "centos") {
 		system ("sudo yum install epel-release tor iptables");
 		system ("sudo cp .configs/centos-torrc /etc/tor/torrc");
 	}

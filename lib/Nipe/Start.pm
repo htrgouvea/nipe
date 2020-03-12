@@ -10,7 +10,7 @@ sub new {
 	my @table        = ("nat", "filter");
 	my $network      = "10.66.0.0/255.255.0.0";
 
-	my $username = Nipe::Device -> getUsername();
+	my %device = Nipe::Device -> new();
 
 	if (-e "/etc/init.d/tor") {
 		system ("sudo /etc/init.d/tor start > /dev/null");
@@ -29,7 +29,7 @@ sub new {
 
 		system ("sudo iptables -t $table -F OUTPUT");
 		system ("sudo iptables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target");
-		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $username -j $target");
+		system ("sudo iptables -t $table -A OUTPUT -m owner --uid $device{username} -j $target");
 
 		my $matchDnsPort = $dnsPort;
 

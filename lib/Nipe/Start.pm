@@ -1,7 +1,7 @@
-#!/usr/bin/env perl
-
 package Nipe::Start;
 
+use strict;
+use warnings;
 use Nipe::Device;
 
 sub new {
@@ -66,7 +66,7 @@ sub new {
 	system ("sudo iptables -t filter -A OUTPUT -p udp -j REJECT");
 	system ("sudo iptables -t filter -A OUTPUT -p icmp -j REJECT");
 
-	return true;
+	return 1;
 }
 
 1;

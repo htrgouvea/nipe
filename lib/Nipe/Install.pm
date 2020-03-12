@@ -1,27 +1,10 @@
-#!/usr/bin/env perl
+package Nipe::Install;
 
-package Nipe::Functions;
-
+use strict;
+use warnings;
 use Nipe::Device;
 
-sub help {
-	print "
-		\r\Core Commands
-		\r==============
-		\r\tCommand       Description
-		\r\t-------       -----------
-		\r\tinstall       Install dependencies
-		\r\tstart         Start routing
-		\r\tstop          Stop routing
-		\r\trestart       Restart the Nipe process
-		\r\tstatus        See status
-
-		\rCopyright (c) 2015 - 2020 | Heitor Gouvêa\n\n";
-
-	return true;
-}
-
-sub install {
+sub new {
 	my $operationalSystem = Nipe::Device -> getSystem();
 
 	system ("sudo mkdir -p /etc/tor");
@@ -56,7 +39,7 @@ sub install {
 		system ("sudo systemctl stop tor");
 	}
 
-	return true;
+	return 1;
 }
 
 1;

@@ -1,7 +1,7 @@
-#!/usr/bin/env perl
-
 package Nipe::Device;
 
+use strict;
+use warnings;
 use Config::Simple;
 
 my $config    = Config::Simple -> new('/etc/os-release');

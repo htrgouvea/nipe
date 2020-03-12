@@ -5,8 +5,10 @@ use Switch;
 use lib "./lib/";
 use Nipe::Stop;
 use Nipe::Start;
-use Nipe::CheckIp;
-use Nipe::Functions;
+use Nipe::Restart;
+use Nipe::Status;
+use Nipe::Helper;
+use Nipe::Install;
 
 sub main {
 	my $command = $ARGV[0];
@@ -19,17 +21,16 @@ sub main {
 			Nipe::Start -> new();
 		}
 		case "status" {
-			Nipe::CheckIp -> new();
+			print Nipe::Status -> new();
 		}
 		case "restart" {
-			Nipe::Stop -> new();
-			Nipe::Start -> new();
+			Nipe::Restart -> new();
 		}
 		case "install" {
-			Nipe::Functions -> install();
+			Nipe::Install -> new();
 		}
 
-		Nipe::Functions -> help();
+		Nipe::Helper -> new();
 	}
 }
 

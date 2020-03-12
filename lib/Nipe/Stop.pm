@@ -1,6 +1,7 @@
-#!/usr/bin/env perl
-
 package Nipe::Stop;
+
+use strict;
+use warnings;
 
 sub new {
 	my @table = ("nat", "filter");
@@ -18,7 +19,7 @@ sub new {
 		system ("sudo systemctl stop tor");
 	}
 
-	return true;
+	return 1;
 }
 
 1;

@@ -1,25 +1,17 @@
-package Nipe::Status;
+package Nipe::Utils::Status;
 
 use JSON;
 use HTTP::Tiny;
 
 sub new {
-    my $apiCheck  = "https://check.torproject.org/api/ip";
+    my $apiCheck = "https://check.torproject.org/api/ip";
     my $response = HTTP::Tiny -> new -> get($apiCheck);
 		
 	if ($response -> {status} == 200) {
 	 	my $data = decode_json ($response -> {content});
 
 		my $checkIp  = $data -> {'IP'};
-		my $checkTor = $data -> {'IsTor'};
-
-		if ($checkTor) {
-			$checkTor = "activated";
-		}
-
-		else {
-			$checkTor = "disabled";
-		}
+		my $checkTor = $data -> {'IsTor'} ? "activated" : "disabled";
 
 		return "\n\r[+] Status: $checkTor. \n\r[+] Ip: $checkIp\n\n";
 	}

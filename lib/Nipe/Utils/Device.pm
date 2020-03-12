@@ -1,4 +1,4 @@
-package Nipe::Device;
+package Nipe::Utils::Device;
 
 use strict;
 use warnings;

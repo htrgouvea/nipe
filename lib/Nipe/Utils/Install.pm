@@ -1,11 +1,11 @@
-package Nipe::Install;
+package Nipe::Utils::Install;
 
 use strict;
 use warnings;
-use Nipe::Device;
+use Nipe::Utils::Device;
 
 sub new {
-	my %device = Nipe::Device -> new();
+	my %device = Nipe::Utils::Device -> new();
 	
 	system ("sudo mkdir -p /etc/tor");
 

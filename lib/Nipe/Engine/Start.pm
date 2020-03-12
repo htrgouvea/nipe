@@ -1,8 +1,8 @@
-package Nipe::Start;
+package Nipe::Engine::Start;
 
 use strict;
 use warnings;
-use Nipe::Device;
+use Nipe::Utils::Device;
 
 sub new {
 	my $dnsPort      = "9061";
@@ -10,7 +10,7 @@ sub new {
 	my @table        = ("nat", "filter");
 	my $network      = "10.66.0.0/255.255.0.0";
 
-	my %device = Nipe::Device -> new();
+	my %device = Nipe::Utils::Device -> new();
 
 	if (-e "/etc/init.d/tor") {
 		system ("sudo /etc/init.d/tor start > /dev/null");

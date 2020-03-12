@@ -1,4 +1,4 @@
-package Nipe::Helper;
+package Nipe::Utils::Helper;
 
 use strict;
 use warnings;

@@ -3,34 +3,34 @@
 use 5.018;
 use Switch;
 use lib "./lib/";
-use Nipe::Stop;
-use Nipe::Start;
-use Nipe::Restart;
-use Nipe::Status;
-use Nipe::Helper;
-use Nipe::Install;
+use Nipe::Engine::Stop;
+use Nipe::Engine::Start;
+use Nipe::Engine::Restart;
+use Nipe::Utils::Status;
+use Nipe::Utils::Helper;
+use Nipe::Utils::Install;
 
 sub main {
 	my $command = $ARGV[0];
 
 	switch ($command) {
 		case "stop" {
-			Nipe::Stop -> new();
+			Nipe::Engine::Stop -> new();
 		}
 		case "start" {
-			Nipe::Start -> new();
+			Nipe::Engine::Start -> new();
 		}
 		case "status" {
-			print Nipe::Status -> new();
+			print Nipe::Utils::Status -> new();
 		}
 		case "restart" {
-			Nipe::Restart -> new();
+			Nipe::Engine::Restart -> new();
 		}
 		case "install" {
-			Nipe::Install -> new();
+			Nipe::Utils::Install -> new();
 		}
 
-		Nipe::Helper -> new();
+		Nipe::Utils::Helper -> new();
 	}
 }
 

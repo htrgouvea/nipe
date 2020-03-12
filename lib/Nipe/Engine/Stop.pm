@@ -1,4 +1,4 @@
-package Nipe::Stop;
+package Nipe::Engine::Stop;
 
 use strict;
 use warnings;

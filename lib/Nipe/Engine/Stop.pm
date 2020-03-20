@@ -4,7 +4,8 @@ use strict;
 use warnings;
 
 sub new {
-	my @table = ("nat", "filter");
+	my @table   = ("nat", "filter");
+	my $stopTor = "sudo systemctl stop tor";
 
 	foreach my $table (@table) {
 		system ("sudo iptables -t $table -F OUTPUT");
@@ -12,12 +13,10 @@ sub new {
 	}
 
 	if (-e "/etc/init.d/tor") {
-		system ("sudo /etc/init.d/tor stop > /dev/null");
+		$stopTor = "sudo /etc/init.d/tor stop > /dev/null";
 	}
 
-	else {
-		system ("sudo systemctl stop tor");
-	}
+	system ($stopTor);
 
 	return 1;
 }

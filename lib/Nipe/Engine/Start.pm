@@ -9,16 +9,15 @@ sub new {
 	my $transferPort = "9051";
 	my @table        = ("nat", "filter");
 	my $network      = "10.66.0.0/255.255.0.0";
+	my $startTor     = "sudo systemctl start tor -f \$HOME/.niperc";
 
 	my %device = Nipe::Utils::Device -> new();
 
 	if (-e "/etc/init.d/tor") {
-		system ("sudo /etc/init.d/tor start > /dev/null");
+		$startTor = "sudo /etc/init.d/tor start -f \$HOME/.niperc > /dev/null";
 	}
 
-	else {
-		system ("sudo systemctl start tor");
-	}
+	system ($startTor);
 	
 	foreach my $table (@table) {
 		my $target = "ACCEPT";

@@ -5,10 +5,10 @@ use HTTP::Tiny;
 
 sub new {
     my $apiCheck = "https://check.torproject.org/api/ip";
-    my $response = HTTP::Tiny -> new -> get($apiCheck);
+    my $request = HTTP::Tiny -> new -> get($apiCheck);
 		
-	if ($response -> {status} == 200) {
-	 	my $data = decode_json ($response -> {content});
+	if ($request -> {status} == 200) {
+	 	my $data = decode_json ($request -> {content});
 
 		my $checkIp  = $data -> {'IP'};
 		my $checkTor = $data -> {'IsTor'} ? "activated" : "disabled";

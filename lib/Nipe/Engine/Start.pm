@@ -14,7 +14,7 @@ sub new {
 	my %device = Nipe::Utils::Device -> new();
 
 	if (-e "/etc/init.d/tor") {
-		$startTor = "sudo /etc/init.d/tor start -f \$HOME/.niperc > /dev/null";
+		$startTor = "sudo /etc/init.d/tor start > /dev/null";
 	}
 
 	system ($startTor);

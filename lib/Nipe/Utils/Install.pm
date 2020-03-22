@@ -5,9 +5,10 @@ use warnings;
 use Nipe::Utils::Device;
 
 sub new {
-	my %device = Nipe::Utils::Device -> new();
-	
-	system ("sudo mkdir -p /etc/tor");
+	my %device  = Nipe::Utils::Device -> new();
+	my $stopTor = "sudo systemctl stop tor";
+
+	system ("sudo mkdir -p /etc/tor/");
 
 	if ($device{distribution} eq "debian") {
 		system ("sudo apt-get install tor iptables");
@@ -32,12 +33,10 @@ sub new {
 	system ("sudo chmod 644 /etc/tor/torrc");
 
 	if (-e "/etc/init.d/tor") {
-		system ("sudo /etc/init.d/tor stop > /dev/null");
+		$stopTor = "sudo /etc/init.d/tor stop > /dev/null";
 	}
-
-	else {
-		system ("sudo systemctl stop tor");
-	}
+	
+	system ($stopTor);
 
 	return 1;
 }

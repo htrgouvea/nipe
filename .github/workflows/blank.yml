@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Installing dependencies and verify Nipe Status
       run: |
-        sudo apt install -y tor iptables perl
+        sudo apt install -y perl
         sudo cpan install Switch JSON Config::Simple
         perl nipe.pl install
         perl nipe.pl status

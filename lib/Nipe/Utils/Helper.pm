@@ -13,9 +13,7 @@ sub new {
 		\r\tstart         Start routing
 		\r\tstop          Stop routing
 		\r\trestart       Restart the Nipe process
-		\r\tstatus        See status
-
-		\rCopyright (c) 2015 - 2020 | Heitor Gouvêa\n\n";
+		\r\tstatus        See status\n\n";
 }
 
 1;

@@ -12,7 +12,6 @@ jobs:
     - name: Installing dependencies and verify Nipe Status
       run: |
         sudo apt install -y tor iptables perl
-        sudo cpan install Switch JSON LWP::UserAgent Config::Simple
-        sudo cp .configs/debian-torrc /etc/tor/torrc
-        sudo chmod 644 /etc/tor/torrc
+        sudo cpan install Switch JSON Config::Simple
+        perl nipe.pl install
         perl nipe.pl status

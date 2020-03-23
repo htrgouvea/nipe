@@ -9,7 +9,7 @@ sub new {
 	my $transferPort = "9051";
 	my @table        = ("nat", "filter");
 	my $network      = "10.66.0.0/255.255.0.0";
-	my $startTor     = "sudo systemctl start tor -f \$HOME/.niperc";
+	my $startTor     = "sudo systemctl start tor";
 
 	my %device = Nipe::Utils::Device -> new();
 

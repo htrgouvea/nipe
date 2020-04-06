@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/publications/nipe-research/logo.png">
-  <p align="center">A script to make Tor Network your default gateway.</p>
+  <p align="center">A engine to make Tor Network your default gateway.</p>
 
   <p align="center">
     <a href="https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md">

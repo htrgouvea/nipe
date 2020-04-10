@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://heitorgouvea.me/images/publications/nipe-research/logo.png">
+  <img src="https://heitorgouvea.me/images/projects/nipe/logo.png">
   <p align="center">A engine to make Tor Network your default gateway.</p>
 
   <p align="center">
-    <a href="https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md">
+    <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/nipe/releases">
@@ -64,9 +64,9 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page.](https://github.com/GouveaHeitor/nipe/issues) See here the [security policy.](./github/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page.](https://github.com/GouveaHeitor/nipe/issues) See here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
 
 ### License
 
-- This work is licensed under [MIT License.](https://github.com/GouveaHeitor/nipe/blob/master/LICENSE.md)
+- This work is licensed under [MIT License.](/LICENSE.md)

@@ -1,17 +1,17 @@
-name: CI
-
+name: Test Nipe on Ubuntu
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v1
-    - name: Installing dependencies and verify Nipe Status
+    - name: Install dependencies
       run: |
         sudo apt install -y perl
         sudo cpan install Switch JSON Config::Simple
         perl nipe.pl install
+    - name: Verify Nipe status
+      run: |
         perl nipe.pl status

@@ -36,8 +36,7 @@
 ### Download and install:
 ```bash
   # Download
-  $ git clone https://github.com/GouveaHeitor/nipe
-  $ cd nipe
+  $ git clone https://github.com/GouveaHeitor/nipe && cd nipe
     
   # Install libs and dependencies
   $ sudo cpan install Switch JSON Config::Simple
@@ -50,7 +49,7 @@
   install          Install dependencies
   start            Start routing
   stop             Stop routing
-  restart          Restart the Nipe process
+  restart          Restart the Nipe circuit
   status           See status
 
   Examples:
@@ -64,8 +63,7 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page.](https://github.com/GouveaHeitor/nipe/issues) See here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
-
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
 ### License
 

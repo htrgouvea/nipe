@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 sub new {
-	print "
+	return "
 		\rCore Commands
 		\r==============
 		\r\tCommand       Description
@@ -12,7 +12,7 @@ sub new {
 		\r\tinstall       Install dependencies
 		\r\tstart         Start routing
 		\r\tstop          Stop routing
-		\r\trestart       Restart the Nipe process
+		\r\trestart       Restart the Nipe circuit
 		\r\tstatus        See status\n\n";
 }
 

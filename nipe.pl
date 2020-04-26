@@ -30,7 +30,7 @@ sub main {
 			Nipe::Utils::Install -> new();
 		}
 
-		Nipe::Utils::Helper -> new();
+		print Nipe::Utils::Helper -> new();
 	}
 }
 

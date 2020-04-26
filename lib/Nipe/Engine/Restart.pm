@@ -6,10 +6,17 @@ use Nipe::Engine::Stop;
 use Nipe::Engine::Start;
 
 sub new {
-    Nipe::Engine::Stop -> new();
-    Nipe::Engine::Start -> new();
+    my $stop = Nipe::Engine::Stop -> new();
 
-    return 1;
+    if ($stop) {
+        my $start = Nipe::Engine::Start -> new();
+
+        if ($start) {
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
 1;

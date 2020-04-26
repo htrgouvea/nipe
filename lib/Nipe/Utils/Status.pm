@@ -1,6 +1,8 @@
 package Nipe::Utils::Status;
 
 use JSON;
+use strict;
+use warnings;
 use HTTP::Tiny;
 
 sub new {

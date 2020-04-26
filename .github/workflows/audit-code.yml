@@ -9,6 +9,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Audit code
       run: |
-        sudo apt install -y perl curl
-        cpan Perl::Critic Path::Iterator::Rule
+        sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl 
         curl -L https://gist.githubusercontent.com/GouveaHeitor/b7df5c12c0ba49662b32918d6fa3dec1/raw/72c60bc46796153ce1b874d201d5ffa4e761b519/audit.pl >> audit.pl && perl audit.pl

@@ -13,12 +13,11 @@ sub new {
 
 	my %device = Nipe::Utils::Device -> new();
 
-	system ("sudo tor -f .configs/debian-torrc > /dev/null");
-
 	if (-e "/etc/init.d/tor") {
 		$startTor = "sudo /etc/init.d/tor start > /dev/null";
 	}
 
+	system ("sudo tor -f .configs/$device{distribution}-torrc > /dev/null");
 	system ($startTor);
 	
 	foreach my $table (@table) {

@@ -14,26 +14,21 @@
 
 ---
 
+### Summary
 
-### How it works
-```
-  The Tor project allows users to surf the Internet, chat and send instant messages anonymously 
-  through its own mechanism. It is used by a wide variety of people, companies and organizations, 
-  both for lawful activities and for other illicit purposes. Tor is already gone and is used for 
-  example by criminal companies, hacking groups, intelligence agencies and even ordinary users who care
-  about privacy in the digital world. 
+The Tor project allows users to surf the Internet, chat and send instant messages anonymously through its own mechanism. 
+It is used by a wide variety of people, companies and organizations, both for lawful activities and for other illicit purposes. Tor is already gone and is used for example by criminal companies, hacking groups, intelligence agencies and even ordinary users who care about privacy in the digital world. 
   
-  Nipe is a engine, developed in Perl, that aims to make the Tor network your default network gateway. 
-  Through Nipe, we can directly route traffic from our computer to the Tor network through which you can 
-  surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
+Nipe is a engine, developed in Perl, that aims to make the Tor network your default network gateway. Through Nipe, we can directly route traffic from our computer to the Tor network through which you can surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
   
-  Currently, only IPv4 is supported by Nipe, but we are working on a solution to add IPv6 support. 
-  Also, only traffic other than DNS requests destined for local and/or loopback addresses is not 
-  trafficked through the Tor. All non-local UDP/ICMP traffic is also blocked by the Tor project.
-```
+Currently, only IPv4 is supported by Nipe, but we are working on a solution to add IPv6 support. Also, 
+only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through the Tor. 
+All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
+---
 
-### Download and install:
+### Download and install
+
 ```bash
   # Download
   $ git clone https://github.com/GouveaHeitor/nipe && cd nipe
@@ -42,6 +37,7 @@
   $ sudo cpan install Switch JSON Config::Simple
   $ perl nipe.pl install
 ```
+---
 
 ### Commands:
 ```bash
@@ -60,10 +56,13 @@
   perl nipe.pl restart
   perl nipe.pl status
 ```
+---
 
 ### Contribution
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+
+---
 
 ### License
 

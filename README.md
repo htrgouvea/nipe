@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.2-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.3-blue.svg">
     </a>
   </p>
 </p>
@@ -34,7 +34,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   $ git clone https://github.com/GouveaHeitor/nipe && cd nipe
     
   # Install libs and dependencies
-  $ sudo cpan install Switch JSON Config::Simple
+  $ sudo cpan install Config::Simple JSON
   $ perl nipe.pl install
 ```
 ---

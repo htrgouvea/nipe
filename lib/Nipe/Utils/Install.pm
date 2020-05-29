@@ -21,7 +21,7 @@ sub new {
 	}
 
 	else {
-		system ("sudo pacman -S --noconfirm -S tor iptables");
+		system ("sudo pacman -S --noconfirm tor iptables");
 	}
 
 	if (-e "/etc/init.d/tor") {

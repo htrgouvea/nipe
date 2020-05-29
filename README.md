@@ -34,7 +34,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   $ git clone https://github.com/GouveaHeitor/nipe && cd nipe
     
   # Install libs and dependencies
-  $ sudo cpan install Config::Simple JSON
+  $ sudo cpan install Try::Tiny Config::Simple JSON
   $ perl nipe.pl install
 ```
 ---

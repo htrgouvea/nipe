@@ -13,11 +13,12 @@ use Nipe::Utils::Helper;
 use Nipe::Utils::Install;
 
 sub main {
-	my $argument = $ARGV[0];
+	die "$0 must be run as root" if $> != 0;
 
+	my $argument = $ARGV[0];
 	if ($argument) {
 		my $commands = {
-			stop => "Nipe::Engine::Stop", 
+			stop => "Nipe::Engine::Stop",
 			start => "Nipe::Engine::Start",
 			status => "Nipe::Utils::Status",
 			restart => "Nipe::Engine::Restart",
@@ -32,14 +33,14 @@ sub main {
 				print $exec;
 			}
 		}
-		
+
 		catch {
   			print "\n[!] ERROR: this command could not be run\n\n";
 		};
 
 		return 1;
 	}
-	
+
 	return print Nipe::Utils::Helper -> new();
 }
 

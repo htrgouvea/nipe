@@ -6,28 +6,33 @@ use Nipe::Utils::Device;
 
 sub new {
 	my %device  = Nipe::Utils::Device -> new();
-	my $stopTor = "sudo systemctl stop tor";
+	my $stopTor = "systemctl stop tor";
 
 	if ($device{distribution} eq "debian") {
-		system ("sudo apt-get install -y tor iptables");
+		system ("apt-get install -y tor iptables");
 	}
-	
+
 	elsif ($device{distribution} eq "fedora") {
-		system ("sudo dnf install -y tor iptables");
+		system ("dnf install -y tor iptables");
 	}
 
 	elsif ($device{distribution} eq "centos") {
-		system ("sudo yum -y install epel-release tor iptables");
+		system ("yum -y install epel-release tor iptables");
+	}
+
+	elsif ($device{distribution} eq "void") {
+		system ("xbps-install -y tor iptables");
+		$stopTor = "sv stop tor > /dev/null";
 	}
 
 	else {
-		system ("sudo pacman -S --noconfirm tor iptables");
+		system ("pacman -S --noconfirm tor iptables");
 	}
 
 	if (-e "/etc/init.d/tor") {
-		$stopTor = "sudo /etc/init.d/tor stop > /dev/null";
+		$stopTor = "/etc/init.d/tor stop > /dev/null";
 	}
-	
+
 	system ($stopTor);
 
 	return 1;

@@ -1,0 +1,12 @@
+DataDirectory /var/lib/tor
+Log notice syslog
+RunAsDaemon 1
+
+User tor
+
+ClientOnly 1
+TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort
+DNSPort   9061
+
+VirtualAddrNetwork 10.66.0.0/16
+AutomapHostsOnResolve 1

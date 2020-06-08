@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.3-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.4-blue.svg">
     </a>
   </p>
 </p>
@@ -57,6 +57,10 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   perl nipe.pl status
 ```
 ---
+
+### Demo
+
+![Image](https://heitorgouvea.me/images/projects/nipe/demo.gif)
 
 ### Contribution
 

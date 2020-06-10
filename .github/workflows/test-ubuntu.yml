@@ -11,7 +11,7 @@ jobs:
       run: |
         sudo apt install -y perl
         sudo cpan install JSON Config::Simple
-        perl nipe.pl install
+        sudo perl nipe.pl install
     - name: Verify Nipe status
       run: |
-        perl nipe.pl status
+        sudo perl nipe.pl status

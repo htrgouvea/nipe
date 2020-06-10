@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/projects/nipe/logo.png">
-  <p align="center">A engine to make Tor Network your default gateway.</p>
+  <p align="center">An engine to make Tor Network your default gateway.</p>
 
   <p align="center">
     <a href="/LICENSE.md">
@@ -17,12 +17,12 @@
 ### Summary
 
 The Tor project allows users to surf the Internet, chat and send instant messages anonymously through its own mechanism. 
-It is used by a wide variety of people, companies and organizations, both for lawful activities and for other illicit purposes. Tor is already gone and is used for example by criminal companies, hacking groups, intelligence agencies and even ordinary users who care about privacy in the digital world. 
+It is used by a wide variety of people, companies and organizations, both for lawful activities and for other illicit purposes. Tor has been largely used by intelligence agencies, hacking groups, criminal activities and even ordinary users who care about their privacy in the digital world.
   
-Nipe is a engine, developed in Perl, that aims to make the Tor network your default network gateway. Through Nipe, we can directly route traffic from our computer to the Tor network through which you can surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
+Nipe is an engine, developed in Perl, that aims on making the Tor network your default network gateway. Through Nipe, we can route the traffic from your machine to the Internet through Tor network, so you can surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
   
-Currently, only IPv4 is supported by Nipe, but we are working on a solution to add IPv6 support. Also, 
-only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through the Tor. 
+Currently, only IPv4 is supported by Nipe, but we are working on a solution that adds IPv6 support. Also, 
+only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through Tor. 
 All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ---

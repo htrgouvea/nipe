@@ -13,6 +13,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "sv0",
+      "name": "Slavik Svyrydiuk",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/233977?v=4",
+      "profile": "https://security.care/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

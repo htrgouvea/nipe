@@ -89,6 +89,7 @@ Thanks goes to these wonderful people:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/omatron"><img src="https://avatars0.githubusercontent.com/u/24454511?v=4" width="100px;" alt=""/><br /><sub><b>omatron</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=omatron" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://security.care/"><img src="https://avatars3.githubusercontent.com/u/233977?v=4" width="100px;" alt=""/><br /><sub><b>Slavik Svyrydiuk</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=sv0" title="Code">💻</a></td>
   </tr>
 </table>
 

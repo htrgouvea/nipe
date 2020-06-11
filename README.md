@@ -1,7 +1,6 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/projects/nipe/logo.png">
   <p align="center">An engine to make Tor Network your default gateway.</p>
-
   <p align="center">
     <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
@@ -11,8 +10,6 @@
     </a>
   </p>
 </p>
-
-
 
 ---
 
@@ -44,7 +41,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 ---
 
 ### Commands:
-```bash
+```
   COMMAND          FUNCTION
   install          Install dependencies
   start            Start routing
@@ -60,11 +57,14 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   perl nipe.pl restart
   perl nipe.pl status
 ```
+
 ---
 
 ### Demo
 
 ![Image](https://heitorgouvea.me/images/projects/nipe/demo.gif)
+
+---
 
 ### Contribution
 

@@ -44,8 +44,6 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 ```
   COMMAND          FUNCTION
   install          Install dependencies
-    -f             Overwrite Tor config file in /etc/tor/torrc
-    -c <file>      Specify a custom location to install Tors config file
   start            Start routing
   stop             Stop routing
   restart          Restart the Nipe circuit
@@ -53,7 +51,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
   Examples:
 
-  perl nipe.pl install -f
+  perl nipe.pl install
   perl nipe.pl start
   perl nipe.pl stop
   perl nipe.pl restart

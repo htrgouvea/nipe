@@ -9,9 +9,6 @@
     <a href="https://github.com/GouveaHeitor/nipe/releases">
       <img src="https://img.shields.io/badge/version-0.9.4-blue.svg">
     </a>
-    <a href="https://github.com/GouveaHeitor/nipe/graphs/contributors">
-      <img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square">
-    </a>
   </p>
 </p>
 
@@ -73,15 +70,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
----
-
-### License
-
-- This work is licensed under [MIT License.](/LICENSE.md)
-
-### Contributors
-
-Thanks goes to these wonderful people:
+- Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -99,4 +88,8 @@ Thanks goes to these wonderful people:
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+---
+
+### License
+
+- This work is licensed under [MIT License.](/LICENSE.md)

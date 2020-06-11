@@ -12,8 +12,8 @@ sub new {
 	if ($request -> {status} == 200) {
 	 	my $data = decode_json ($request -> {content});
 
-		my $checkIp  = $data -> {'IP'};
-		my $checkTor = $data -> {'IsTor'} ? "activated" : "disabled";
+		my $checkIp  = $data -> {"IP"};
+		my $checkTor = $data -> {"IsTor"} ? "activated" : "disabled";
 
 		return "\n\r[+] Status: $checkTor. \n\r[+] Ip: $checkIp\n\n";
 	}

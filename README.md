@@ -1,7 +1,4 @@
 <p align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <img src="https://heitorgouvea.me/images/projects/nipe/logo.png">
   <p align="center">An engine to make Tor Network your default gateway.</p>
 
@@ -12,8 +9,13 @@
     <a href="https://github.com/GouveaHeitor/nipe/releases">
       <img src="https://img.shields.io/badge/version-0.9.4-blue.svg">
     </a>
+    <a href="https://github.com/GouveaHeitor/nipe/graphs/contributors">
+      <img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square">
+    </a>
   </p>
 </p>
+
+
 
 ---
 
@@ -77,9 +79,9 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 - This work is licensed under [MIT License.](/LICENSE.md)
 
-## Contributors ✨
+### Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

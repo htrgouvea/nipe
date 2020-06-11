@@ -22,6 +22,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "bmeneguele",
+      "name": "Bruno Meneguele",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/453611?v=4",
+      "profile": "http://bmeneg.com",
+      "contributions": [
+        "doc",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

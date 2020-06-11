@@ -13,7 +13,7 @@ sub new {
 	my $startTor     = "systemctl start tor";
 
 	if ($device{distribution} eq "void") {
-		$startTor = "sv start tor";
+		$startTor = "sv start tor > /dev/null";
 	}
 
 	elsif (-e "/etc/init.d/tor") {

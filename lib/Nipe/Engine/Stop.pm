@@ -10,7 +10,7 @@ sub new {
 	my $stopTor = "systemctl stop tor";
 
 	if ($device{distribution} eq "void") {
-	    $stopTor = "sv stop tor";
+	    $stopTor = "sv stop tor > /dev/null";
 	}
 
 	foreach my $table (@table) {

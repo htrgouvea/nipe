@@ -12,8 +12,9 @@ use Nipe::Utils::Status;
 use Nipe::Utils::Helper;
 use Nipe::Utils::Install;
 
+
 sub main {
-	die "$0 must be run as root" if $> != 0;
+	die "Nipe must be run as root.\n" if $> != 0;
 
 	my $argument = $ARGV[0];
 	

@@ -5,7 +5,7 @@ use warnings;
 use Nipe::Utils::Device;
 
 sub new {
-	my %device  = Nipe::Utils::Device -> new();
+	my %device       = Nipe::Utils::Device -> new();
 	my $dnsPort      = "9061";
 	my $transferPort = "9051";
 	my @table        = ("nat", "filter");

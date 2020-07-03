@@ -68,13 +68,10 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
 - Thanks goes to these wonderful people:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://github.com/omatron"><img src="https://avatars0.githubusercontent.com/u/24454511?v=4" width="100px;" alt=""/><br /><sub><b>omatron</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=omatron" title="Documentation">📖</a></td>
@@ -83,10 +80,6 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
     <td align="center"><a href="https://github.com/dvinciguerra"><img src="https://avatars0.githubusercontent.com/u/114177?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Vinciguerra</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=dvinciguerra" title="Code">💻</a></td>
   </tr>
 </table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
 

@@ -1,0 +1,3 @@
+TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort
+DNSPort   9061
+AutomapHostsOnResolve 1

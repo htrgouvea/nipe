@@ -1,4 +1,5 @@
 package Nipe::Utils::Device {
+
 	use strict;
 	use warnings;
 	use Config::Simple;
@@ -10,8 +11,15 @@ package Nipe::Utils::Device {
 
 		my %device = (
 			"username" => "",
-			"distribution"  => ""
+			"distribution"  => "",
+			"startTor" => "systemctl start tor > /dev/null",
+			"stopTor" => "systemctl stop tor > /dev/null",
 		);
+
+		if (-e "/etc/init.d/tor") {
+			$device{startTor} = "/etc/init.d/tor start > /dev/null";
+			$device{stopTor} = "/etc/init.d/tor stop > /dev/null";
+		}
 
 		if (($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)) {
 			$device{username} = "toranon";
@@ -26,6 +34,8 @@ package Nipe::Utils::Device {
 		elsif ($id_distro =~ /[V,v]oid/) {
 			$device{username} = "tor";
 			$device{distribution} = "void";
+			$device{startTor} = "sv start tor";
+			$device{stopTor} = "sv stop tor";
 		}
 
 		else {

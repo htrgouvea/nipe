@@ -1,11 +1,28 @@
 package Nipe::Utils::Install {
 	use strict;
 	use warnings;
+	use File::Basename qw(dirname);
+	use File::Copy;
 	use Nipe::Utils::Device;
 
 	sub new {
 		my %device  = Nipe::Utils::Device -> new();
 		my $stopTor = "systemctl stop tor";
+		my $nipeTorConfig = "/etc/torrc.d/nipe";
+
+		if (! -d dirname ($nipeTorConfig)) {
+			mkdir dirname ($nipeTorConfig), 0700;
+		}
+
+		if (! -f $nipeTorConfig) {
+			copy ("torrc.d/nipe", $nipeTorConfig) or die "Copy failed: $!";
+		}
+
+		open (FILE, "+<", "/etc/tor/torrc");
+		if (not grep{ /^%include \/etc\/torrc\.d\/nipe$/ } <FILE>) {
+			print FILE "%include /etc/torrc.d/nipe\n";
+		}
+		close FILE;
 
 		if ($device{distribution} eq "debian") {
 			system ("apt-get install -y tor iptables");
@@ -21,18 +38,13 @@ package Nipe::Utils::Install {
 
 		elsif ($device{distribution} eq "void") {
 			system ("xbps-install -y tor iptables");
-			$stopTor = "sv stop tor > /dev/null";
 		}
 
 		else {
 			system ("pacman -S --noconfirm tor iptables");
 		}
 
-		if (-e "/etc/init.d/tor") {
-			$stopTor = "/etc/init.d/tor stop > /dev/null";
-		}
-
-		system ($stopTor);
+		system ($device{stopTor});
 
 		return 1;
 	}

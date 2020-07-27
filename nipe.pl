@@ -14,7 +14,7 @@ use Nipe::Utils::Install;
 
 sub main {
 	my $argument = $ARGV[0];
-	
+
 	if ($argument) {
 		die "Nipe must be run as root.\n" if $> != 0;
 

@@ -6,7 +6,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.4-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.5-blue.svg">
     </a>
   </p>
 </p>

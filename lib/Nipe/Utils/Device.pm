@@ -10,7 +10,7 @@ package Nipe::Utils::Device {
 		my $id_distro = $config -> param("ID");
 
 		my %device = (
-			"username" => "",
+			"username" => "tor",
 			"distribution"  => "",
 			"startTor" => "systemctl start tor > /dev/null",
 			"stopTor" => "systemctl stop tor > /dev/null",
@@ -27,12 +27,10 @@ package Nipe::Utils::Device {
 		}
 
 		elsif (($id_like =~ /[A,a]rch/) || ($id_like =~ /[C,c]entos/) || ($id_distro =~ /[A,a]rch/) || ($id_distro =~ /[C,c]entos/)) {
-			$device{username} = "tor";
 			$device{distribution} = "arch";
 		}
 
 		elsif ($id_distro =~ /[V,v]oid/) {
-			$device{username} = "tor";
 			$device{distribution} = "void";
 			$device{startTor} = "sv start tor";
 			$device{stopTor} = "sv stop tor";

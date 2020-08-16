@@ -53,8 +53,14 @@ package Nipe::Utils::Install {
 			system ("xbps-install -y tor iptables");
 		}
 
-		else {
+		elsif ($device{distribution} eq "arch") {
 			system ("pacman -S --noconfirm tor iptables");
+		}
+
+		else {
+			print STDERR "Unknown distribution.\n";
+			print STDERR "Install tor and iptables using your package manager.\n";
+			die;
 		}
 
 		system ($device{stopTor});

@@ -70,18 +70,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/x86scale/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
-- If you want to contribute financially to this project, an alternative is to become my ["Patreon"](https://patreon.com/offgouvea) or make a donation via [Paypal.](https://www.paypal.com/donate?hosted_button_id=4283L7ZNWN3M6)
-
-- Thanks goes to these wonderful people:
-
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/omatron"><img src="https://avatars0.githubusercontent.com/u/24454511?v=4" width="100px;" alt=""/><br /><sub><b>omatron</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=omatron" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://security.care/"><img src="https://avatars3.githubusercontent.com/u/233977?v=4" width="100px;" alt=""/><br /><sub><b>Slavik Svyrydiuk</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=sv0" title="Code">💻</a></td>
-    <td align="center"><a href="http://bmeneg.com"><img src="https://avatars2.githubusercontent.com/u/453611?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Meneguele</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=bmeneguele" title="Documentation">📖</a> <a href="https://github.com/x86scale/nipe/commits?author=bmeneguele" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/dvinciguerra"><img src="https://avatars0.githubusercontent.com/u/114177?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Vinciguerra</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=dvinciguerra" title="Code">💻</a></td>
-  </tr>
-</table>
+- If you want to contribute financially to this project, an alternative is to become my ["Patreon"](https://patreon.com/x86scale) or make a donation via [Paypal.](https://www.paypal.com/donate?hosted_button_id=4283L7ZNWN3M6)
 
 ---
 

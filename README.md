@@ -5,7 +5,7 @@
     <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
-    <a href="https://github.com/GouveaHeitor/nipe/releases">
+    <a href="https://github.com/x86scale/nipe/releases">
       <img src="https://img.shields.io/badge/version-0.9.4-blue.svg">
     </a>
   </p>
@@ -30,7 +30,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ```bash
   # Download
-  $ git clone https://github.com/GouveaHeitor/nipe && cd nipe
+  $ git clone https://github.com/x86scale/nipe && cd nipe
     
   # Install libs and dependencies
   $ sudo cpan install Try::Tiny Config::Simple JSON
@@ -68,16 +68,16 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/x86scale/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
 - Thanks goes to these wonderful people:
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/omatron"><img src="https://avatars0.githubusercontent.com/u/24454511?v=4" width="100px;" alt=""/><br /><sub><b>omatron</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=omatron" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://security.care/"><img src="https://avatars3.githubusercontent.com/u/233977?v=4" width="100px;" alt=""/><br /><sub><b>Slavik Svyrydiuk</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=sv0" title="Code">💻</a></td>
-    <td align="center"><a href="http://bmeneg.com"><img src="https://avatars2.githubusercontent.com/u/453611?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Meneguele</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=bmeneguele" title="Documentation">📖</a> <a href="https://github.com/GouveaHeitor/nipe/commits?author=bmeneguele" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/dvinciguerra"><img src="https://avatars0.githubusercontent.com/u/114177?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Vinciguerra</b></sub></a><br /><a href="https://github.com/GouveaHeitor/nipe/commits?author=dvinciguerra" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/omatron"><img src="https://avatars0.githubusercontent.com/u/24454511?v=4" width="100px;" alt=""/><br /><sub><b>omatron</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=omatron" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://security.care/"><img src="https://avatars3.githubusercontent.com/u/233977?v=4" width="100px;" alt=""/><br /><sub><b>Slavik Svyrydiuk</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=sv0" title="Code">💻</a></td>
+    <td align="center"><a href="http://bmeneg.com"><img src="https://avatars2.githubusercontent.com/u/453611?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Meneguele</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=bmeneguele" title="Documentation">📖</a> <a href="https://github.com/x86scale/nipe/commits?author=bmeneguele" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dvinciguerra"><img src="https://avatars0.githubusercontent.com/u/114177?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Vinciguerra</b></sub></a><br /><a href="https://github.com/x86scale/nipe/commits?author=dvinciguerra" title="Code">💻</a></td>
   </tr>
 </table>
 

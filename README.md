@@ -5,7 +5,7 @@
     <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
-    <a href="https://github.com/x86scale/nipe/releases">
+    <a href="https://github.com/htrgouvea/nipe/releases">
       <img src="https://img.shields.io/badge/version-0.9.5-blue.svg">
     </a>
   </p>
@@ -30,7 +30,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ```bash
   # Download
-  $ git clone https://github.com/x86scale/nipe && cd nipe
+  $ git clone https://github.com/htrgouvea/nipe && cd nipe
     
   # Install libs and dependencies
   $ sudo cpan install Try::Tiny Config::Simple JSON
@@ -68,9 +68,9 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/x86scale/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
 
-- If you want to contribute financially to this project, an alternative is to become my ["Patreon"](https://patreon.com/x86scale) or make a donation via [Paypal.](https://www.paypal.com/donate?hosted_button_id=4283L7ZNWN3M6)
+- If you want to contribute financially to this project, an alternative is to become my ["Patreon"](https://patreon.com/hgouvea) or make a donation via [Paypal.](https://www.paypal.com/donate?hosted_button_id=4283L7ZNWN3M6)
 
 ---
 

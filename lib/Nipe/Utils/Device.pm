@@ -9,8 +9,8 @@ package Nipe::Utils::Device {
 		my $id_distro = $config -> param("ID");
 
 		my %device = (
-			"username" => "",
-			"distribution"  => ""
+			"username" => "debian-tor",
+			"distribution"  => "debian"
 		);
 
 		if (($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)) {
@@ -26,11 +26,6 @@ package Nipe::Utils::Device {
 		elsif ($id_distro =~ /[V,v]oid/) {
 			$device{username} = "tor";
 			$device{distribution} = "void";
-		}
-
-		else {
-			$device{username} = "debian-tor";
-			$device{distribution} = "debian";
 		}
 
 		return %device;

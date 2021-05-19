@@ -4,12 +4,10 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v1
     - name: Audit code
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl
-        curl -s https://raw.githubusercontent.com/htrgouvea/secureperl/main/secureperl.pl | perl
+        sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl 
+        curl https://raw.githubusercontent.com/htrgouvea/secureperl/main/secureperl.pl | perl

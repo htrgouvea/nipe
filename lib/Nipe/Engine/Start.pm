@@ -73,6 +73,9 @@ package Nipe::Engine::Start {
 			system ("iptables -t $table -A OUTPUT -p tcp -j $target");
 		}
 
+        system ("iptables -t filter -A OUTPUT -p udp -j REJECT");
+        system ("iptables -t filter -A OUTPUT -p icmp -j REJECT");
+
         # disable IPv6
         system("sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null");
         system("sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null");

@@ -3,12 +3,23 @@ package Nipe::Engine::Start {
 	use warnings;
 	use Nipe::Utils::Device;
 
+    sub get_subnets {
+        my @nets = `ip a s` =~ /inet +(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d+)/ig;
+        return @nets if @nets > 0;
+        while (`ifconfig` =~ /inet +([^ ]+) +netmask +([^ ]+)/ig) {
+            my ($ip, $mask) = ($1, $2);
+            my $bin = join '', map { sprintf "%b", $_ } split /\./, $mask;
+            $mask = length($bin =~ s/0+$//r);
+            push @nets, "$ip/$mask";
+        }
+        @nets
+    }
+
 	sub new {
 		my %device       = Nipe::Utils::Device -> new();
 		my $dnsPort      = "9061";
 		my $transferPort = "9051";
 		my @table        = ("nat", "filter");
-		my $network      = "10.66.0.0/255.255.0.0";
 		my $startTor     = "systemctl start tor";
 
 		if ($device{distribution} eq "void") {
@@ -21,6 +32,8 @@ package Nipe::Engine::Start {
 
 		system ("tor -f .configs/$device{distribution}-torrc > /dev/null");
 		system ($startTor);
+
+        my @subnets = get_subnets();
 
 		foreach my $table (@table) {
 			my $target = "ACCEPT";
@@ -47,16 +60,11 @@ package Nipe::Engine::Start {
 				$target = "REDIRECT --to-ports $transferPort";
 			}
 
-			system ("iptables -t $table -A OUTPUT -d $network -p tcp -j $target");
-
 			if ($table eq "nat") {
 				$target = "RETURN";
 			}
 
-			system ("iptables -t $table -A OUTPUT -d 127.0.0.1/8    -j $target");
-			system ("iptables -t $table -A OUTPUT -d 192.168.0.0/16 -j $target");
-			system ("iptables -t $table -A OUTPUT -d 172.16.0.0/12  -j $target");
-			system ("iptables -t $table -A OUTPUT -d 10.0.0.0/8     -j $target");
+            system ("iptables -t $table -A OUTPUT -d $_ -j $target") for @subnets;
 
 			if ($table eq "nat") {
 				$target = "REDIRECT --to-ports $transferPort";
@@ -65,8 +73,12 @@ package Nipe::Engine::Start {
 			system ("iptables -t $table -A OUTPUT -p tcp -j $target");
 		}
 
-		system ("iptables -t filter -A OUTPUT -p udp -j REJECT");
-		system ("iptables -t filter -A OUTPUT -p icmp -j REJECT");
+        system ("iptables -t filter -A OUTPUT -p udp -j REJECT");
+        system ("iptables -t filter -A OUTPUT -p icmp -j REJECT");
+
+        # disable IPv6
+        system("sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null");
+        system("sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null");
 
 		return 1;
 	}

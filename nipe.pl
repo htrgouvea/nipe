@@ -19,12 +19,12 @@ sub main {
 		die "Nipe must be run as root.\n" if $> != 0;
 
 		my $commands = {
-			stop => "Nipe::Engine::Stop",
-			start => "Nipe::Engine::Start",
-			status => "Nipe::Utils::Status",
+			stop    => "Nipe::Engine::Stop",
+			start   => "Nipe::Engine::Start",
+			status  => "Nipe::Utils::Status",
 			restart => "Nipe::Engine::Restart",
 			install => "Nipe::Utils::Install",
-			help => "Nipe::Utils::Helper"
+			help    => "Nipe::Utils::Helper"
 		};
 
 		try {

@@ -6,7 +6,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.5-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.6-blue.svg">
     </a>
   </p>
 </p>
@@ -69,6 +69,8 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 ### Contribution
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+
+- If you are interested in providing financial support to this project, please visit: [heitorgouvea.me/donate](https://heitorgouvea.me/donate)
 
 ---
 

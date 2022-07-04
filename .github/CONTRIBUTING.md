@@ -2,9 +2,9 @@
 
 ## Branches
 
-The `master` branch is used only for holding released code of the project. Any
+The `main` branch is used only for holding released code of the project. Any
 new feature or bugfix **must** be opened against `develop` branch, where some
-additional testing is performed before the code lands `master`.
+additional testing is performed before the code lands `main`.
 
 ## Testing
 

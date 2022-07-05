@@ -10,7 +10,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt install -y perl
-        sudo cpan install JSON Config::Simple
+        sudo cpan install Try::Tiny Config::Simple JSON
         sudo perl nipe.pl install
     - name: Verify Nipe status
       run: |

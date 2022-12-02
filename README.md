@@ -33,7 +33,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   $ git clone https://github.com/htrgouvea/nipe && cd nipe
     
   # Install libs and dependencies
-  $ sudo cpan install Try::Tiny Config::Simple JSON
+  $ cpanm --installdeps .
 
   # Nipe must be run as root
   $ perl nipe.pl install

@@ -6,7 +6,7 @@ package Nipe::Utils::Status {
 
 	sub new {
 		my $apiCheck = "https://check.torproject.org/api/ip";
-		my $request = HTTP::Tiny -> new -> get($apiCheck);
+		my $request  = HTTP::Tiny -> new -> get($apiCheck);
 			
 		if ($request -> {status} == 200) {
 			my $data = decode_json ($request -> {content});

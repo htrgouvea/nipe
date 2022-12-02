@@ -16,7 +16,7 @@ sub main {
 	my $argument = $ARGV[0];
 	
 	if ($argument) {
-		die "Nipe must be run as root.\n" if $> != 0;
+		die "Nipe must be run as root.\n" if $< != 0;
 
 		my $commands = {
 			stop    => "Nipe::Engine::Stop",

@@ -1,5 +1,5 @@
 name: Test Nipe on Ubuntu
-on: [push, pull]
+on: [push]
 
 jobs:
   build:

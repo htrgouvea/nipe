@@ -10,7 +10,7 @@ package Nipe::Utils::Device {
 
 		my %device = (
 			"username" => "debian-tor",
-			"distribution"  => "debian"
+			"distribution" => "debian"
 		);
 
 		if (($id_like =~ /[F,f]edora/) || ($id_distro =~ /[F,f]edora/)) {

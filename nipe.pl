@@ -16,15 +16,15 @@ sub main {
 	my $argument = $ARGV[0];
 	
 	if ($argument) {
-		die "Nipe must be run as root.\n" if $> != 0;
+		die "Nipe must be run as root.\n" if $< != 0;
 
 		my $commands = {
-			stop => "Nipe::Engine::Stop",
-			start => "Nipe::Engine::Start",
-			status => "Nipe::Utils::Status",
+			stop    => "Nipe::Engine::Stop",
+			start   => "Nipe::Engine::Start",
+			status  => "Nipe::Utils::Status",
 			restart => "Nipe::Engine::Restart",
 			install => "Nipe::Utils::Install",
-			help => "Nipe::Utils::Helper"
+			help    => "Nipe::Utils::Helper"
 		};
 
 		try {
@@ -45,5 +45,4 @@ sub main {
 	return print Nipe::Utils::Helper -> new();
 }
 
-main();
-exit;
+exit main();

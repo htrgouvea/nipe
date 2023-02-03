@@ -6,7 +6,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.5-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.6-blue.svg">
     </a>
   </p>
 </p>
@@ -33,7 +33,7 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
   $ git clone https://github.com/htrgouvea/nipe && cd nipe
     
   # Install libs and dependencies
-  $ sudo cpan install Try::Tiny Config::Simple JSON
+  $ cpanm --installdeps .
 
   # Nipe must be run as root
   $ perl nipe.pl install

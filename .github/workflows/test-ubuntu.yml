@@ -1,5 +1,5 @@
 name: Test Nipe on Ubuntu
-on: [push]
+on: [push, pull]
 
 jobs:
   build:
@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        sudo apt install -y perl cpanminus
+        sudo apt install -y perl cpanminus gcc make
         sudo cpanm --installdeps .
         sudo perl nipe.pl install
     - name: Verify Nipe status

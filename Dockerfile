@@ -1,4 +1,4 @@
-FROM perl:5.34
+FROM perl:5.36
 
 COPY . /usr/src/nipe
 WORKDIR /usr/src/nipe

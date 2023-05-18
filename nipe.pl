@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-use 5.018;
+use 5.030;
 use strict;
 use warnings;
 use Try::Tiny;

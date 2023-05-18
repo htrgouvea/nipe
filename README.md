@@ -6,7 +6,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/nipe/releases">
-      <img src="https://img.shields.io/badge/version-0.9.6-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.9.7-blue.svg">
     </a>
   </p>
 </p>

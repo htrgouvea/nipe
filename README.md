@@ -74,14 +74,14 @@ Your contributions and suggestions are heartily ♥ welcome. [See here the contr
 
 ### Sponsorship
 
-[OpsTeam](https://bit.ly/nipe-opsteam) are the Sponsor of this project helping across the costs of the development and the maintenance. 
+[OpsTeam](https://bit.ly/nipe-and-opsteam) are the Sponsor of this project helping across the costs of the development and the maintenance. 
 
 <p align="center">
-  <a href="https://bit.ly/nipe-opsteam"><img src="https://heitorgouvea.me/images/assets/opsteam-logo.svg" style="width: 200px"></a>
+  <a href="https://bit.ly/nipe-and-opsteam"><img src="https://heitorgouvea.me/images/assets/opsteam-logo.svg" style="width: 200px"></a>
   <p align="center"></p>
 </p>
 
-[OpsTeam](https://bit.ly/nipe-opsteam): are a Cloud Experts Boutique specialized in providing Consulting and Professional Services in the Cloud Computing, and a cluster of genius in bleeding edge technologies to handle the most complex challenges in a modern approach. [See more about OpsTeam here.](https://bit.ly/nipe-opsteam)
+[OpsTeam](https://bit.ly/nipe-and-opsteam): are a Cloud Experts Boutique specialized in providing Consulting and Professional Services in the Cloud Computing, and a cluster of genius in bleeding edge technologies to handle the most complex challenges in a modern approach. [See more about OpsTeam here.](https://bit.ly/nipe-and-opsteam)
 
 ---
 

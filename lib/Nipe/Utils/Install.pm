@@ -8,11 +8,12 @@ package Nipe::Utils::Install {
 		my $stopTor = "systemctl stop tor";
 		
 		my %install = (
-			"debian" => "apt-get install -y tor iptables",
-			"fedora" => "dnf install -y tor iptables",
-			"centos" => "yum -y install epel-release tor iptables",
-			"void"   => "xbps-install -y tor iptables",
-			"arch"   => "pacman -S --noconfirm tor iptables"
+			"debian"   => "apt-get install -y tor iptables",
+			"fedora"   => "dnf install -y tor iptables",
+			"centos"   => "yum -y install epel-release tor iptables",
+			"void"     => "xbps-install -y tor iptables",
+			"opensuse" => "zypper install --no-confirm tor iptables",
+			"arch"     => "pacman -S --noconfirm tor iptables"
 		);
 
 		if ($device{distribution} eq "void") {

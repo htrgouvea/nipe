@@ -1,0 +1,5 @@
+VirtualAddrNetworkIPv4 10.66.0.0/16
+AutomapHostsOnResolve 1
+
+TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort
+DNSPort 9061

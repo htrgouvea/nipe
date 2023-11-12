@@ -1,0 +1,16 @@
+name: Linter / Perl Critic
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  critic:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Perl::Critic
+      uses: natanlao/perl-critic-action@v1.1
+      with:
+        files: critic

@@ -1,2 +1,4 @@
-only = 1
-include = ProhibitUnusedVariables ProhibitUnusedConstant ProhibitUnusedInclude ProhibitUnusedImport ProhibitUnreachableCode ProhibitComplexRegexes ProhibitDuplicatedSub ProhibitDuplicateHashKeys ProhibitUnusedPrivateSubroutines ProhibitUnlessBlocks ProhibitExcessiveColons ProhibitExplicitReturnUndef RequireCamelCase ProhibitMagicNumbers ProhibitTrailingWhitespace ProhibitHardTabs
+severity = 4
+
+[-TestingAndDebugging::RequireUseStrict]
+[-TestingAndDebugging::RequireUseWarnings]

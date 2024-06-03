@@ -28,6 +28,11 @@ package Nipe::Utils::Device {
 			$device{distribution} = "void";
 		}
 
+		elsif (($id_like =~ /[S,s]use/) || ($id_distro =~ /[O,o]pen[S,s]use/)) {
+			$device{username} = "tor";
+			$device{distribution} = "opensuse";
+		}
+
 		return %device;
 	}
 }

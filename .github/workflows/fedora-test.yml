@@ -1,15 +1,15 @@
-name: Test Nipe on Ubuntu
+name: Test Nipe on Fedora
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: fedora-latest
     
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        sudo apt install -y perl cpanminus gcc make zlib1g-dev
+        sudo dnf install -y perl cpanminus gcc make zlib-devel
         sudo cpanm --installdeps .
         sudo perl nipe.pl install
     - name: Verify Nipe status

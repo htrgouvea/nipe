@@ -1,14 +1,15 @@
-name: Test Nipe on Ubuntu
+name: Test Nipe on Debian
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
+        sudo apt update
         sudo apt install -y perl cpanminus gcc make zlib1g-dev
         sudo cpanm --installdeps .
         sudo perl nipe.pl install

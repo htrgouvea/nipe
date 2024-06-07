@@ -5,7 +5,7 @@ package Nipe::Utils::Install {
 
 	sub new {
 		my %device  = Nipe::Utils::Device -> new();
-
+		
 		my %install = (
 			"debian" => "apt-get install -y tor iptables",
 			"fedora" => "dnf install -y tor iptables",

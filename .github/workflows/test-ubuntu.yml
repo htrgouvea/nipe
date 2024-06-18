@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        sudo apt install -y perl cpanminus gcc make zlib1g-dev
+        sudo apt install -y perl cpanminus gcc make zlib1g-dev libssl-dev
         sudo cpanm --installdeps .
         sudo perl nipe.pl install
     - name: Verify Nipe status

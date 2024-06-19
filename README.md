@@ -8,6 +8,11 @@
     <a href="https://github.com/htrgouvea/nipe/releases">
       <img src="https://img.shields.io/badge/version-0.9.7-blue.svg">
     </a>
+     <br/>
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/linter.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/zarn.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/security-gate.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-ubuntu.yml/badge.svg">
   </p>
 </p>
 

@@ -45,4 +45,4 @@ sub main {
 	return print Nipe::Utils::Helper -> new();
 }
 
-exit main();
+main();

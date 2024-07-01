@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
+use lib '../lib/';
 use Nipe::Utils::Helper;
 
 {

@@ -73,6 +73,8 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ### Contribution
 
+[![GitHub repo Good Issues for newbies](https://img.shields.io/github/issues/htrgouvea/nipe/good%20first%20issue?style=flat&logo=github&logoColor=green&label=Good%20First%20issues)](https://github.com/htrgouvea/nipe/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) [![GitHub Help Wanted issues](https://img.shields.io/github/issues/htrgouvea/nipe/help%20wanted?style=flat&logo=github&logoColor=b545d1&label=%22Help%20Wanted%22%20issues)](https://github.com/htrgouvea/nipe/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) [![GitHub Help Wanted PRs](https://img.shields.io/github/issues-pr/htrgouvea/nipe/help%20wanted?style=flat&logo=github&logoColor=b545d1&label=%22Help%20Wanted%22%20PRs)](https://github.com/htrgouvea/nipe/pulls?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) [![GitHub repo Issues](https://img.shields.io/github/issues/htrgouvea/nipe?style=flat&logo=github&logoColor=red&label=Issues)](https://github.com/htrgouvea/nipe/issues?q=is%3Aopen)
+
 Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)
 
 ---

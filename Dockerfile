@@ -18,10 +18,4 @@ RUN cpanm --installdeps .
 
 RUN chmod +x nipe.pl
 
-# docker run -d -it --privileged --cap-add=NET_ADMIN nipe
-# OR
-# docker run -d -it --name nipe-container --privileged --cap-add=NET_ADMIN nipe
-# THEN
-# docker exec -it <container_id> ./nipe.pl <command>
-
 ENTRYPOINT ["/bin/bash"]

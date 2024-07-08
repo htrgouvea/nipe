@@ -71,6 +71,22 @@ All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
 ---
 
+### Docker container
+
+```bash
+# Building the container
+$ docker build -t nipe .
+
+# Setup the Nipe container
+$ docker run -d -it --name nipe-container --privileged --cap-add=NET_ADMIN nipe
+
+# Running commands
+$ docker exec -it nipe-container ./nipe.pl <your command>
+
+```
+
+---
+
 ### Contribution
 
 Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)

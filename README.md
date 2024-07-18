@@ -24,10 +24,10 @@ The Tor project allows users to surf the Internet, chat and send instant message
 It is used by a wide variety of people, companies and organizations, both for lawful activities and for other illicit purposes. Tor has been largely used by intelligence agencies, hacking groups, criminal activities and even ordinary users who care about their privacy in the digital world.
   
 Nipe is an engine, developed in Perl, that aims on making the Tor network your default network gateway. Nipe can route the traffic from your machine to the Internet through Tor network, so you can surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
-  
-Currently, only IPv4 is supported by Nipe, but we are working on a solution that adds IPv6 support. Also, 
-only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through Tor. 
-All non-local UDP/ICMP traffic is also blocked by the Tor project.
+
+Currently, only IPv4 is supported by Nipe, but we are working on a solution that adds IPv6 support. Also, only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through Tor. All non-local UDP/ICMP traffic is also blocked by the Tor project.
+
+Nipe uses iptables to apply redirection rules. If you may have rules applied to this utility, during the start process, conflicts may occur. When you stop running the Nipe services, all departure rules are removed, not differentiating between the already existing ones and the Nipe rules.
 
 ---
 

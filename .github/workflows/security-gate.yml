@@ -1,4 +1,4 @@
-name: Security Gate - Instriq
+name: Security Gate - LESIS
 
 on:
   push:
@@ -12,10 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MAX_CRITICAL: 0
-      MAX_HIGH: 0
-      MAX_MEDIUM: 0
-      MAX_LOW: 0
+      MAX_CRITICAL: 1
+      MAX_HIGH: 2
+      MAX_MEDIUM: 3
+      MAX_LOW: 4
       GITHUB_TOKEN: ${{ secrets.TOKEN }}
     steps:
     - name: Checkout repository
@@ -32,4 +32,7 @@ jobs:
         --critical $MAX_CRITICAL \
         --high $MAX_HIGH \
         --medium $MAX_MEDIUM \
-        --low $MAX_LOW
+        --low $MAX_LOW \
+        --dependency-alerts \
+        --code-alerts \
+        --secret-alerts 

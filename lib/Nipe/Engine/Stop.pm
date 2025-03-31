@@ -3,6 +3,8 @@ package Nipe::Engine::Stop {
 	use warnings;
 	use Nipe::Utils::Device;
 
+	our $VERSION = '0.0.1';
+
 	sub new {
 		my %device  = Nipe::Utils::Device -> new();
 		my @table   = ("nat", "filter");

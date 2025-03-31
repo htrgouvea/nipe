@@ -3,6 +3,8 @@ package Nipe::Engine::Start {
 	use warnings;
 	use Nipe::Utils::Device;
 
+	our $VERSION = '0.0.1';
+
 	sub new {
 		my %device       = Nipe::Utils::Device -> new();
 		my $dnsPort      = "9061";

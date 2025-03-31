@@ -4,6 +4,8 @@ package Nipe::Engine::Restart {
     use Nipe::Engine::Stop;
     use Nipe::Engine::Start;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my $stop = Nipe::Engine::Stop -> new();
 

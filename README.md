@@ -24,10 +24,10 @@ The Tor project allows users to surf the Internet, chat and send instant message
 It is used by a wide variety of people, companies and organizations, both for lawful activities and for other illicit purposes. Tor has been largely used by intelligence agencies, hacking groups, criminal activities and even ordinary users who care about their privacy in the digital world.
   
 Nipe is an engine, developed in Perl, that aims on making the Tor network your default network gateway. Nipe can route the traffic from your machine to the Internet through Tor network, so you can surf the Internet having a more formidable stance on privacy and anonymity in cyberspace.
-  
-Currently, only IPv4 is supported by Nipe, but we are working on a solution that adds IPv6 support. Also, 
-only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through Tor. 
-All non-local UDP/ICMP traffic is also blocked by the Tor project.
+
+Currently, only IPv4 is supported by Nipe, but we are working on a solution that adds IPv6 support. Also, only traffic other than DNS requests destined for local and/or loopback addresses is not trafficked through Tor. All non-local UDP/ICMP traffic is also blocked by the Tor project.
+
+Nipe uses iptables to apply redirection rules. If you may have rules applied to this utility, during the start process, conflicts may occur. When you stop running the Nipe services, all departure rules are removed, not differentiating between the already existing ones and the Nipe rules.
 
 ---
 
@@ -90,19 +90,6 @@ $ docker exec -it nipe-container ./nipe.pl <your command>
 ### Contribution
 
 Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/nipe/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)
-
----
-
-### Sponsorship
-
-[OpsTeam](https://bit.ly/nipe-and-opsteam) are the Sponsor of this project helping across the costs of the development and the maintenance. 
-
-<p align="center">
-  <a href="https://bit.ly/nipe-and-opsteam"><img src="https://heitorgouvea.me/images/assets/opsteam-logo.svg" style="width: 200px"></a>
-  <p align="center"></p>
-</p>
-
-[OpsTeam](https://bit.ly/nipe-and-opsteam): are a Cloud Experts Boutique specialized in providing Consulting and Professional Services in the Cloud Computing, and a cluster of genius in bleeding edge technologies to handle the most complex challenges in a modern approach. [See more about OpsTeam here.](https://bit.ly/nipe-and-opsteam)
 
 ---
 

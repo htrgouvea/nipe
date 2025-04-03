@@ -3,21 +3,21 @@ package Nipe::Utils::Install {
 	use warnings;
 	use Nipe::Utils::Device;
 
-	our $VERSION = '0.0.1';
+	our $VERSION = '0.0.2';
 
 	sub new {
 		my %device  = Nipe::Utils::Device -> new();
 		
 		my %install = (
-			"debian" => "apt-get install -y tor iptables",
-			"fedora" => "dnf install -y tor iptables",
-			"centos" => "yum -y install epel-release tor iptables",
-			"void"   => "xbps-install -y tor iptables",
-			"arch"   => "pacman -S --noconfirm tor iptables",
-			"opensuse" => "zypper install -y tor iptables"
+			debian    => 'apt-get install -y tor iptables',
+			fedora    => 'dnf install -y tor iptables',
+			centos    => 'yum -y install epel-release tor iptables',
+			void      => 'xbps-install -y tor iptables',
+			arch      => 'pacman -S --noconfirm tor iptables',
+			opensuse  => 'zypper install -y tor iptables'
 		);
 
-		system("$install{$device{distribution}}");
+		system $install{$device{distribution}};
 
 		my $stop = Nipe::Engine::Stop -> new();
 

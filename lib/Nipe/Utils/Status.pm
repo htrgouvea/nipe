@@ -4,7 +4,7 @@ package Nipe::Utils::Status {
 	use warnings;
 	use HTTP::Tiny;
 
-	our $VERSION = '0.0.2';
+	our $VERSION = '0.0.3';
 
 	sub new {
 		use constant SUCCESS_CODE => 200;

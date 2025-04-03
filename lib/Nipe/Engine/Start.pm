@@ -4,7 +4,7 @@ package Nipe::Engine::Start {
 	use Nipe::Utils::Device;
 	use Nipe::Utils::Status;
 
-	our $VERSION = '0.0.2';
+	our $VERSION = '0.0.3';
 
 	sub new {
 		my %device       = Nipe::Utils::Device -> new();

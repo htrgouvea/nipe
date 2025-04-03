@@ -2,6 +2,7 @@ package Nipe::Engine::Start {
 	use strict;
 	use warnings;
 	use Nipe::Utils::Device;
+	use Nipe::Utils::Status;
 
 	our $VERSION = '0.0.2';
 
@@ -72,8 +73,14 @@ package Nipe::Engine::Start {
 
 		system 'sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null';
 		system 'sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null';
+		
+		my $status = Nipe::Utils::Status -> new();
+		
+		if ($status =~ /true/) {
+			return 1;
+		}
 
-		return 1;
+		return Engine::Restart -> new();
 	}
 }
 

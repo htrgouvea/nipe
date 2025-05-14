@@ -3,7 +3,6 @@ package Nipe::Engine::Start {
 	use warnings;
 	use Nipe::Utils::Device;
 	use Nipe::Utils::Status;
-	use Nipe::Engine::Restart;
 
 	our $VERSION = '0.0.5';
 
@@ -80,8 +79,6 @@ package Nipe::Engine::Start {
 		if ($status =~ /true/) {
 			return 1;
 		}
-
-		Nipe::Engine::Restart -> new();
 	}
 }
 

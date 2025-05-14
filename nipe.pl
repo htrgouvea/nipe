@@ -13,14 +13,15 @@ use Nipe::Utils::Helper;
 use Nipe::Utils::Install;
 use English '-no_match_vars';
 
-our $VERSION = '0.0.4';
+our $VERSION = '0.0.6';
 
 sub main {
     my $argument = $ARGV[0];
 
     if ($argument) {
-		die "Nipe must be run as root.\n" if $REAL_USER_ID != 0;
-
+		if ($REAL_USER_ID != 0) {
+            die "Nipe must be run as root.\n";
+        }
         my $commands = {
             stop    => 'Nipe::Engine::Stop',
             start   => 'Nipe::Engine::Start',
@@ -33,19 +34,19 @@ sub main {
         try {
             my $exec = $commands -> {$argument} -> new();
 
-            if ($exec ne 1) {
+            if ($exec ne "1") {
                 print $exec;
             }
         }
 
         catch {
-            print "\n[!] ERROR: this command could not be run\n\n";
+            print "\n[!] ERROR: this command could not be run.\n\n";
         };
 
         return 1;
     }
 
-    return print Nipe::Utils::Helper->new();
+    return print Nipe::Utils::Helper -> new();
 }
 
 main();

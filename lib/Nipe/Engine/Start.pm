@@ -79,6 +79,8 @@ package Nipe::Engine::Start {
 		if ($status =~ /true/) {
 			return 1;
 		}
+
+		return $status;
 	}
 }
 

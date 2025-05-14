@@ -3,8 +3,9 @@ package Nipe::Engine::Start {
 	use warnings;
 	use Nipe::Utils::Device;
 	use Nipe::Utils::Status;
+	use Nipe::Engine::Restart;
 
-	our $VERSION = '0.0.4';
+	our $VERSION = '0.0.5';
 
 	sub new {
 		my %device       = Nipe::Utils::Device -> new();
@@ -80,7 +81,7 @@ package Nipe::Engine::Start {
 			return 1;
 		}
 
-		Engine::Restart -> new();
+		Nipe::Engine::Restart -> new();
 	}
 }
 

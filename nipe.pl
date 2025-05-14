@@ -13,7 +13,7 @@ use Nipe::Utils::Helper;
 use Nipe::Utils::Install;
 use English '-no_match_vars';
 
-our $VERSION = '0.0.5';
+our $VERSION = '0.0.6';
 
 sub main {
     my $argument = $ARGV[0];
@@ -41,7 +41,7 @@ sub main {
         }
 
         catch {
-            print "\n[!] ERROR: this command could not be run\n\n";
+            print "\n[!] ERROR: this command could not be run.\n\n";
         };
 
         return 1;

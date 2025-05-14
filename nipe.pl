@@ -22,7 +22,6 @@ sub main {
 		if ($REAL_USER_ID != 0) {
             die "Nipe must be run as root.\n";
         }
-
         my $commands = {
             stop    => 'Nipe::Engine::Stop',
             start   => 'Nipe::Engine::Start',

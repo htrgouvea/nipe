@@ -3,10 +3,12 @@ package Nipe::Engine::Start {
 	use warnings;
 	use Nipe::Utils::Device;
 	use Nipe::Utils::Status;
+    use Nipe::Utils::Stop;
 
 	our $VERSION = '0.0.5';
 
 	sub new {
+        my $stop         = Nipe::Utils::Stop -> new();
 		my %device       = Nipe::Utils::Device -> new();
 		my $dnsPort      = '9061';
 		my $transferPort = '9051';

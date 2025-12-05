@@ -27,7 +27,7 @@ sub main {
             start   => 'Nipe::Component::Engine::Start',
             status  => 'Nipe::Component::Utils::Status',
             restart => 'Nipe::Network::Restart',
-            install => 'Nipe::Ntwork::Install',
+            install => 'Nipe::Network::Install',
             help    => 'Nipe::Component::Utils::Helper'
         };
 

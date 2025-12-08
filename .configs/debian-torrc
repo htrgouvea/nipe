@@ -17,4 +17,5 @@ TransPort 9051
 DNSPort   9061
 
 VirtualAddrNetwork 10.66.0.0/255.255.0.0
+VirtualAddrNetworkIPv6 fd00::/8
 AutomapHostsOnResolve 1

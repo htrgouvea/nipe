@@ -3,7 +3,7 @@ package Nipe::Component::Engine::Stop {
 	use warnings;
 	use Nipe::Component::Utils::Device;
 
-	our $VERSION = '0.0.2';
+	our $VERSION = '0.0.3';
 
 	sub new {
 		my %device  = Nipe::Component::Utils::Device -> new();
@@ -16,7 +16,7 @@ package Nipe::Component::Engine::Stop {
 
 		foreach my $table (@table) {
 			system "iptables -t $table -F OUTPUT";
-			system "iptables -t $table -F OUTPUT";
+			system "ip6tables -t $table -F OUTPUT";
 		}
 
 		if ( -e '/etc/init.d/tor' ) {

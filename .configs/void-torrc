@@ -9,4 +9,5 @@ TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDe
 DNSPort   9061
 
 VirtualAddrNetwork 10.66.0.0/16
+VirtualAddrNetworkIPv6 fd00::/8
 AutomapHostsOnResolve 1

@@ -5,7 +5,7 @@ package Nipe::Component::Engine::Start {
 	use Nipe::Component::Utils::Status;
     use Nipe::Component::Engine::Stop;
 
-	our $VERSION = '0.0.6';
+	our $VERSION = '0.0.7';
 
 	sub new {
         my $stop          = Nipe::Component::Engine::Stop -> new();
@@ -74,50 +74,52 @@ package Nipe::Component::Engine::Start {
 		system 'iptables -t filter -A OUTPUT -p udp -j REJECT';
 		system 'iptables -t filter -A OUTPUT -p icmp -j REJECT';
 
-		foreach my $table (@table) {
-			my $target = 'ACCEPT';
+		if (-d '/proc/sys/net/ipv6') {
+			foreach my $table (@table) {
+				my $target = 'ACCEPT';
 
-			if ($table eq 'nat') {
-				$target = 'RETURN';
+				if ($table eq 'nat') {
+					$target = 'RETURN';
+				}
+
+				system "ip6tables -t $table -F OUTPUT";
+				system "ip6tables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target";
+				system "ip6tables -t $table -A OUTPUT -m owner --uid $device{username} -j $target";
+
+				my $match_dns_port = $dns_port;
+
+				if ($table eq 'nat') {
+					$target = "REDIRECT --to-ports $dns_port";
+					$match_dns_port = '53';
+				}
+
+				system "ip6tables -t $table -A OUTPUT -p udp --dport $match_dns_port -j $target";
+				system "ip6tables -t $table -A OUTPUT -p tcp --dport $match_dns_port -j $target";
+
+				if ($table eq 'nat') {
+					$target = "REDIRECT --to-ports $transfer_port";
+				}
+
+				system "ip6tables -t $table -A OUTPUT -d $network_ipv6 -p tcp -j $target";
+
+				if ($table eq 'nat') {
+					$target = 'RETURN';
+				}
+
+				system "ip6tables -t $table -A OUTPUT -d ::1/128      -j $target";
+				system "ip6tables -t $table -A OUTPUT -d fc00::/7     -j $target";
+				system "ip6tables -t $table -A OUTPUT -d fe80::/10    -j $target";
+
+				if ($table eq 'nat') {
+					$target = "REDIRECT --to-ports $transfer_port";
+				}
+
+				system "ip6tables -t $table -A OUTPUT -p tcp -j $target";
 			}
 
-			system "ip6tables -t $table -F OUTPUT";
-			system "ip6tables -t $table -A OUTPUT -m state --state ESTABLISHED -j $target";
-			system "ip6tables -t $table -A OUTPUT -m owner --uid $device{username} -j $target";
-
-			my $match_dns_port = $dns_port;
-
-			if ($table eq 'nat') {
-				$target = "REDIRECT --to-ports $dns_port";
-				$match_dns_port = '53';
-			}
-
-			system "ip6tables -t $table -A OUTPUT -p udp --dport $match_dns_port -j $target";
-			system "ip6tables -t $table -A OUTPUT -p tcp --dport $match_dns_port -j $target";
-
-			if ($table eq 'nat') {
-				$target = "REDIRECT --to-ports $transfer_port";
-			}
-
-			system "ip6tables -t $table -A OUTPUT -d $network_ipv6 -p tcp -j $target";
-
-			if ($table eq 'nat') {
-				$target = 'RETURN';
-			}
-
-			system "ip6tables -t $table -A OUTPUT -d ::1/128      -j $target";
-			system "ip6tables -t $table -A OUTPUT -d fc00::/7     -j $target";
-			system "ip6tables -t $table -A OUTPUT -d fe80::/10    -j $target";
-
-			if ($table eq 'nat') {
-				$target = "REDIRECT --to-ports $transfer_port";
-			}
-
-			system "ip6tables -t $table -A OUTPUT -p tcp -j $target";
+			system 'ip6tables -t filter -A OUTPUT -p udp -j REJECT';
+			system 'ip6tables -t filter -A OUTPUT -p icmpv6 -j REJECT';
 		}
-
-		system 'ip6tables -t filter -A OUTPUT -p udp -j REJECT';
-		system 'ip6tables -t filter -A OUTPUT -p icmpv6 -j REJECT';
 
 		my $status = Nipe::Component::Utils::Status -> new();
 

@@ -14,6 +14,9 @@ RUN apt-get update && \
     apt-get install -y iptables && \
     rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /etc/tor/torrc.d && \
+    printf "SocksPort 0.0.0.0:9050\nControlPort 0.0.0.0:9061\n" > /etc/tor/torrc.d/nipe.conf
+    
 RUN cpanm --installdeps .
 
 RUN chmod +x nipe.pl

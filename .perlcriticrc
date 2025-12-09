@@ -2,3 +2,5 @@ severity = 1
 
 [-TestingAndDebugging::RequireUseStrict]
 [-TestingAndDebugging::RequireUseWarnings]
+[-CodeLayout::RequireTidyCode]
+[-InputOutput::RequireCheckedSyscalls]

@@ -27,21 +27,45 @@ Nipe is an engine, developed in Perl, that aims on making the Tor network your d
 
 Nipe supports both IPv4 and IPv6 traffic routing through the Tor network. Only traffic destined for local and/or loopback addresses is not routed through Tor. All non-local UDP/ICMP traffic is also blocked by the Tor project.
 
-Nipe uses iptables and ip6tables to apply redirection rules for IPv4 and IPv6 traffic respectively. If you may have rules applied to these utilities, during the start process, conflicts may occur. When you stop running the Nipe services, all departure rules are removed, not differentiating between the already existing ones and the Nipe rules.
+**Platform Support:**
+- **Linux**: Nipe uses iptables and ip6tables to apply redirection rules for IPv4 and IPv6 traffic respectively. If you may have rules applied to these utilities, during the start process, conflicts may occur. When you stop running the Nipe services, all departure rules are removed, not differentiating between the already existing ones and the Nipe rules.
+- **macOS**: Nipe uses pfctl (Packet Filter Control) to route traffic through Tor. The pfctl rules are stored in `/tmp/nipe-pf.conf` during operation and removed when Nipe is stopped.
 
 ---
 
 ### Download and install
 
+#### Linux
 ```bash
   # Download
   $ git clone https://github.com/htrgouvea/nipe && cd nipe
-    
+
   # Install libs and dependencies
   $ cpanm --installdeps .
 
   # Nipe must be run as root
-  $ perl nipe.pl install
+  $ sudo perl nipe.pl install
+```
+
+#### macOS
+```bash
+  # Download
+  $ git clone https://github.com/htrgouvea/nipe && cd nipe
+
+  # Install Homebrew if not already installed
+  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Install cpanminus if not already installed
+  $ brew install cpanminus
+
+  # Install Perl dependencies
+  $ cpanm --installdeps .
+
+  # Nipe must be run as root
+  $ sudo perl nipe.pl install
+
+  # Note: On macOS, you may need to disable System Integrity Protection (SIP)
+  # or allow pfctl to be used by the script. Run with sudo to ensure proper permissions.
 ```
 ---
 

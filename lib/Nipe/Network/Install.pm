@@ -4,7 +4,7 @@ package Nipe::Network::Install {
 	use Nipe::Component::Utils::Device;
 	use Nipe::Component::Engine::Stop;
 
-	our $VERSION = '0.0.3';
+	our $VERSION = '0.0.4';
 
 	sub new {
 		my %device  = Nipe::Component::Utils::Device -> new();
@@ -16,6 +16,7 @@ package Nipe::Network::Install {
 			void      => 'xbps-install -y tor iptables',
 			arch      => 'pacman -S --noconfirm tor iptables',
 			opensuse  => 'zypper install -y tor iptables',
+			darwin    => 'brew install tor',
 		);
 
 		system $install{$device{distribution}};

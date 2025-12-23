@@ -3,9 +3,22 @@ package Nipe::Component::Utils::Device {
 	use warnings;
 	use Config::Simple;
 
-	our $VERSION = '0.0.4';
+	our $VERSION = '0.0.5';
 
 	sub new {
+		# Check if running on macOS/Darwin
+		my $uname = `uname -s 2>/dev/null` || q{};
+		chomp($uname);
+
+		if ($uname eq 'Darwin') {
+			my %device = (
+				'username'     => '_tor',
+				'distribution' => 'darwin'
+			);
+			return %device;
+		}
+
+		# For Linux systems, read /etc/os-release
 		my $config    = Config::Simple -> new('/etc/os-release');
 		my $id_like   = $config -> param('ID_LIKE') || q{};
 		my $id_distro = $config -> param('ID');

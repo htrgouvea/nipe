@@ -26,7 +26,7 @@ jobs:
 
     - name: Verify security alerts from dependabot
       run: |
-        docker run ghcr.io/instriq/security-gate/security-gate:latest \
+        docker run ghcr.io/lesis-lat/security-gate/security-gate:latest \
         -t $GITHUB_TOKEN \
         -r ${{ github.repository }} \
         --critical $MAX_CRITICAL \

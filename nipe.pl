@@ -13,7 +13,7 @@ use Nipe::Component::Utils::Helper;
 use Nipe::Network::Install;
 use English '-no_match_vars';
 
-our $VERSION = '0.0.8';
+our $VERSION = '0.9.8';
 
 sub main {
     my $argument = $ARGV[0];

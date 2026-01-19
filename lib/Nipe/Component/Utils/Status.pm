@@ -17,7 +17,10 @@ package Nipe::Component::Utils::Status {
 			my $data = decode_json($request -> {content});
 
 			my $check_ip  = $data -> {'IP'};
-			my $check_tor = $data -> {'IsTor'} ? 'true' : 'false';
+			my $check_tor = 'false';
+			if ($data -> {'IsTor'}) {
+				$check_tor = 'true';
+			}
 
 			return "\n\r[+] Status: $check_tor \n\r[+] Ip: $check_ip\n\n";
 		}

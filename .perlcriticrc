@@ -1,8 +1,8 @@
 severity = 1
 
+[-CodeLayout::RequireTidyCode]
 [-TestingAndDebugging::RequireUseStrict]
 [-TestingAndDebugging::RequireUseWarnings]
-[-CodeLayout::RequireTidyCode]
 
 [InputOutput::RequireCheckedSyscalls]
 functions = :builtins

@@ -5,7 +5,7 @@ requires 'Try::Tiny',           '0.32';
 requires 'Config::Simple',      '4.58';
 requires 'Test::MockModule',    '0.180.0';
 requires 'Test::MockObject',    '1.20200122';
-requires 'Readonly',             '2.02';
+requires 'Readonly', '2.05';
 
 on 'test' => sub {
     requires 'Test::MockModule',    '0.180.0';

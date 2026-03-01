@@ -1,0 +1,110 @@
+name: Bunkai Security Scan and Auto-Fix
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+  security-events: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run Bunkai scan
+        uses: lesis-lat/bunkai@0.2.0
+        with:
+          project-path: .
+          mode: scan
+          sarif-output: bunkai-results.sarif
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: bunkai-results.sarif
+          category: bunkai-sca
+
+  plan:
+    if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    outputs:
+      updates: ${{ steps.collect.outputs.updates }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run Bunkai update planner
+        uses: lesis-lat/bunkai@0.2.0
+        with:
+          project-path: .
+          mode: plan
+          plan-output-file: bunkai-updates.json
+
+      - name: Collect planned updates
+        id: collect
+        run: |
+          updates="$(jq -c '.issues // []' bunkai-updates.json)"
+          echo "updates=$updates" >> "$GITHUB_OUTPUT"
+
+  create_pr:
+    needs: plan
+    if: ${{ github.event_name != 'pull_request' && needs.plan.outputs.updates != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        update: ${{ fromJson(needs.plan.outputs.updates) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Apply single update
+        uses: lesis-lat/bunkai@0.2.0
+        with:
+          project-path: .
+          mode: apply
+          apply-update-id: ${{ matrix.update.id }}
+
+      - name: Detect cpanfile changes
+        id: changes
+        run: |
+          if git diff --quiet -- cpanfile; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create fix PR
+        if: ${{ steps.changes.outputs.changed == 'true' }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.BUNKAI_GITHUB_TOKEN || github.token }}
+          commit-message: "chore(deps): apply Bunkai fix ${{ matrix.update.id }}"
+          title: "chore(deps): Bunkai fix for ${{ matrix.update.module }} (${{ matrix.update.reason }})"
+          body: |
+            Automated by Bunkai.
+
+            Issue ID: `${{ matrix.update.id }}`
+            Module: `${{ matrix.update.module }}`
+            Current version: `${{ matrix.update.current_version || 'unversioned' }}`
+            Target version: `${{ matrix.update.target_version }}`
+            Reason: `${{ matrix.update.reason }}`
+            Advisory: `${{ matrix.update.advisory_id || 'n/a' }}`
+          branch: bunkai/${{ matrix.update.id }}
+          delete-branch: true
+          labels: |
+            dependencies
+            security
+          add-paths: |
+            cpanfile

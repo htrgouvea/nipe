@@ -19,7 +19,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.TOKEN }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Pull Docker image from GitHub Container Registry
       run: docker pull ghcr.io/lesis-lat/security-gate/security-gate:latest

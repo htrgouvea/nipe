@@ -1,0 +1,29 @@
+name: Test Nipe on OpenSUSE
+
+on:
+              uses: actions/checkout@v6
+                      curl ca-certificates libopenssl-devel \
+                      perl-Net-SSLeay perl-IO-Socket-SSL
+
+jobs:
+  test-opensuse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run OpenSUSE basic functionality test
+        run: |
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            opensuse/leap:latest \
+            bash -lc '
+              set -e
+              zypper --non-interactive refresh
+              zypper --non-interactive install \
+                perl perl-App-cpanminus gcc make iptables tor curl ca-certificates
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              perl nipe.pl status
+            '

@@ -38,4 +38,4 @@ jobs:
         run: |
           sudo perl nipe.pl install
           sudo perl nipe.pl status
-          prove -lr tests
+          prove -l tests/*.t

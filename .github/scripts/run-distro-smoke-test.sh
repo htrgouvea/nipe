@@ -103,7 +103,7 @@ case "$distro" in
       pacman -S --noconfirm --needed \
         bash \
         perl \
-        perl-app-cpanminus \
+        cpanminus \
         gcc \
         make \
         iptables \
@@ -130,5 +130,5 @@ docker run --rm --privileged \
     cpanm --notest --installdeps --with-test .
     perl nipe.pl install
     perl nipe.pl status
-    prove -lr tests
+    prove -l tests/*.t
   "

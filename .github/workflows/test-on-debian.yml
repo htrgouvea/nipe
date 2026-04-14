@@ -1,0 +1,28 @@
+name: Test Nipe on Debian
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-debian:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Debian basic functionality test
+        run: |
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            debian:stable-slim \
+            bash -lc '
+              set -e
+              apt-get update
+              DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                perl cpanminus gcc make iptables tor curl ca-certificates
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              perl nipe.pl status
+            '

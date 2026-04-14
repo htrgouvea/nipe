@@ -1,0 +1,27 @@
+name: Test Nipe on Arch Linux
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-arch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Arch basic functionality test
+        run: |
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            archlinux:latest \
+            bash -lc '
+              set -e
+              pacman -Sy --noconfirm \
+                perl perl-app-cpanminus gcc make iptables tor curl ca-certificates
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              perl nipe.pl status
+            '

@@ -1,0 +1,28 @@
+name: Test Nipe on Void Linux
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-void:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Void basic functionality test
+        run: |
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            ghcr.io/void-linux/void-linux:latest \
+            sh -lc '
+              set -e
+              xbps-install -Syu xbps
+              xbps-install -Sy \
+                perl perl-App-cpanminus gcc make iptables tor curl ca-certificates
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              perl nipe.pl status
+            '

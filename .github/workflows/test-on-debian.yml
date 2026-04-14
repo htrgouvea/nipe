@@ -2,7 +2,8 @@ name: Test Nipe on Debian
 
 on:
               uses: actions/checkout@v6
-  pull_request:
+                      perl cpanminus gcc make iptables tor curl ca-certificates \
+                      libssl-dev libcrypt-ssleay-perl libio-socket-ssl-perl
 
 jobs:
   test-debian:

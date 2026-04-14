@@ -2,7 +2,8 @@ name: Test Nipe on Void Linux
 
 on:
               uses: actions/checkout@v6
-  pull_request:
+                      curl ca-certificates openssl-devel \
+                      perl-IO-Socket-SSL perl-Net-SSLeay
 
 jobs:
   test-void:

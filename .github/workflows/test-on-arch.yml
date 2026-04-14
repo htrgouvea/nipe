@@ -2,8 +2,9 @@ name: Test Nipe on Arch Linux
 
 on:
               uses: actions/checkout@v6
-  pull_request:
-
+                  pacman -Syu --noconfirm \
+                      curl ca-certificates openssl \
+                      perl-io-socket-ssl perl-net-ssleay
 jobs:
   test-arch:
     runs-on: ubuntu-latest

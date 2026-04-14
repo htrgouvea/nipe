@@ -2,7 +2,8 @@ name: Test Nipe on Fedora
 
 on:
               uses: actions/checkout@v6
-  pull_request:
+                      curl ca-certificates openssl-devel \
+                      perl-Crypt-SSLeay perl-IO-Socket-SSL
 
 jobs:
   test-fedora:

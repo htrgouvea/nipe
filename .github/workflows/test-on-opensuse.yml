@@ -2,7 +2,8 @@ name: Test Nipe on OpenSUSE
 
 on:
               uses: actions/checkout@v6
-  pull_request:
+                      curl ca-certificates libopenssl-devel \
+                      perl-Net-SSLeay perl-IO-Socket-SSL
 
 jobs:
   test-opensuse:

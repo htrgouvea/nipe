@@ -1,7 +1,7 @@
 name: Test Nipe on OpenSUSE
 
 on:
-  push:
+              uses: actions/checkout@v6
   pull_request:
 
 jobs:

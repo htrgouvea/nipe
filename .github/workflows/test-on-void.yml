@@ -1,7 +1,7 @@
 name: Test Nipe on Void Linux
 
 on:
-  push:
+              uses: actions/checkout@v6
   pull_request:
 
 jobs:

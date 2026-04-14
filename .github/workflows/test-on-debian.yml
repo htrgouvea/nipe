@@ -1,29 +1,20 @@
 name: Test Nipe on Debian
 
 on:
-              uses: actions/checkout@v6
-                      perl cpanminus gcc make iptables tor curl ca-certificates \
-                      libssl-dev libcrypt-ssleay-perl libio-socket-ssl-perl
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test-debian:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Run Debian basic functionality test
-        run: |
-          docker run --rm --privileged \
-            -v "$PWD":/workspace \
-            -w /workspace \
-            debian:stable-slim \
-            bash -lc '
-              set -e
-              apt-get update
-              DEBIAN_FRONTEND=noninteractive apt-get install -y \
-                perl cpanminus gcc make iptables tor curl ca-certificates
-              cpanm --notest --installdeps .
-              perl nipe.pl install
-              perl nipe.pl status
-            '
+      - name: Run Debian smoke test
+        run: ./.github/scripts/run-distro-smoke-test.sh debian

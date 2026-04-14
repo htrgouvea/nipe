@@ -1,28 +1,20 @@
 name: Test Nipe on Fedora
 
 on:
-              uses: actions/checkout@v6
-                      curl ca-certificates openssl-devel \
-                      perl-Crypt-SSLeay perl-IO-Socket-SSL
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test-fedora:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Run Fedora basic functionality test
-        run: |
-          docker run --rm --privileged \
-            -v "$PWD":/workspace \
-            -w /workspace \
-            fedora:latest \
-            bash -lc '
-              set -e
-              dnf -y install \
-                perl perl-App-cpanminus gcc make iptables tor curl ca-certificates
-              cpanm --notest --installdeps .
-              perl nipe.pl install
-              perl nipe.pl status
-            '
+      - name: Run Fedora smoke test
+        run: ./.github/scripts/run-distro-smoke-test.sh fedora

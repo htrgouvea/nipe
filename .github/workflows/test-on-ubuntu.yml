@@ -1,20 +1,41 @@
 name: Test Nipe on Ubuntu
+
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  test-ubuntu:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v6
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y perl cpanminus gcc make zlib1g-dev libssl-dev libcrypt-ssleay-perl
-        sudo cpanm --installdeps .
-        sudo perl nipe.pl install
-    - name: Verify Nipe status
-      run: |
-        sudo perl nipe.pl status
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Ubuntu dependencies
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            perl \
+            cpanminus \
+            gcc \
+            make \
+            iptables \
+            tor \
+            curl \
+            ca-certificates \
+            zlib1g-dev \
+            libssl-dev \
+            libio-socket-ssl-perl \
+            libnet-ssleay-perl
+          sudo cpanm --notest --installdeps --with-test .
+
+      - name: Run Ubuntu smoke test
+        run: |
+          sudo perl nipe.pl install
+          sudo perl nipe.pl status
+          prove -lr tests

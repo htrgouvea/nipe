@@ -1,28 +1,20 @@
 name: Test Nipe on Arch Linux
 
 on:
-              uses: actions/checkout@v6
-                  pacman -Syu --noconfirm \
-                      curl ca-certificates openssl \
-                      perl-io-socket-ssl perl-net-ssleay
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   test-arch:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Run Arch basic functionality test
-        run: |
-          docker run --rm --privileged \
-            -v "$PWD":/workspace \
-            -w /workspace \
-            archlinux:latest \
-            bash -lc '
-              set -e
-              pacman -Sy --noconfirm \
-                perl perl-app-cpanminus gcc make iptables tor curl ca-certificates
-              cpanm --notest --installdeps .
-              perl nipe.pl install
-              perl nipe.pl status
-            '
+      - name: Run Arch smoke test
+        run: ./.github/scripts/run-distro-smoke-test.sh arch

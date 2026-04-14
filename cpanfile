@@ -1,4 +1,3 @@
-requires 'Net::SSL',            '2.86';
 requires 'IO::Socket::SSL', '2.098';
 requires 'JSON', '4.11';
 requires 'Try::Tiny',           '0.32';

@@ -53,7 +53,7 @@ case "$distro" in
     '
     ;;
   opensuse)
-    image="opensuse/leap:15.6"
+    image="opensuse/tumbleweed:latest"
     shell="sh"
     bootstrap='
       set -eu

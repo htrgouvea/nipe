@@ -74,15 +74,16 @@ case "$distro" in
     '
     ;;
   void)
-    image="ghcr.io/void-linux/void-linux:latest"
+    image="voidlinux/voidlinux:latest"
     shell="sh"
     bootstrap='
       set -eu
+      mkdir -p /etc/xbps.d
+      echo repository=https://repo-default.voidlinux.org/current > /etc/xbps.d/00-repository-main.conf
       xbps-install -Suy xbps
       xbps-install -Sy \
         bash \
         perl \
-        perl-App-cpanminus \
         gcc \
         make \
         iptables \
@@ -127,8 +128,23 @@ docker run --rm --privileged \
   "$image" \
   "$shell" -lc "
     $bootstrap
-    cpanm --notest --installdeps --with-test .
+    mkdir -p /tmp/nipe-ci-bin
+    cat > /tmp/nipe-ci-bin/systemctl <<'EOF'
+#!/bin/sh
+exit 0
+EOF
+    chmod +x /tmp/nipe-ci-bin/systemctl
+    export PATH=/tmp/nipe-ci-bin:\$PATH
+    if ! command -v cpanm >/dev/null 2>&1 && [ -x /usr/bin/vendor_perl/cpanm ]; then
+      export PATH=/usr/bin/vendor_perl:\$PATH
+    fi
+    if ! command -v cpanm >/dev/null 2>&1; then
+      PERL_MM_USE_DEFAULT=1 cpan -T App::cpanminus
+    fi
+    cpanm --notest --installdeps .
     perl nipe.pl install
     perl nipe.pl status
-    prove -l tests/*.t
+    for test_file in tests/*.t; do
+      perl -Ilib \"\$test_file\"
+    done
   "

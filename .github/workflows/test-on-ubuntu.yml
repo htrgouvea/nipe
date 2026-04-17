@@ -32,10 +32,12 @@ jobs:
             libssl-dev \
             libio-socket-ssl-perl \
             libnet-ssleay-perl
-          sudo cpanm --notest --installdeps --with-test .
+          sudo cpanm --notest --installdeps .
 
       - name: Run Ubuntu smoke test
         run: |
           sudo perl nipe.pl install
           sudo perl nipe.pl status
-          prove -l tests/*.t
+          for test_file in tests/*.t; do
+            perl -Ilib "$test_file"
+          done

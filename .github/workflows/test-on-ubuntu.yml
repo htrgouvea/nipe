@@ -42,10 +42,7 @@ jobs:
               mkdir -p /tmp/nipe-ci-bin /var/run/tor /run/tor /var/log/tor
               touch /var/log/tor/log
               chown debian-tor:debian-tor /var/run/tor /run/tor /var/log/tor /var/log/tor/log
-              cat > /tmp/nipe-ci-bin/systemctl <<'"'"'EOF'"'"'
-#!/bin/sh
-exit 0
-EOF
+              printf "%s\n" "#!/bin/sh" "exit 0" > /tmp/nipe-ci-bin/systemctl
               chmod +x /tmp/nipe-ci-bin/systemctl
               export PATH=/tmp/nipe-ci-bin:$PATH
               cpanm --notest --installdeps .

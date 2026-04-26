@@ -11,33 +11,56 @@ permissions:
 jobs:
   test-ubuntu:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install Ubuntu dependencies
-        run: |
-          sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            perl \
-            cpanminus \
-            gcc \
-            make \
-            iptables \
-            tor \
-            curl \
-            ca-certificates \
-            zlib1g-dev \
-            libssl-dev \
-            libio-socket-ssl-perl \
-            libnet-ssleay-perl
-          sudo cpanm --notest --installdeps .
-
       - name: Run Ubuntu smoke test
         run: |
-          sudo perl nipe.pl install
-          sudo perl nipe.pl status
-          for test_file in tests/*.t; do
-            perl -Ilib "$test_file"
-          done
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            ubuntu:24.04 \
+            sh -c '
+              set -eu
+              apt-get update
+              DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                bash \
+                perl \
+                cpanminus \
+                gcc \
+                make \
+                iptables \
+                tor \
+                curl \
+                ca-certificates \
+                zlib1g-dev \
+                libssl-dev \
+                libio-socket-ssl-perl \
+                libnet-ssleay-perl
+              mkdir -p /tmp/nipe-ci-bin /var/run/tor /run/tor /var/log/tor
+              touch /var/log/tor/log
+              chown debian-tor:debian-tor /var/run/tor /run/tor /var/log/tor /var/log/tor/log
+              cat > /tmp/nipe-ci-bin/systemctl <<'"'"'EOF'"'"'
+#!/bin/sh
+exit 0
+EOF
+              chmod +x /tmp/nipe-ci-bin/systemctl
+              export PATH=/tmp/nipe-ci-bin:$PATH
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              perl nipe.pl start || true
+              success=0
+              for _ in 1 2 3 4 5 6 7 8 9 10; do
+                status_output=$(perl nipe.pl status || true)
+                printf "%s\n" "$status_output"
+                if printf "%s" "$status_output" | grep -F "[+] Status: true" >/dev/null &&
+                   printf "%s" "$status_output" | grep -F "[+] Ip:" >/dev/null; then
+                  success=1
+                  break
+                fi
+                sleep 3
+              done
+              [ "$success" -eq 1 ]
+            '

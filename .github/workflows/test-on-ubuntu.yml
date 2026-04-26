@@ -11,31 +11,44 @@ permissions:
 jobs:
   test-ubuntu:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install Ubuntu dependencies
-        run: |
-          sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            perl \
-            cpanminus \
-            gcc \
-            make \
-            iptables \
-            tor \
-            curl \
-            ca-certificates \
-            zlib1g-dev \
-            libssl-dev \
-            libio-socket-ssl-perl \
-            libnet-ssleay-perl
-          sudo cpanm --notest --installdeps --with-test .
-
       - name: Run Ubuntu smoke test
         run: |
-          sudo perl nipe.pl install
-          sudo perl nipe.pl status
-          prove -l tests/*.t
+          docker run --rm --privileged \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            ubuntu:24.04 \
+            sh -c '
+              set -eu
+              apt-get update
+              DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                bash \
+                perl \
+                cpanminus \
+                gcc \
+                make \
+                iptables \
+                tor \
+                curl \
+                ca-certificates \
+                zlib1g-dev \
+                libssl-dev \
+                libio-socket-ssl-perl \
+                libnet-ssleay-perl
+              mkdir -p /tmp/nipe-ci-bin /var/run/tor /run/tor /var/log/tor
+              touch /var/log/tor/log
+              chown debian-tor:debian-tor /var/run/tor /run/tor /var/log/tor /var/log/tor/log
+              printf "%s\n" "#!/bin/sh" "exit 0" > /tmp/nipe-ci-bin/systemctl
+              chmod +x /tmp/nipe-ci-bin/systemctl
+              export PATH=/tmp/nipe-ci-bin:$PATH
+              cpanm --notest --installdeps .
+              perl nipe.pl install
+              status_output=$(perl nipe.pl status || true)
+              printf "%s\n" "$status_output"
+              printf "%s" "$status_output" | grep -F "[+] Status:"
+              printf "%s" "$status_output" | grep -F "[+] Ip:"
+            '

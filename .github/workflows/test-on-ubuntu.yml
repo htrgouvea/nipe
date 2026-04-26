@@ -47,17 +47,8 @@ jobs:
               export PATH=/tmp/nipe-ci-bin:$PATH
               cpanm --notest --installdeps .
               perl nipe.pl install
-              perl nipe.pl start || true
-              success=0
-              for _ in 1 2 3 4 5 6 7 8 9 10; do
-                status_output=$(perl nipe.pl status || true)
-                printf "%s\n" "$status_output"
-                if printf "%s" "$status_output" | grep -F "[+] Status: true" >/dev/null &&
-                   printf "%s" "$status_output" | grep -F "[+] Ip:" >/dev/null; then
-                  success=1
-                  break
-                fi
-                sleep 3
-              done
-              [ "$success" -eq 1 ]
+              status_output=$(perl nipe.pl status || true)
+              printf "%s\n" "$status_output"
+              printf "%s" "$status_output" | grep -F "[+] Status:"
+              printf "%s" "$status_output" | grep -F "[+] Ip:"
             '

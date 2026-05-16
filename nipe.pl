@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+
 use 5.030;
 use strict;
 use warnings;
@@ -6,9 +7,9 @@ use Try::Tiny;
 use lib './lib/';
 use Nipe::Component::Engine::Stop;
 use Nipe::Component::Engine::Start;
-use Nipe::Network::Restart;
 use Nipe::Component::Utils::Status;
 use Nipe::Component::Utils::Helper;
+use Nipe::Network::Restart;
 use Nipe::Network::Install;
 use English '-no_match_vars';
 
@@ -18,7 +19,7 @@ sub main {
     my $argument = $ARGV[0];
 
     if ($argument) {
-		if ($REAL_USER_ID != 0) {
+        if ($REAL_USER_ID != 0) {
             die "Nipe must be run as root.\n";
         }
 

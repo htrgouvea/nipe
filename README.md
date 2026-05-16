@@ -13,6 +13,11 @@
     <img src="https://github.com/htrgouvea/nipe/actions/workflows/zarn.yml/badge.svg">
     <img src="https://github.com/htrgouvea/nipe/actions/workflows/security-gate.yml/badge.svg">
     <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-ubuntu.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-debian.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-fedora.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-arch.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-opensuse.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/nipe/actions/workflows/test-on-void.yml/badge.svg">
   </p>
 </p>
 
@@ -81,7 +86,7 @@ $ docker build -t nipe .
 $ docker run -d -it --name nipe-container --privileged --cap-add=NET_ADMIN nipe
 
 # Running commands
-$ docker exec -it nipe-container ./nipe.pl <your command>
+$ docker exec nipe-container ./nipe.pl <your command>
 
 ```
 

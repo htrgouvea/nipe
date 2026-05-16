@@ -7,6 +7,7 @@ EXPOSE 9050 9061
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
+    build-essential \
     ca-certificates \
     cpanminus \
     tor \

@@ -3,51 +3,33 @@ package Nipe::Component::Utils::Device {
 	use warnings;
 	use Config::Simple;
 
-	our $VERSION = '0.0.4';
+	our $VERSION = '0.0.5';
 
 	sub new {
 		my $config    = Config::Simple -> new('/etc/os-release');
 		my $id_like   = $config -> param('ID_LIKE') || q{};
-		my $id_distro = $config -> param('ID');
-
-		my %device = (
-			'username'     => 'debian-tor',
-			'distribution' => 'debian'
-		);
+		my $id_distro = $config -> param('ID')      || q{};
 
 		my @distributions = (
-			{
-				pattern      => qr/[F,f]edora/xsm,
-				username     => 'toranon',
-				distribution => 'fedora',
-			},
-			{
-				pattern      => qr/[A,a]rch|[C,c]entos/xsm,
-				username     => 'tor',
-				distribution => 'arch',
-			},
-			{
-				pattern      => qr/[V,v]oid/xsm,
-				username     => 'tor',
-				distribution => 'void',
-			},
-			{
-				pattern      => qr/[S,s]use|[O,o]pen[S,s]use/xsm,
-				username     => 'tor',
-				distribution => 'opensuse',
-			},
+			{ pattern => qr/[Ff]edora/xsm,                  username => 'toranon', distribution => 'fedora'   },
+			{ pattern => qr/[Cc]entos|[Rr]hel|[Rr]ocky/xsm, username => 'tor',     distribution => 'centos'   },
+			{ pattern => qr/[Aa]rch|[Mm]anjaro/xsm,         username => 'tor',     distribution => 'arch'     },
+			{ pattern => qr/[Vv]oid/xsm,                    username => 'tor',     distribution => 'void'     },
+			{ pattern => qr/[Ss]use/xsm,                    username => 'tor',     distribution => 'opensuse' },
 		);
 
-		for my $distro (@distributions) {
-			if (($id_like =~ $distro -> {pattern}) || ($id_distro =~ $distro -> {pattern})) {
-				$device{username}     = $distro -> {username};
-				$device{distribution} = $distro -> {distribution};
-
-				last;
+		foreach my $source ($id_distro, $id_like) {
+			foreach my $distro (@distributions) {
+				if ($source =~ $distro -> {pattern}) {
+					return (
+						username     => $distro -> {username},
+						distribution => $distro -> {distribution},
+					);
+				}
 			}
 		}
 
-		return %device;
+		return (username => 'debian-tor', distribution => 'debian');
 	}
 }
 

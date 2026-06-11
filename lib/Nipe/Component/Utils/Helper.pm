@@ -15,6 +15,7 @@ package Nipe::Component::Utils::Helper {
 				start         Start routing
 				stop          Stop routing
 				restart       Restart the Nipe circuit
+				newnym        Switch to a new circuit (new exit IP)
 				status        See status
 
 			END_HELP

@@ -1,8 +1,16 @@
 DataDirectory /var/lib/tor
+PidFile /run/tor/tor.pid
 Log notice syslog
 RunAsDaemon 1
 
 User tor
+
+ControlSocket /run/tor/control
+ControlSocketsGroupWritable 1
+
+CookieAuthentication 1
+CookieAuthFileGroupReadable 1
+CookieAuthFile /run/tor/control.authcookie
 
 ClientOnly 1
 TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort

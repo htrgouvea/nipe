@@ -7,6 +7,7 @@ use Try::Tiny;
 use lib './lib/';
 use Nipe::Component::Engine::Stop;
 use Nipe::Component::Engine::Start;
+use Nipe::Component::Engine::Newnym;
 use Nipe::Network::Restart;
 use Nipe::Component::Utils::Status;
 use Nipe::Component::Utils::Helper;
@@ -18,36 +19,45 @@ our $VERSION = '0.0.8';
 sub main {
     my $argument = $ARGV[0];
 
-    if ($argument) {
-		if ($REAL_USER_ID != 0) {
-            die "Nipe must be run as root.\n";
-        }
-
-        my $commands = {
-            stop    => 'Nipe::Component::Engine::Stop',
-            start   => 'Nipe::Component::Engine::Start',
-            status  => 'Nipe::Component::Utils::Status',
-            restart => 'Nipe::Network::Restart',
-            install => 'Nipe::Network::Install',
-            help    => 'Nipe::Component::Utils::Helper'
-        };
-
-        try {
-            my $exec = $commands -> {$argument} -> new();
-
-            if ($exec ne '1') {
-                print $exec;
-            }
-        }
-
-        catch {
-            print "\n[!] ERROR: this command could not be run.\n\n";
-        };
-
-        return 1;
+    if (!$argument) {
+        return print Nipe::Component::Utils::Helper -> new();
     }
 
-    return print Nipe::Component::Utils::Helper -> new();
+    my $commands = {
+        stop    => 'Nipe::Component::Engine::Stop',
+        start   => 'Nipe::Component::Engine::Start',
+        status  => 'Nipe::Component::Utils::Status',
+        restart => 'Nipe::Network::Restart',
+        newnym  => 'Nipe::Component::Engine::Newnym',
+        install => 'Nipe::Network::Install',
+        help    => 'Nipe::Component::Utils::Helper',
+    };
+
+    my $module = $commands -> {$argument};
+
+    if (!$module) {
+        return print Nipe::Component::Utils::Helper -> new();
+    }
+
+    my %needs_root = map { $_ => 1 } qw(start stop restart newnym install);
+
+    if ($needs_root{$argument} && $REAL_USER_ID != 0) {
+        die "Nipe must be run as root.\n";
+    }
+
+    try {
+        my $exec = $module -> new();
+
+        if ($exec ne '1') {
+            print $exec;
+        }
+    }
+
+    catch {
+        print "\n[!] ERROR: $_\n";
+    };
+
+    return 1;
 }
 
 main();

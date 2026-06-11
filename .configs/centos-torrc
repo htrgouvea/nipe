@@ -13,7 +13,7 @@ CookieAuthFile /var/run/tor/control.authcookie
 Log notice file /var/log/tor/log
 
 ClientOnly 1
-TransPort 9051
+TransPort 9051 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort
 DNSPort   9061
 
 VirtualAddrNetwork 10.66.0.0/255.255.0.0

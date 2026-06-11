@@ -7,11 +7,11 @@ package Nipe::Component::Utils::Status {
 
 	Readonly my $SUCCESS_CODE => 200;
 
-	our $VERSION = '0.0.4';
+	our $VERSION = '0.0.5';
 
 	sub new {
 		my $api_check = 'https://check.torproject.org/api/ip';
-		my $request  = HTTP::Tiny -> new -> get($api_check);
+		my $request   = HTTP::Tiny -> new(verify_SSL => 1) -> get($api_check);
 
 		if ($request -> {status} == $SUCCESS_CODE) {
 			my $data = decode_json($request -> {content});

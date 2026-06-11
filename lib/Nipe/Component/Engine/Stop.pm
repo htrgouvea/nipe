@@ -1,32 +1,28 @@
 package Nipe::Component::Engine::Stop {
 	use strict;
 	use warnings;
-	use Nipe::Component::Utils::Device;
 
-	our $VERSION = '0.0.4';
+	our $VERSION = '0.0.5';
 
 	sub new {
-		my %device  = Nipe::Component::Utils::Device -> new();
-		my @table   = qw(nat filter);
-		my $stop_tor = 'systemctl stop tor';
+		my @table = qw(nat filter);
 
-		if ($device{distribution} eq 'void') {
-			$stop_tor = 'sv stop tor > /dev/null';
-		}
+		system q{pkill -f '[.]configs/.*-torrc' 2>/dev/null};
 
 		foreach my $table (@table) {
 			system "iptables -t $table -F OUTPUT";
-
-			if (-d '/proc/sys/net/ipv6') {
-				system "ip6tables -t $table -F OUTPUT";
-			}
+			system "ip6tables -t $table -F OUTPUT 2>/dev/null";
 		}
 
-		if ( -e '/etc/init.d/tor' ) {
-			$stop_tor = '/etc/init.d/tor stop > /dev/null';
+		if (-s '/run/nipe/iptables.rules') {
+			system 'iptables-restore < /run/nipe/iptables.rules';
 		}
 
-		system $stop_tor;
+		if (-s '/run/nipe/ip6tables.rules') {
+			system 'ip6tables-restore < /run/nipe/ip6tables.rules 2>/dev/null';
+		}
+
+		system 'rm -f /run/nipe/iptables.rules /run/nipe/ip6tables.rules';
 
 		return 1;
 	}

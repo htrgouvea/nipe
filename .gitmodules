@@ -1,0 +1,3 @@
+[submodule "style-guide"]
+	path = style-guide
+	url = https://github.com/lesis-lat/perl-style-guide.git

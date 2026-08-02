@@ -19,14 +19,14 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.TOKEN }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Pull Docker image from GitHub Container Registry
-      run: docker pull ghcr.io/instriq/security-gate/security-gate:latest
+      run: docker pull ghcr.io/lesis-lat/security-gate/security-gate:latest
 
     - name: Verify security alerts from dependabot
       run: |
-        docker run ghcr.io/instriq/security-gate/security-gate:latest \
+        docker run ghcr.io/lesis-lat/security-gate/security-gate:latest \
         -t $GITHUB_TOKEN \
         -r ${{ github.repository }} \
         --critical $MAX_CRITICAL \

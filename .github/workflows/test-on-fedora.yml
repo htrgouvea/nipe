@@ -1,4 +1,4 @@
-name: Test Nipe on Ubuntu
+name: Test Nipe on Fedora
 
 on:
   push:
@@ -9,39 +9,37 @@ permissions:
   contents: read
 
 jobs:
-  test-ubuntu:
+  test-fedora:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Run Ubuntu smoke test
+      - name: Run Fedora smoke test
         run: |
           docker run --rm --privileged \
             -v "$PWD":/workspace \
             -w /workspace \
-            ubuntu:24.04 \
+            fedora:latest \
             sh -c '
               set -eu
-              apt-get update
-              DEBIAN_FRONTEND=noninteractive apt-get install -y \
+              dnf -y install \
                 bash \
                 perl \
-                cpanminus \
+                perl-App-cpanminus \
                 gcc \
                 make \
                 iptables \
                 tor \
                 curl \
                 ca-certificates \
-                zlib1g-dev \
-                libssl-dev \
-                libio-socket-ssl-perl \
-                libnet-ssleay-perl
+                openssl-devel \
+                perl-IO-Socket-SSL \
+                perl-Net-SSLeay
               mkdir -p /tmp/nipe-ci-bin /var/run/tor /run/tor /var/log/tor
               touch /var/log/tor/log
-              chown debian-tor:debian-tor /var/run/tor /run/tor /var/log/tor /var/log/tor/log
+              chown toranon:toranon /var/run/tor /run/tor /var/log/tor /var/log/tor/log
               printf "%s\n" "#!/bin/sh" "exit 0" > /tmp/nipe-ci-bin/systemctl
               chmod +x /tmp/nipe-ci-bin/systemctl
               export PATH=/tmp/nipe-ci-bin:$PATH

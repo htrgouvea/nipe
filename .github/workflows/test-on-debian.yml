@@ -1,4 +1,4 @@
-name: Test Nipe on Ubuntu
+name: Test Nipe on Debian
 
 on:
   push:
@@ -9,19 +9,19 @@ permissions:
   contents: read
 
 jobs:
-  test-ubuntu:
+  test-debian:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Run Ubuntu smoke test
+      - name: Run Debian smoke test
         run: |
           docker run --rm --privileged \
             -v "$PWD":/workspace \
             -w /workspace \
-            ubuntu:24.04 \
+            debian:stable-slim \
             sh -c '
               set -eu
               apt-get update

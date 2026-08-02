@@ -21,7 +21,7 @@ package Nipe::Component::Engine::Start {
 			$start_tor = 'sv start tor > /dev/null';
 		}
 
-		elsif (-e '/etc/init.d/tor') {
+		if ($device{distribution} ne 'void' && -e '/etc/init.d/tor') {
 			$start_tor = '/etc/init.d/tor start > /dev/null';
 		}
 

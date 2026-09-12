@@ -1,0 +1,33 @@
+name: Tests / Unit
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cpanminus libssl-dev libnet-ssleay-perl
+          sudo cpanm --notest --installdeps .
+          sudo cpanm --notest Devel::Cover
+
+      - name: Run the test suite
+        run: prove -I lib tests/
+
+      - name: Report coverage
+        run: |
+          PERL5OPT="-MDevel::Cover=-db,cover_db,-select,^lib/,-select,^nipe\.pl,-ignore,^tests/,-ignore,^/" \
+            prove -I lib tests/
+          cover -report text

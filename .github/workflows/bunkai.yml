@@ -1,0 +1,45 @@
+name: Bunkai Security Scan and Auto-Fix
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: bunkai-${{ github.repository }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  bunkai:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run Bunkai orchestrated flow
+        uses: lesis-lat/bunkai@0.9.3
+        with:
+          project-path: .
+          mode: orchestrate
+          sarif-output: bunkai-results.sarif
+          github-token: ${{ secrets.BUNKAI_GITHUB_TOKEN || github.token }}
+          create-prs: ${{ github.event_name != 'pull_request' }}
+          close-resolved-prs: ${{ github.event_name != 'pull_request' }}
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: bunkai-results.sarif
+          category: bunkai-sca

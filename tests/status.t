@@ -1,50 +1,81 @@
-#!/usr/bin/env perl
+package main;
+
+our $VERSION = '0.001';
 
 use strict;
 use warnings;
+
 use Test::More;
 use Test::MockModule;
 
-use lib './lib';
+use lib 'lib';
+use_ok('Nipe::Component::Utils::Status');
 
-BEGIN {
-    use_ok('Nipe::Component::Utils::Status');
-}
+my %mock_response;
+my $requested_url;
 
-my $http_mock = Test::MockModule -> new('HTTP::Tiny');
+my $http_mock = Test::MockModule->new('HTTP::Tiny');
+$http_mock->mock(
+	'new',
+	sub {
+		return bless {}, 'HTTP::Tiny';
+	}
+);
+$http_mock->mock(
+	'get',
+	sub {
+		my ($self, $url) = @_;
+		$requested_url = $url;
 
-subtest 'reports tor when IsTor is true' => sub {
-    plan tests => 2;
+		return {%mock_response};
+	}
+);
 
-    $http_mock -> mock('get', sub {
-        return { status => 200, content => '{"IsTor":true,"IP":"185.220.101.1"}' };
-    });
+subtest 'returns tor-enabled status when the API reports Tor' => sub {
+	plan tests => 2;
 
-    my $output = Nipe::Component::Utils::Status -> new();
-    ok(index($output, 'Status: true') >= 0,    'status is true');
-    ok(index($output, '185.220.101.1') >= 0,   'ip is shown');
+	%mock_response = (
+		status  => 200,
+		content => '{"IP":"203.0.113.10","IsTor":true}',
+	);
+	$requested_url = undef;
+
+	my $result = Nipe::Component::Utils::Status->new();
+
+	is($requested_url, 'https://check.torproject.org/api/ip', 'requests the Tor status API');
+	is($result, "\n\r[+] Status: true \n\r[+] Ip: 203.0.113.10\n\n", 'returns the expected success payload');
 };
 
-subtest 'reports not tor when IsTor is false' => sub {
-    plan tests => 1;
+subtest 'returns tor-disabled status when the API reports a non-Tor IP' => sub {
+	plan tests => 1;
 
-    $http_mock -> mock('get', sub {
-        return { status => 200, content => '{"IsTor":false,"IP":"8.8.8.8"}' };
-    });
+	%mock_response = (
+		status  => 200,
+		content => '{"IP":"198.51.100.7","IsTor":false}',
+	);
 
-    my $output = Nipe::Component::Utils::Status -> new();
-    ok(index($output, 'Status: false') >= 0, 'status is false');
+	my $result = Nipe::Component::Utils::Status->new();
+
+	is($result, "\n\r[+] Status: false \n\r[+] Ip: 198.51.100.7\n\n", 'marks the status as false');
 };
 
-subtest 'reports an error when the request fails' => sub {
-    plan tests => 1;
+subtest 'returns an error message when the API request fails' => sub {
+	plan tests => 1;
 
-    $http_mock -> mock('get', sub {
-        return { status => 599, content => q{} };
-    });
+	%mock_response = (
+		status  => 500,
+		content => q{},
+	);
 
-    my $output = Nipe::Component::Utils::Status -> new();
-    ok(index($output, 'not possible to establish a connection') >= 0, 'error branch');
+	my $result = Nipe::Component::Utils::Status->new();
+
+	is(
+		$result,
+		"\n[!] ERROR: sorry, it was not possible to establish a connection to the server.\n\n",
+		'returns the connection error message'
+	);
 };
 
 done_testing();
+
+1;
